@@ -14,23 +14,23 @@
         /* Definição de fontes */
         @font-face{
             font-family: "Roboto";
-            src: url(/Roboto-Light.ttf);
+            src: url("Roboto-Light.ttf");
         }
         @font-face{
             font-family: "Ubuntu";
-            src: url(/Ubuntu-Title.ttf);
+            src: url("Ubuntu-Title.ttf");
         }
         
         /* Estilo do corpo da página */
         body{
             font-family: "Roboto";
             background-color: rgb(244, 228, 240);
-            background-image: url(/card/imagens/imagem\ de\ fundo\ 1.jpg);
+            background-image: url("imagens/imagem de fundo 1.jpg");
             background-size: cover;
             background-position: center;
-            min-height: 100vh; /* Usa min-height para evitar cortes em telas pequenas */
+            min-height: 100vh;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Faz com que o fundo não se mova ao rolar a página */
+            background-attachment: fixed;
         }
         
         /* Container principal */
@@ -378,7 +378,7 @@
 <body>
     <header>
         <nav>
-            <img src="/card/logo/Icons8-Windows-8-Military-Firing-Gun.512.png" alt="Logo">
+            <img src="logo/Icons8-Windows-8-Military-Firing-Gun.512.png" alt="Logo">
             <div class="navbar">
                 <a href="#">Home</a>
                 <a href="#">Pagina1</a>
@@ -395,8 +395,8 @@
     </header>
 
     <!--carrosel inicio-->
-    <!--botoes para controlar-->
-    <div class="carrosel"> <!--div pai inicio-->
+    <div class="carrosel">
+        <!--botoes para controlar-->
         <input type="radio" name="carrosel" id="slide1" checked>
         <input type="radio" name="carrosel" id="slide2">
         <input type="radio" name="carrosel" id="slide3">
@@ -405,16 +405,16 @@
         <!--slides carrosel-->
         <div class="slides"> <!--div pai dos slides-->
             <div class="slide slide1">
-                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 1">
+                <img src="imagens/imagem de fundo 2.jpg" alt="Imagem 1">
             </div>
             <div class="slide slide2">
-                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 2">
+                <img src="imagens/imagem de fundo 2.jpg" alt="Imagem 2">
             </div>
             <div class="slide slide3">
-                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 3">
+                <img src="imagens/imagem de fundo 2.jpg" alt="Imagem 3">
             </div>
             <div class="slide slide4">
-                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 4">
+                <img src="imagens/imagem de fundo 2.jpg" alt="Imagem 4">
             </div>
         </div> <!--div pai dos slides fim-->
         <!--botoes de navegacao-->
@@ -428,10 +428,10 @@
     <!--carrosel fim-->
 
     <div class="container">
-        <section class="content-cards-produto"> <!-- Container único para todos os cards -->
+        <section class="content-cards-produto">
             <!-- CARD 1 -->
             <div class="card-produto">
-                <img src="/card/imagens/revolver taurus.webp" alt="Taurus 605 CAL.357" />
+                <img src="imagens/revolver taurus.webp" alt="Taurus 605 CAL.357" />
                 <div class="body-card-produto">
                     <h3>Taurus 605 CAL.357</h3>
                     <p><span>R$6.000</span><label>R$5.900</label></p>
@@ -441,7 +441,7 @@
 
             <!-- CARD 2 -->
             <div class="card-produto">
-                <img src="/card/imagens/Carabina BM-F-9 Brigade - Semi-Auto - Armor Black R$ 15.269.jpg" alt="Carabina BM-F-9 CAL.9mm" />
+                <img src="imagens/Carabina BM-F-9 Brigade - Semi-Auto - Armor Black R$ 15.269.jpg" alt="Carabina BM-F-9 CAL.9mm" />
                 <div class="body-card-produto">
                     <h3>Carabina BM-F-9 CAL.9mm</h3>
                     <p><span>R$16.000</span><label>R$15.269</label></p>
@@ -451,7 +451,7 @@
 
             <!-- CARD 3 -->
             <div class="card-produto">
-                <img src="/card/imagens/Fuzil Taurus T10 20pol Semi-Auto 7,62x51mm.png" alt="Fuzil Taurus T10 CAL.7,62x51mm" />
+                <img src="imagens/Fuzil Taurus T10 20pol Semi-Auto 7,62x51mm.png" alt="Fuzil Taurus T10 CAL.7,62x51mm" />
                 <div class="body-card-produto">
                     <h3>Fuzil Taurus T10 CAL.7,62x51mm</h3>
                     <p><span>R$38.891</span><label>R$31.120</label></p>
@@ -461,7 +461,7 @@
 
             <!-- CARD 4 -->
             <div class="card-produto">
-                <img src="/card/imagens/Fuzil Taurus T4 POLÍMERO 14,5pol Semi-Auto.jpg" alt="Fuzil Taurus T4 CAL.5.56x45mm" />
+                <img src="imagens/Fuzil Taurus T4 POLÍMERO 14,5pol Semi-Auto.jpg" alt="Fuzil Taurus T4 CAL.5.56x45mm" />
                 <div class="body-card-produto">
                     <h3>Fuzil Taurus T4 CAL.5.56x45mm</h3>
                     <p><span>R$22.000</span><label>R$21.416</label></p>
@@ -471,7 +471,7 @@
 
             <!-- CARD 5 -->
             <div class="card-produto">
-                <img src="/card/imagens/Pistola Taurus 1911.jpg" alt="Pistola 1911 CAL.45 ACP" />
+                <img src="imagens/Pistola Taurus 1911.jpg" alt="Pistola 1911 CAL.45 ACP" />
                 <div class="body-card-produto">
                     <h3>Pistola 1911 CAL.45 ACP</h3>
                     <p><span>R$11.000</span><label>R$10.689</label></p>
@@ -481,7 +481,7 @@
 
             <!-- CARD 6 -->
             <div class="card-produto">
-                <img src="/card/imagens/espingarda-cbc-pump-military-30-coronha-fixa-calibre-12-cano-24-sem-acessorios_1_1200.jpg" alt="espingarda-cbc-pump-military-30" />
+                <img src="imagens/espingarda-cbc-pump-military-30-coronha-fixa-calibre-12-cano-24-sem-acessorios_1_1200.jpg" alt="espingarda-cbc-pump-military-30" />
                 <div class="body-card-produto">
                     <h3>Escopeta CBC CAL.12ga</h3>
                     <p><span>R$7.000</span><label>R$6.600</label></p>
@@ -491,7 +491,7 @@
 
             <!-- CARD 7 -->
             <div class="card-produto">
-                <img src="/card/imagens/Rifle CBC 7022 Cal 22Lr 10 Tiros Madeira Luneta 4x16x50.webp" alt="Rifle CBC 7022 Cal 22Lr" />
+                <img src="imagens/Rifle CBC 7022 Cal 22Lr 10 Tiros Madeira Luneta 4x16x50.webp" alt="Rifle CBC 7022 Cal 22Lr" />
                 <div class="body-card-produto">
                     <h3>Rifle CBC 7022 CAL.22lr</h3>
                     <p><span>R$2,600</span><label>R$1,650</label></p>
@@ -501,7 +501,7 @@
 
             <!-- CARD 8 -->
             <div class="card-produto">
-                <img src="/card/imagens/Faca Hunter.jpg" alt="Faca Hunter" />
+                <img src="imagens/Faca Hunter.jpg" alt="Faca Hunter" />
                 <div class="body-card-produto">
                     <h3>Invictus Hunter</h3>
                     <p><span>R$300</span><label>R$269</label></p>
@@ -511,7 +511,7 @@
 
             <!-- CARD 9 -->
             <div class="card-produto">
-                <img src="/card/imagens/Spray de defesa de gengibre.webp" alt="Spray de defesa de gengibre" />
+                <img src="imagens/Spray de defesa de gengibre.webp" alt="Spray de defesa de gengibre" />
                 <div class="body-card-produto">
                     <h3>Spray de Gengibre</h3>
                     <p><span>R$150</span><label>R$142</label></p>
@@ -521,7 +521,7 @@
 
             <!-- CARD 10 -->
             <div class="card-produto">
-                <img src="/card/imagens/Canivete SwissChamp.webp" alt="Canivete SwissChamp" />
+                <img src="imagens/Canivete SwissChamp.webp" alt="Canivete SwissChamp" />
                 <div class="body-card-produto">
                     <h3>Victorinox SwissChamp</h3>
                     <p><span>R$1.300</span><label>R$1.282</label></p>
