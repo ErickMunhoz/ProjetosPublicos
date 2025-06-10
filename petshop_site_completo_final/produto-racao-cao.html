@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ração Premium para Cães - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div style="margin-bottom: 20px; color: #666;">
+            <a href="index.html" style="color: #4CAF50; text-decoration: none;">Home</a> > 
+            <a href="produtos.html" style="color: #4CAF50; text-decoration: none;">Produtos</a> > 
+            <span>Ração Premium para Cães</span>
+        </div>
+
+        <!-- Produto detalhado -->
+        <div class="produto-detalhes" style="background: rgba(255,255,255,0.95); border-radius: 15px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                <!-- Imagem do produto -->
+                <div class="produto-imagem">
+                    <img src="./imagens/placeholder_racao.png" alt="Ração Premium para Cães" style="width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+
+                <!-- Informações do produto -->
+                <div class="produto-info">
+                    <h1 style="font-family: 'Ubuntu', sans-serif; color: #333; margin-bottom: 15px;">Ração Premium para Cães</h1>
+                    
+                    <div class="avaliacao" style="margin-bottom: 20px;">
+                        <span style="color: #FFD700; font-size: 1.2rem;">★★★★★</span>
+                        <span style="color: #666; margin-left: 10px;">(127 avaliações)</span>
+                    </div>
+
+                    <div class="precos" style="margin-bottom: 25px;">
+                        <span style="color: #999; font-size: 1.1rem; text-decoration: line-through; margin-right: 15px;">R$ 89,90</span>
+                        <span style="color: #4CAF50; font-size: 2rem; font-weight: bold;">R$ 79,90</span>
+                        <div style="color: #4CAF50; font-weight: bold; margin-top: 5px;">Economize R$ 10,00 (11%)</div>
+                    </div>
+
+                    <div class="descricao" style="margin-bottom: 25px;">
+                        <h3 style="color: #333; margin-bottom: 10px;">Descrição do Produto</h3>
+                        <p style="color: #666; line-height: 1.6;">
+                            Ração Premium Super Premium para cães adultos de todas as raças. Formulada com ingredientes naturais e proteínas de alta qualidade para garantir uma nutrição completa e balanceada. Rica em vitaminas, minerais e antioxidantes que fortalecem o sistema imunológico e promovem uma vida saudável e ativa.
+                        </p>
+                    </div>
+
+                    <div class="caracteristicas" style="margin-bottom: 25px;">
+                        <h3 style="color: #333; margin-bottom: 10px;">Características</h3>
+                        <ul style="color: #666; line-height: 1.8; padding-left: 20px;">
+                            <li>Peso: 15kg</li>
+                            <li>Indicado para: Cães adultos (1-7 anos)</li>
+                            <li>Sabor: Frango e arroz</li>
+                            <li>Sem corantes artificiais</li>
+                            <li>Rico em ômega 3 e 6</li>
+                            <li>Fortalece ossos e dentes</li>
+                        </ul>
+                    </div>
+
+                    <div class="quantidade" style="margin-bottom: 25px;">
+                        <label style="display: block; margin-bottom: 10px; font-weight: bold; color: #333;">Quantidade:</label>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <button onclick="diminuirQuantidade()" style="background: #f0f0f0; border: none; width: 40px; height: 40px; border-radius: 5px; cursor: pointer; font-size: 1.2rem;">-</button>
+                            <span id="quantidade" style="font-size: 1.2rem; font-weight: bold; min-width: 30px; text-align: center;">1</span>
+                            <button onclick="aumentarQuantidade()" style="background: #f0f0f0; border: none; width: 40px; height: 40px; border-radius: 5px; cursor: pointer; font-size: 1.2rem;">+</button>
+                        </div>
+                    </div>
+
+                    <div class="acoes" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button class="btn-primary" onclick="adicionarCarrinho()" style="flex: 1; min-width: 200px;">
+                            Adicionar ao Carrinho
+                        </button>
+                        <button onclick="comprarAgora()" style="background: #FF6B35; color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 0 #E55A2B;">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produtos relacionados -->
+        <div style="margin-top: 50px;">
+            <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Ubuntu', sans-serif; color: #333;">Produtos Relacionados</h2>
+            
+            <div class="content-cards-produto" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: 800px; margin: 0 auto;">
+                <div class="card-produto" onclick="window.location.href='produto-racao-gato.html'">
+                    <img src="./imagens/placeholder_racao_gato.png" alt="Ração Premium para Gatos" />
+                    <div class="body-card-produto">
+                        <h3>Ração Premium para Gatos</h3>
+                        <p><span>R$75,90</span><label>R$69,90</label></p>
+                        <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="card-produto" onclick="window.location.href='produto-brinquedo.html'">
+                    <img src="./imagens/placeholder_brinquedo.png" alt="Brinquedo Interativo" />
+                    <div class="body-card-produto">
+                        <h3>Brinquedo Interativo</h3>
+                        <p><span>R$35,90</span><label>R$29,90</label></p>
+                        <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="card-produto" onclick="window.location.href='produto-cama.html'">
+                    <img src="./imagens/placeholder_cama.png" alt="Cama Confortável" />
+                    <div class="body-card-produto">
+                        <h3>Cama Confortável</h3>
+                        <p><span>R$120,00</span><label>R$99,90</label></p>
+                        <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector('.navbar');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navbar.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+
+        let quantidade = 1;
+
+        function aumentarQuantidade() {
+            quantidade++;
+            document.getElementById('quantidade').textContent = quantidade;
+        }
+
+        function diminuirQuantidade() {
+            if (quantidade > 1) {
+                quantidade--;
+                document.getElementById('quantidade').textContent = quantidade;
+            }
+        }
+
+        function adicionarCarrinho() {
+            alert(`${quantidade} unidade(s) de Ração Premium para Cães adicionada(s) ao carrinho!`);
+        }
+
+        function comprarAgora() {
+            alert(`Redirecionando para finalização da compra de ${quantidade} unidade(s)...`);
+        }
+
+        // Responsividade para a página de produto
+        const style = document.createElement('style');
+        style.textContent = `
+            @media screen and (max-width: 768px) {
+                .produto-detalhes > div {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px !important;
+                }
+                
+                .acoes {
+                    flex-direction: column !important;
+                }
+                
+                .acoes button {
+                    min-width: auto !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

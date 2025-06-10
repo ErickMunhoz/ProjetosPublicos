@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        /* Reset básico */  /*Esse reset é fundamental porque diferentes navegadores aplicam estilos padrão diferentes aos elementos HTML. Ao "resetar" esses valores, garantimos que a página tenha uma aparência consistente em todos os navegadores*/
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; /* Inclui padding/border na largura */
+        }
+        
+        /* Definição de fontes */
+        @font-face{
+            font-family: "Roboto";
+            src: url(/Roboto-Light.ttf);
+        }
+        @font-face{
+            font-family: "Ubuntu";
+            src: url(/Ubuntu-Title.ttf);
+        }
+        
+        /* Estilo do corpo da página */
+        body{
+            font-family: "Roboto";
+            background-color: rgb(244, 228, 240);
+            background-image: url(/card/imagens/imagem\ de\ fundo\ 1.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; /* Usa min-height para evitar cortes em telas pequenas */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Faz com que o fundo não se mova ao rolar a página */
+        }
+        
+        /* Container principal */
+        .container{
+            width: 80vw;
+            margin: 0 auto;
+            padding-top: 20px; /* Reduzido de 7% para 20px para diminuir o espaço após o carrossel */
+        }
+        
+        /* Grid de produtos */
+        .content-cards-produto{
+            text-align: center;
+            padding: 10px; /* Padding interno */
+            display: grid; /* Usa grid para layout responsivo */
+            gap: 20px;     /* Espaçamento uniforme entre cards */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout responsivo */
+        }
+        
+        /* Card de produto */
+        .card-produto{
+            width: 200px;
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: white;
+            display: flex; /* Layout flexível */
+            flex-direction: column; /* Organiza elementos verticalmente */
+            justify-content: space-between;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, .2);
+            margin: 10px;
+            margin-top: 20px;
+            transition: all 0.3s; /* Transição para efeito hover */
+            overflow: hidden; /* Garante que o conteúdo respeite as bordas arredondadas */
+        }
+        
+        /* Imagem do produto */
+        .card-produto img{
+            width: 100%;
+            height: auto; /* Mantém a proporção da imagem */
+            display: block; /* Garante que a imagem seja exibida como um bloco */
+            border-bottom: 1px solid rgb(233, 225, 233); /* Borda inferior */
+        }
+        
+        /* Efeito hover no card */
+        .card-produto:hover{
+            box-shadow: 4px 8px 20px rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        /* Título do produto */
+        .body-card-produto h2{ /*mude para h3 para puxar as alteracoes abaixo com a fonte feia*/
+            font-family: "Ubuntu";
+            font-size: 1.3rem; /* Usa rem para melhor responsividade */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 25ch;
+            margin: 5px;
+            margin-bottom: 8px;
+        }
+        
+        /* Descrição do produto */
+        .body-card-produto p {
+            margin-bottom: 8px;
+        }
+        
+        /* Preço atual */
+        .body-card-produto label{
+            font-size: 1rem;
+            color: rgb(221, 26, 26);
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        /* Preço antigo */
+        .body-card-produto span{
+            color: rgb(179, 168, 168);
+            font-size: 0.9rem;
+            margin-right: 5px; /* Apenas margem direita */
+            text-decoration: line-through;
+        }
+        
+        /* Botão de compra com efeito 3D */
+        .body-card-produto button{
+            margin-top: 10px;
+            width: 100%;
+            background-color: rgb(8, 141, 8);
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 8px;
+            border: none;
+            box-shadow: 0px 5px 0px rgb(11, 106, 11);
+            transition: all 0.2s;
+        }
+        
+        /* Hover do botão */
+        .body-card-produto button:hover{
+            cursor: pointer;
+            background-color: rgb(16, 114, 16);
+            box-shadow: 0px 5px 0px rgb(10, 82, 10);
+        }
+        
+        /* Efeito de clique no botão */
+        .body-card-produto button:active{
+            transform: translateY(5px); /* Usa transform em vez de top/position */
+            box-shadow: none;
+        }
+        
+        /* Barra de navegação */
+        nav{
+            background-color: rgba(255, 255, 255, 0.342);
+            padding: 10px 0; /* Padding reduzido para navbar mais compacta */
+            position: fixed;
+            width: 100vw;
+            height: 60px; /* Altura fixa para a navbar */
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(10px); /* Efeito de desfoque */
+            z-index: 1000; /* Garante que a navbar fique acima de outros elementos */
+        }
+        
+        /* Links da navbar */
+        nav a {
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 20px;
+            text-decoration: none;
+        }
+        
+        /* Hover nos links */
+        a:hover{
+            background-color: rgb(255, 255, 255);
+            transition: background-color 0.3s;
+        }
+        
+        /* Container dos links da navbar */
+        .navbar{
+            margin-left: auto;
+            display: flex;
+            gap: 10px; /* Espaçamento entre os links */
+            align-items: center; /* Centraliza os links horizontalmente */
+        }
+        
+        /* Logo na navbar */
+        nav img{
+            width: 48px;
+            height: 48px;
+            margin-left: 10px;
+            vertical-align: middle;
+            transition: 0.5s; 
+        }
+        
+        /* Último link da navbar */
+        nav .ultimolink{
+            margin-right: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            width: 100vw;
+            background: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 16px 0;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            font-family: "Roboto";
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+        
+        /* Conteúdo do rodapé */
+        .footer-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav img:hover {
+        transform: scale(1.3); /* Aumenta o tamanho do logo em 10% */
+        cursor: pointer; /* Mostra o cursor como uma mão ao passar o mouse */
+        }
+        /* Carrossel */
+        .carrosel{
+            width: 100vw;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px; /* Adicionado para separar do conteúdo abaixo */
+        }
+        .slides{
+            display: flex;
+            transition: transform 0.9s ease;
+        }
+        .slide{
+            width: 100vw;
+            height: 350px; /* Alterado de 100vh para 350px para evitar espaço gigante */
+            flex-shrink: 0;
+        }
+        .slide img{
+            width: 100%;
+            height: 100%; /* Ajustado para ocupar toda a altura do slide */
+            object-fit: cover;
+        }
+        input[name="carrosel"]{
+            display: none; /* Esconde os inputs de radio */
+        }
+        #slide1:checked ~ .slides{
+            transform: translateX(0vw);
+        }
+        #slide2:checked ~ .slides{
+            transform: translateX(-100vw);
+        }
+        #slide3:checked ~ .slides{
+            transform: translateX(-200vw);
+        }
+        #slide4:checked ~ .slides{
+            transform: translateX(-300vw);
+        }
+        .navegacao{
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            /*height: 320px;*/
+            text-align: center;
+        }
+        .navegacao label{
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 25%;
+            display: inline-block;
+            margin: 0 7px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[name="carrosel"]:checked + label{
+            background-color: rgb(8, 141, 8);
+        }
+        /*Tamanho de tela para aparecer menu sanduiche*/
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: flex; /* Torna o menu sanduíche visível no mobile */
+                margin-left: auto;
+                padding-right: 15px;
+                margin-right: 20px; /* Adicionado: espaçamento do canto direito */
+            }
+            .navbar {
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.8s cubic-bezier(0.4,0,0.2,1);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(0,0,0,0.9);
+                z-index: 999;
+                align-items: center; /* Centraliza os links horizontalmente */
+            }
+            .navbar a {
+                width: 100%; /* Ocupa toda a largura para centralizar o texto */
+                text-align: center; /* Centraliza o texto dos links */
+            }
+            .navbar.show {
+                max-height: 500px; /* Ajuste conforme o tamanho do menu */
+                /* Removido display: block */
+            }
+            .navbar a {
+                color: #fff !important; /* Corrigido: links brancos no menu sanduíche */
+                padding: 15px; /* Aumenta o padding para melhor usabilidade em telas pequenas */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha de separação entre os links */
+                background: transparent;
+                transition: color 0.3s, background 0.3s;
+            }
+            .navbar a:hover {
+                color: #111 !important; /* Inverte para preto no hover */
+                background: #fff;       /* Fundo branco para garantir contraste */
+            }
+        }
+        /*Menu Sanduiche*/
+        .menu-icon {
+            display: none; /* Esconde o ícone do menu sanduiche por padrão */
+            flex-direction: column; /* Coloca as linhas do ícone em coluna */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        }
+        .menu-icon div {
+            width: 30px; /* Largura das linhas do ícone */
+            height: 3px; /* Altura das linhas do ícone */
+            background-color: black; /* Cor das linhas do ícone */
+            margin: 3px 0; /* Espaçamento entre as linhas */
+            transition: 0.3s; /* Transição suave ao clicar */
+        }
+        /* Efeito de clique no menu sanduiche */
+        .menu-icon:hover div {
+            background-color: rgb(255, 255, 255); /* Muda a cor ao passar o mouse */
+        }
+        /* Exibe o menu sanduiche ao clicar */
+        .menu-icon.active + .navbar {
+            display: flex; /* Exibe o menu sanduiche */
+        }
+        /* Efeito de transição suave ao abrir o menu sanduiche */
+        .navbar {
+            transition: all 0.3s ease; /* Transição suave para o menu sanduiche */
+        }
+        /* Desktop: navbar visível, menu sanduíche escondido */
+        .navbar {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .menu-icon {
+            display: none;
+        }
+
+        /* Mobile: navbar some, menu sanduíche aparece */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.8s cubic-bezier(0.4,0,0.2,1);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(0,0,0,0.9);
+                z-index: 999;
+                align-items: center; /* Centraliza os links horizontalmente */
+            }
+            .menu-icon {
+                display: flex; /* Mostra menu sanduíche no mobile */
+                margin-left: auto;
+                padding-right: 15px;
+            }
+            .navbar.show {
+                max-height: 500px; /* Ajuste conforme o tamanho do menu */
+                transition: max-height 0.8s cubic-bezier(0.4,0,0.2,1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/card/logo/Icons8-Windows-8-Military-Firing-Gun.512.png" alt="Logo">
+            <div class="navbar">
+                <a href="#">Home</a>
+                <a href="#">Pagina1</a>
+                <a href="#" class="ultimolink">Pagina2</a>
+            </div>
+            
+            <!--Add menu sanduiche-->
+            <div class="menu-icon" onclick="MostraEscondeMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!--carrosel inicio-->
+    <!--botoes para controlar-->
+    <div class="carrosel"> <!--div pai inicio-->
+        <input type="radio" name="carrosel" id="slide1" checked>
+        <input type="radio" name="carrosel" id="slide2">
+        <input type="radio" name="carrosel" id="slide3">
+        <input type="radio" name="carrosel" id="slide4">
+        
+        <!--slides carrosel-->
+        <div class="slides"> <!--div pai dos slides-->
+            <div class="slide slide1">
+                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 1">
+            </div>
+            <div class="slide slide2">
+                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 2">
+            </div>
+            <div class="slide slide3">
+                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 3">
+            </div>
+            <div class="slide slide4">
+                <img src="/card/imagens/imagem de fundo 2.jpg" alt="Imagem 4">
+            </div>
+        </div> <!--div pai dos slides fim-->
+        <!--botoes de navegacao-->
+        <div class="navegacao">
+            <label for="slide1" class=""></label>
+            <label for="slide2" class=""></label>
+            <label for="slide3" class=""></label>
+            <label for="slide4" class=""></label>
+        </div> <!-- FECHAMENTO CORRETO DA DIV DE NAVEGAÇÃO -->
+    </div> <!--div pai fim-->
+    <!--carrosel fim-->
+
+    <div class="container">
+        <section class="content-cards-produto"> <!-- Container único para todos os cards -->
+            <!-- CARD 1 -->
+            <div class="card-produto">
+                <img src="/card/imagens/revolver taurus.webp" alt="Taurus 605 CAL.357" />
+                <div class="body-card-produto">
+                    <h3>Taurus 605 CAL.357</h3>
+                    <p><span>R$6.000</span><label>R$5.900</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Carabina BM-F-9 Brigade - Semi-Auto - Armor Black R$ 15.269.jpg" alt="Carabina BM-F-9 CAL.9mm" />
+                <div class="body-card-produto">
+                    <h3>Carabina BM-F-9 CAL.9mm</h3>
+                    <p><span>R$16.000</span><label>R$15.269</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Fuzil Taurus T10 20pol Semi-Auto 7,62x51mm.png" alt="Fuzil Taurus T10 CAL.7,62x51mm" />
+                <div class="body-card-produto">
+                    <h3>Fuzil Taurus T10 CAL.7,62x51mm</h3>
+                    <p><span>R$38.891</span><label>R$31.120</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Fuzil Taurus T4 POLÍMERO 14,5pol Semi-Auto.jpg" alt="Fuzil Taurus T4 CAL.5.56x45mm" />
+                <div class="body-card-produto">
+                    <h3>Fuzil Taurus T4 CAL.5.56x45mm</h3>
+                    <p><span>R$22.000</span><label>R$21.416</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Pistola Taurus 1911.jpg" alt="Pistola 1911 CAL.45 ACP" />
+                <div class="body-card-produto">
+                    <h3>Pistola 1911 CAL.45 ACP</h3>
+                    <p><span>R$11.000</span><label>R$10.689</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="card-produto">
+                <img src="/card/imagens/espingarda-cbc-pump-military-30-coronha-fixa-calibre-12-cano-24-sem-acessorios_1_1200.jpg" alt="espingarda-cbc-pump-military-30" />
+                <div class="body-card-produto">
+                    <h3>Escopeta CBC CAL.12ga</h3>
+                    <p><span>R$7.000</span><label>R$6.600</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 7 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Rifle CBC 7022 Cal 22Lr 10 Tiros Madeira Luneta 4x16x50.webp" alt="Rifle CBC 7022 Cal 22Lr" />
+                <div class="body-card-produto">
+                    <h3>Rifle CBC 7022 CAL.22lr</h3>
+                    <p><span>R$2,600</span><label>R$1,650</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 8 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Faca Hunter.jpg" alt="Faca Hunter" />
+                <div class="body-card-produto">
+                    <h3>Invictus Hunter</h3>
+                    <p><span>R$300</span><label>R$269</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 9 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Spray de defesa de gengibre.webp" alt="Spray de defesa de gengibre" />
+                <div class="body-card-produto">
+                    <h3>Spray de Gengibre</h3>
+                    <p><span>R$150</span><label>R$142</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+
+            <!-- CARD 10 -->
+            <div class="card-produto">
+                <img src="/card/imagens/Canivete SwissChamp.webp" alt="Canivete SwissChamp" />
+                <div class="body-card-produto">
+                    <h3>Victorinox SwissChamp</h3>
+                    <p><span>R$1.300</span><label>R$1.282</label></p>
+                    <button type="button">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <!-- Conteúdo do rodapé, como informações de contato, links úteis, etc. -->
+            <p>&copy; 2023 Loja. Todos os direitos reservados.</p>
+            <p>
+                <a href="#" style="color: rgb(8, 141, 8); text-decoration: none;">Política de Privacidade</a> |
+                <a href="#" style="color: rgb(8, 141, 8); text-decoration: none;">Termos de Serviço</a> |
+                <a href="#" style="color: rgb(8, 141, 8); text-decoration: none;">Contato</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Adicione este JS no final do body ou em um arquivo .js
+        function MostraEscondeMenu() {
+            document.querySelector('.navbar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

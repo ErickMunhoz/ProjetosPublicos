@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petshop Feliz - Cuidando do seu Melhor Amigo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./placeholder_logo.png" alt="Logo Petshop Feliz" id="logo">
+            <h1>Petshop Feliz</h1>
+        </div>
+        <p class="subtitle">Cuidando com carinho do seu melhor amigo!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="nav-button active-link">Homepage</a></li>
+            <li><a href="donos.html" class="nav-button">Donos</a></li>
+            <li><a href="animais.html" class="nav-button">Animais</a></li>
+            <li><a href="servicos.html" class="nav-button">Serviços</a></li>
+            <li><a href="funcionarios.html" class="nav-button">Funcionários</a></li>
+            <li><a href="agenda.html" class="nav-button">Agenda</a></li>
+            <li><a href="produtos.html" class="nav-button">Produtos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="bem-vindo" class="hero-section">
+            <h2>Bem-vindo ao Painel de Controle do Petshop Feliz!</h2>
+            <p>Gerencie todas as operações do seu petshop de forma fácil e intuitiva.</p>
+            <div class="cta-buttons">
+                <a href="#donos" class="cta-button">Gerenciar Donos</a>
+                <a href="#agenda" class="cta-button primary">Ver Agenda</a>
+            </div>
+        </section>
+
+        <section id="destaques">
+            <h2>Destaques</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="./placeholder_icon_pet.png" alt="Ícone de Animal">
+                    <h3>Animais Cadastrados</h3>
+                    <p>Visualize e gerencie todos os pets de seus clientes.</p>
+                    <a href="animais.html" class="learn-more">Saiba Mais &rarr;</a>
+                </div>
+                <div class="feature-card">
+                    <img src="./placeholder_icon_service.png" alt="Ícone de Serviço">
+                    <h3>Serviços Populares</h3>
+                    <p>Confira os serviços mais procurados e agende novos.</p>
+                    <a href="servicos.html" class="learn-more">Saiba Mais &rarr;</a>
+                </div>
+                <div class="feature-card">
+                    <img src="./placeholder_icon_calendar.png" alt="Ícone de Agenda">
+                    <h3>Próximos Agendamentos</h3>
+                    <p>Mantenha-se atualizado com a agenda diária e semanal.</p>
+                    <a href="agenda.html" class="learn-more">Saiba Mais &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 Petshop Feliz. Todos os direitos reservados.</p>
+        <p>Desenvolvido com <span class="heart">&hearts;</span> pela Equipe ...</p>
+    </footer>
+
+    <script>
+        // Script para adicionar classe 'active-link' ao link da página atual
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('nav ul li a');
+            const currentPath = window.location.pathname.split('/').pop();
+            links.forEach(link => {
+                if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
+                    link.classList.add('active-link');
+                }
+                link.addEventListener('mouseover', () => link.classList.add('nav-hover'));
+                link.addEventListener('mouseout', () => link.classList.remove('nav-hover'));
+            });
+        });
+    </script>
+</body>
+</html>

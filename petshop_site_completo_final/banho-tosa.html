@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banho e Tosa - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <h1>Banho e Tosa</h1>
+            <p>Serviços profissionais para deixar seu pet ainda mais bonito e saudável</p>
+        </div>
+
+        <!-- Seção de serviços -->
+        <div class="servicos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
+            
+            <!-- Banho Completo -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">🛁</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Banho Completo</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Banho com shampoo especial, condicionador, secagem e perfume. Inclui limpeza de ouvidos e corte de unhas.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 35,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Banho Completo')">Agendar Serviço</button>
+            </div>
+
+            <!-- Tosa Completa -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">✂️</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Tosa Completa</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Tosa completa com banho, corte personalizado, escovação e finalização. Seu pet ficará lindo e cheiroso.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 55,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Tosa Completa')">Agendar Serviço</button>
+            </div>
+
+            <!-- Tosa Higiênica -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">🧼</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Tosa Higiênica</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Tosa nas áreas íntimas, patas e focinho. Essencial para a higiene e saúde do seu pet.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 25,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Tosa Higiênica')">Agendar Serviço</button>
+            </div>
+
+            <!-- Spa Relaxante -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">🌸</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Spa Relaxante</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Tratamento completo com hidratação, massagem relaxante e aromaterapia. Uma experiência única para seu pet.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 85,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Spa Relaxante')">Agendar Serviço</button>
+            </div>
+
+            <!-- Corte de Unhas -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">💅</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Corte de Unhas</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Corte profissional das unhas com técnicas seguras. Evita ferimentos e mantém a saúde das patas.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 15,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Corte de Unhas')">Agendar Serviço</button>
+            </div>
+
+            <!-- Escovação de Dentes -->
+            <div class="servico-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">🦷</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Escovação de Dentes</h3>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+                    Limpeza dental profissional para prevenir tártaro e manter a saúde bucal do seu pet em dia.
+                </p>
+                <div style="font-size: 1.5rem; color: #4CAF50; font-weight: bold; margin-bottom: 15px;">
+                    A partir de R$ 20,00
+                </div>
+                <button class="btn-primary" onclick="abrirAgendamento('Escovação de Dentes')">Agendar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Tabela de preços -->
+        <div class="tabela-precos" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #333;">Tabela de Preços</h2>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #4CAF50; color: white;">
+                            <th style="padding: 15px; text-align: left;">Serviço</th>
+                            <th style="padding: 15px; text-align: center;">Porte Pequeno</th>
+                            <th style="padding: 15px; text-align: center;">Porte Médio</th>
+                            <th style="padding: 15px; text-align: center;">Porte Grande</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 15px; font-weight: bold;">Banho Completo</td>
+                            <td style="padding: 15px; text-align: center;">R$ 35,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 45,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 60,00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd; background: #f9f9f9;">
+                            <td style="padding: 15px; font-weight: bold;">Tosa Completa</td>
+                            <td style="padding: 15px; text-align: center;">R$ 55,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 70,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 90,00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 15px; font-weight: bold;">Tosa Higiênica</td>
+                            <td style="padding: 15px; text-align: center;">R$ 25,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 30,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 40,00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd; background: #f9f9f9;">
+                            <td style="padding: 15px; font-weight: bold;">Spa Relaxante</td>
+                            <td style="padding: 15px; text-align: center;">R$ 85,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 105,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 130,00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 15px; font-weight: bold;">Corte de Unhas</td>
+                            <td style="padding: 15px; text-align: center;">R$ 15,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 15,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 20,00</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td style="padding: 15px; font-weight: bold;">Escovação de Dentes</td>
+                            <td style="padding: 15px; text-align: center;">R$ 20,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 20,00</td>
+                            <td style="padding: 15px; text-align: center;">R$ 25,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Formulário de agendamento -->
+        <div class="form-container" id="formulario-agendamento">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #333;">Agendar Serviço</h2>
+            
+            <form onsubmit="enviarAgendamento(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div class="form-group">
+                        <label for="nome-dono">Nome do Responsável *</label>
+                        <input type="text" id="nome-dono" name="nome-dono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome-pet">Nome do Pet *</label>
+                        <input type="text" id="nome-pet" name="nome-pet" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="raca">Raça</label>
+                        <input type="text" id="raca" name="raca">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="porte">Porte do Pet *</label>
+                        <select id="porte" name="porte" required>
+                            <option value="">Selecione o porte</option>
+                            <option value="pequeno">Pequeno (até 10kg)</option>
+                            <option value="medio">Médio (10-25kg)</option>
+                            <option value="grande">Grande (acima de 25kg)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servico">Serviço Desejado *</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione o serviço</option>
+                            <option value="banho-completo">Banho Completo</option>
+                            <option value="tosa-completa">Tosa Completa</option>
+                            <option value="tosa-higienica">Tosa Higiênica</option>
+                            <option value="spa-relaxante">Spa Relaxante</option>
+                            <option value="corte-unhas">Corte de Unhas</option>
+                            <option value="escovacao-dentes">Escovação de Dentes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data Preferida *</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário Preferido *</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecione o horário</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" name="observacoes" rows="4" placeholder="Alguma observação especial sobre seu pet ou preferências para o serviço..."></textarea>
+                </div>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <button type="submit" class="btn-primary" style="padding: 15px 40px; font-size: 1.2rem;">
+                        Agendar Serviço
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Informações importantes -->
+        <div style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">Informações Importantes</h3>
+            <ul style="color: #666; line-height: 1.8; padding-left: 20px;">
+                <li>Todos os nossos profissionais são qualificados e experientes</li>
+                <li>Utilizamos apenas produtos de alta qualidade e seguros para pets</li>
+                <li>O agendamento deve ser feito com pelo menos 24h de antecedência</li>
+                <li>Em caso de cancelamento, avisar com 2h de antecedência</li>
+                <li>Pets agressivos podem ter taxa adicional de R$ 20,00</li>
+                <li>Aceitamos cartão de débito, crédito e PIX</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector('.navbar');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navbar.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+
+        // Função para abrir agendamento com serviço pré-selecionado
+        function abrirAgendamento(servico) {
+            document.getElementById('formulario-agendamento').scrollIntoView({ behavior: 'smooth' });
+            
+            // Mapear nomes dos serviços para valores do select
+            const servicoMap = {
+                'Banho Completo': 'banho-completo',
+                'Tosa Completa': 'tosa-completa',
+                'Tosa Higiênica': 'tosa-higienica',
+                'Spa Relaxante': 'spa-relaxante',
+                'Corte de Unhas': 'corte-unhas',
+                'Escovação de Dentes': 'escovacao-dentes'
+            };
+            
+            document.getElementById('servico').value = servicoMap[servico] || '';
+        }
+
+        // Função para enviar agendamento
+        function enviarAgendamento(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const dados = Object.fromEntries(formData);
+            
+            // Simular envio
+            alert(`Agendamento realizado com sucesso!\n\nDados:\nResponsável: ${dados['nome-dono']}\nPet: ${dados['nome-pet']}\nServiço: ${dados.servico}\nData: ${dados.data}\nHorário: ${dados.horario}\n\nEntraremos em contato para confirmar!`);
+            
+            // Limpar formulário
+            event.target.reset();
+        }
+
+        // Definir data mínima como hoje
+        document.addEventListener('DOMContentLoaded', function() {
+            const hoje = new Date().toISOString().split('T')[0];
+            document.getElementById('data').min = hoje;
+        });
+
+        // Adicionar efeitos hover aos cards de serviço
+        document.addEventListener('DOMContentLoaded', function() {
+            const servicoCards = document.querySelectorAll('.servico-card');
+            servicoCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(76, 175, 80, 0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

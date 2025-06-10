@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Feliz - Cuidando do seu Melhor Amigo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Carrossel -->
+    <div class="carrosel">
+        <input type="radio" name="carrosel" id="slide1" checked>
+        <input type="radio" name="carrosel" id="slide2">
+        <input type="radio" name="carrosel" id="slide3">
+        
+        <div class="slides">
+            <div class="slide">
+                <img src="./imagens/carrossel_1.jpg" alt="Pet Shop Feliz - Cuidando do seu melhor amigo">
+            </div>
+            <div class="slide">
+                <img src="./imagens/carrossel_2.jpg" alt="Serviços profissionais de banho e tosa">
+            </div>
+            <div class="slide">
+                <img src="./imagens/carrossel_3.jpg" alt="Produtos de qualidade para seu pet">
+            </div>
+        </div>
+        
+        <div class="navegacao">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+        </div>
+    </div>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Título da seção -->
+        <h2 style="text-align: center; margin: 40px 0 30px 0; font-family: 'Ubuntu', sans-serif; color: #333; font-size: 2.5rem;">Produtos em Destaque</h2>
+        
+        <!-- Seção de produtos em destaque -->
+        <section class="content-cards-produto">
+            
+            <!-- Card 1 -->
+            <div class="card-produto" onclick="window.location.href='produto-racao-cao.html'">
+                <img src="./imagens/placeholder_racao.png" alt="Ração Premium para Cães" />
+                <div class="body-card-produto">
+                    <h3>Ração Premium para Cães</h3>
+                    <p><span>R$89,90</span><label>R$79,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-produto" onclick="window.location.href='produto-racao-gato.html'">
+                <img src="./imagens/placeholder_racao_gato.png" alt="Ração Premium para Gatos" />
+                <div class="body-card-produto">
+                    <h3>Ração Premium para Gatos</h3>
+                    <p><span>R$75,90</span><label>R$69,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-produto" onclick="window.location.href='produto-brinquedo.html'">
+                <img src="./imagens/placeholder_brinquedo.png" alt="Brinquedo Interativo" />
+                <div class="body-card-produto">
+                    <h3>Brinquedo Interativo</h3>
+                    <p><span>R$35,90</span><label>R$29,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card-produto" onclick="window.location.href='produto-cama.html'">
+                <img src="./imagens/placeholder_cama.png" alt="Cama Confortável" />
+                <div class="body-card-produto">
+                    <h3>Cama Confortável</h3>
+                    <p><span>R$120,00</span><label>R$99,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card-produto" onclick="window.location.href='produto-coleira.html'">
+                <img src="./imagens/placeholder_coleira.png" alt="Coleira Estilosa" />
+                <div class="body-card-produto">
+                    <h3>Coleira Estilosa</h3>
+                    <p><span>R$45,90</span><label>R$39,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card-produto" onclick="window.location.href='produto-shampoo.html'">
+                <img src="./imagens/placeholder_shampoo.png" alt="Shampoo Especial" />
+                <div class="body-card-produto">
+                    <h3>Shampoo Especial</h3>
+                    <p><span>R$28,90</span><label>R$24,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de serviços -->
+        <section class="servicos-destaque" style="margin-top: 50px; text-align: center;">
+            <h2 style="margin-bottom: 30px; font-family: 'Ubuntu', sans-serif; color: #333;">Nossos Serviços</h2>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div class="servico-card" onclick="window.location.href='banho-tosa.html'" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 3px 5px 10px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s; max-width: 300px;">
+                    <h3 style="color: #333; margin-bottom: 10px;">Banho e Tosa</h3>
+                    <p style="color: #666;">Serviços profissionais de banho e tosa para deixar seu pet ainda mais bonito e saudável.</p>
+                </div>
+                <div class="servico-card" onclick="window.location.href='contato.html'" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 3px 5px 10px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s; max-width: 300px;">
+                    <h3 style="color: #333; margin-bottom: 10px;">Consultas</h3>
+                    <p style="color: #666;">Agende uma consulta para cuidar da saúde e bem-estar do seu melhor amigo.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector('.navbar');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navbar.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+
+        // Carrossel automático
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function nextSlide() {
+            currentSlide = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+            document.getElementById('slide' + currentSlide).checked = true;
+        }
+
+        // Muda slide a cada 5 segundos
+        setInterval(nextSlide, 5000);
+
+        // Adiciona efeito hover aos cards de serviço
+        document.addEventListener('DOMContentLoaded', function() {
+            const servicoCards = document.querySelectorAll('.servico-card');
+            servicoCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '4px 8px 20px rgba(0,0,0,0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '3px 5px 10px rgba(0,0,0,0.2)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

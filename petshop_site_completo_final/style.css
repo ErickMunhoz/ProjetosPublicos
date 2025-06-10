@@ -1,0 +1,448 @@
+/* Reset básico */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Definição de fontes */
+@font-face {
+    font-family: "Roboto";
+    src: url(./Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(./Ubuntu-Title.ttf);
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: #f4e4f0;
+    background-image: url(./imagens/background_petshop_hd.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 60px; /* Espaço para navbar fixa */
+}
+
+/* Barra de navegação */
+nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 0;
+    position: fixed;
+    width: 100vw;
+    height: 60px;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo na navbar */
+nav img {
+    width: 48px;
+    height: 48px;
+    margin-left: 15px;
+    vertical-align: middle;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+nav img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Container dos links da navbar */
+.navbar {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Links da navbar */
+nav a {
+    color: #333;
+    font-weight: bold;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+/* Último link da navbar */
+nav .ultimolink {
+    margin-right: 15px;
+}
+
+/* Menu sanduíche */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.menu-icon:hover div {
+    background-color: #4CAF50;
+}
+
+/* Carrossel */
+.carrosel {
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin-left: calc(-50vw + 50%);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.9s ease;
+}
+
+.slide {
+    width: 100vw;
+    height: 400px;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input[name="carrosel"] {
+    display: none;
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0vw);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-100vw);
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-200vw);
+}
+
+.navegacao {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.navegacao label {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[name="carrosel"]:checked + label {
+    background-color: #4CAF50;
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Grid de produtos */
+.content-cards-produto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+    justify-items: center;
+}
+
+/* Card de produto */
+.card-produto {
+    width: 250px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-produto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+/* Imagem do produto */
+.card-produto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Corpo do card */
+.body-card-produto {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Título do produto */
+.body-card-produto h3 {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Preços */
+.body-card-produto p {
+    margin-bottom: 15px;
+}
+
+.body-card-produto span {
+    color: #999;
+    font-size: 0.9rem;
+    text-decoration: line-through;
+    margin-right: 8px;
+}
+
+.body-card-produto label {
+    font-size: 1.1rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Botão de compra */
+.body-card-produto button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 0px #45a049;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.body-card-produto button:hover {
+    background-color: #45a049;
+    box-shadow: 0px 4px 0px #3d8b40;
+}
+
+.body-card-produto button:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+    
+    .navbar {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.98);
+        z-index: 999;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.show {
+        max-height: 400px;
+    }
+    
+    .navbar a {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .slide {
+        height: 250px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 10px 0;
+    }
+    
+    .content-cards-produto {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .card-produto {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .slide {
+        height: 200px;
+    }
+    
+    .content-cards-produto {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-produto {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Estilos para páginas internas */
+.page-header {
+    text-align: center;
+    padding: 40px 0;
+    background: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    font-family: "Ubuntu", sans-serif;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Formulários */
+.form-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 0 #45a049;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3d8b40;
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3d8b40;
+}
+
