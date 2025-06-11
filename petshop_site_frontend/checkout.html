@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <div class="checkout-container">
+            <h1>Finalizar Compra</h1>
+            
+            <!-- Resumo do pedido -->
+            <div class="order-summary">
+                <h2>Resumo do Pedido</h2>
+                <div id="checkout-items"></div>
+                <div class="order-total">
+                    <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="total-line">
+                        <span>Frete:</span>
+                        <span id="shipping">R$ 15,00</span>
+                    </div>
+                    <div class="total-line total-final">
+                        <span>Total:</span>
+                        <span id="final-total">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de dados -->
+            <div class="checkout-form">
+                <h2>Dados do Cliente</h2>
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="tel" id="telefone" name="telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF *</label>
+                            <input type="text" id="cpf" name="cpf" required>
+                        </div>
+                    </div>
+
+                    <h3>Endereço de Entrega</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cep">CEP *</label>
+                            <input type="text" id="cep" name="cep" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade *</label>
+                            <input type="text" id="cidade" name="cidade" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço *</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numero">Número *</label>
+                            <input type="text" id="numero" name="numero" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" name="complemento">
+                        </div>
+                    </div>
+
+                    <h3>Forma de Pagamento</h3>
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <input type="radio" id="cartao" name="pagamento" value="cartao" checked>
+                            <label for="cartao">💳 Cartão de Crédito</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="pix" name="pagamento" value="pix">
+                            <label for="pix">📱 PIX</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="boleto" name="pagamento" value="boleto">
+                            <label for="boleto">📄 Boleto Bancário</label>
+                        </div>
+                    </div>
+
+                    <!-- Dados do cartão (mostrado apenas se cartão estiver selecionado) -->
+                    <div id="card-details" class="card-details">
+                        <div class="form-group">
+                            <label for="card-number">Número do Cartão *</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Validade *</label>
+                                <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv">CVV *</label>
+                                <input type="text" id="card-cvv" name="card-cvv" placeholder="000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Nome no Cartão *</label>
+                            <input type="text" id="card-name" name="card-name">
+                        </div>
+                    </div>
+
+                    <div class="checkout-actions">
+                        <button type="button" onclick="window.location.href='index.html'" class="btn-back">Voltar às Compras</button>
+                        <button type="submit" class="btn-finish">Finalizar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Carrega itens do carrinho no checkout
+        function loadCheckoutItems() {
+            const cart = JSON.parse(localStorage.getItem('petshop_cart')) || [];
+            const checkoutItems = document.getElementById('checkout-items');
+            const subtotalElement = document.getElementById('subtotal');
+            const finalTotalElement = document.getElementById('final-total');
+            
+            if (cart.length === 0) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            let subtotal = 0;
+            
+            checkoutItems.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                return `
+                    <div class="checkout-item">
+                        <img src="${item.image}" alt="${item.name}" class="checkout-item-image">
+                        <div class="checkout-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="item-type">${item.type === 'servico' ? 'Serviço' : 'Produto'}</p>
+                            <p class="item-quantity">Quantidade: ${item.quantity}</p>
+                        </div>
+                        <div class="checkout-item-price">
+                            <span class="unit-price">R$ ${item.price.toFixed(2)}</span>
+                            <span class="total-price">R$ ${itemTotal.toFixed(2)}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            const shipping = 15.00;
+            const finalTotal = subtotal + shipping;
+            
+            subtotalElement.textContent = `R$ ${subtotal.toFixed(2)}`;
+            finalTotalElement.textContent = `R$ ${finalTotal.toFixed(2)}`;
+        }
+        
+        // Controla exibição dos dados do cartão
+        function toggleCardDetails() {
+            const cardDetails = document.getElementById('card-details');
+            const cartaoRadio = document.getElementById('cartao');
+            
+            cardDetails.style.display = cartaoRadio.checked ? 'block' : 'none';
+        }
+        
+        // Processa o formulário de checkout
+        function processCheckout(event) {
+            event.preventDefault();
+            
+            // Simula processamento
+            const submitButton = event.target.querySelector('.btn-finish');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Processando...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                // Limpa o carrinho
+                localStorage.removeItem('petshop_cart');
+                
+                // Mostra mensagem de sucesso
+                alert('Pedido realizado com sucesso! Você receberá um e-mail de confirmação em breve.');
+                
+                // Redireciona para a página inicial
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckoutItems();
+            
+            // Configura eventos dos métodos de pagamento
+            const paymentRadios = document.querySelectorAll('input[name="pagamento"]');
+            paymentRadios.forEach(radio => {
+                radio.addEventListener('change', toggleCardDetails);
+            });
+            
+            // Configura evento do formulário
+            document.getElementById('checkout-form').addEventListener('submit', processCheckout);
+            
+            // Máscaras para campos
+            document.getElementById('cpf').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            document.getElementById('telefone').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            document.getElementById('cep').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+                e.target.value = value;
+            });
+            
+            document.getElementById('card-number').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                value = value.replace(/(\d{4})(\d)/, '$1 $2');
+                e.target.value = value;
+            });
+            
+            document.getElementById('card-expiry').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{2})(\d)/, '$1/$2');
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html>
+

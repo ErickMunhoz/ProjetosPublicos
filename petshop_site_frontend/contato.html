@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <h1>Fale Conosco</h1>
+            <p>Estamos aqui para ajudar você e seu pet. Entre em contato conosco!</p>
+        </div>
+
+        <!-- Informações de contato principais -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px;">
+            <!-- Endereço -->
+            <div class="info-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem;">📍</div>
+                <h3 style="color: #333; margin-bottom: 10px;">Endereço</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Rua Feliz, 999<br>
+                    Bairro Feliz<br>
+                    São Paulo - SP, 01234-567
+                </p>
+            </div>
+
+            <!-- Telefone -->
+            <div class="info-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem;">📞</div>
+                <h3 style="color: #333; margin-bottom: 10px;">Telefone</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    (12) 3456-7890<br>
+                    (00) 98765-4321
+                </p>
+            </div>
+
+            <!-- E-mail -->
+            <div class="info-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem;">✉️</div>
+                <h3 style="color: #333; margin-bottom: 10px;">E-mail</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    contato@petshopfeliz.com.br<br>
+                    vendas@petshopfeliz.com.br
+                </p>
+            </div>
+
+            <!-- Horário -->
+            <div class="info-card" style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2rem;">🕒</div>
+                <h3 style="color: #333; margin-bottom: 10px;">Funcionamento</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Segunda a Sexta: 8h às 18h<br>
+                    Sábado: 8h às 16h<br>
+                    Domingo: 9h às 14h
+                </p>
+            </div>
+        </div>
+
+        <!-- Formulário de contato e mapa -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-bottom: 40px;">
+            <!-- Formulário de contato -->
+            <div class="form-container" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <h2 style="text-align: center; margin-bottom: 25px; color: #333;">Envie sua Mensagem</h2>
+                
+                <form onsubmit="enviarMensagem(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto *</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione o assunto</option>
+                            <option value="duvida-produto">Dúvida sobre Produto</option>
+                            <option value="agendamento">Agendamento de Serviço</option>
+                            <option value="reclamacao">Reclamação</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="elogio">Elogio</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" required placeholder="Digite sua mensagem aqui..."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            Desejo receber novidades e promoções por e-mail
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button type="submit" class="btn-primary" style="padding: 15px 40px; font-size: 1.2rem;">
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Mapa e redes sociais -->
+            <div>
+                <!-- Mapa -->
+                <div style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                    <h3 style="color: #333; margin-bottom: 20px; text-align: center;">Como Chegar</h3>
+                    
+                    <div style="background: #f0f0f0; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.1rem; text-align: center; background-image: url('./imagens/mapa_placeholder.png'); background-size: cover; background-position: center;">
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button onclick="abrirMapa()" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: all 0.3s;">
+                            Ver no Google Maps
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Redes sociais -->
+                <div style="background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: #333; margin-bottom: 20px; text-align: center;">Siga-nos nas Redes Sociais</h3>
+                    
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="#" style="background: #1877F2; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">📘</a>
+                        
+                        <a href="#" style="background: #E4405F; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">📷</a>
+                        
+                        <a href="#" style="background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">💬</a>
+                        
+                        <a href="#" style="background: #1DA1F2; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">🐦</a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 15px;">
+                        <p style="color: #666; font-size: 0.9rem;">@petshopfeliz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <div class="faq-question" onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Vocês fazem entrega de produtos?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding-top: 10px; color: #666; line-height: 1.6;">
+                        Sim! Fazemos entrega gratuita para compras acima de R$ 100,00 em um raio de 10km. Para outras localidades, consulte as taxas de entrega.
+                    </div>
+                </div>
+
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <div class="faq-question" onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Preciso agendar o banho e tosa?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding-top: 10px; color: #666; line-height: 1.6;">
+                        Recomendamos o agendamento para garantir o melhor horário para você e seu pet. Aceitamos agendamentos por telefone, WhatsApp ou pelo nosso site.
+                    </div>
+                </div>
+
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <div class="faq-question" onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Quais formas de pagamento vocês aceitam?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding-top: 10px; color: #666; line-height: 1.6;">
+                        Aceitamos dinheiro, cartão de débito, cartão de crédito (até 6x sem juros), PIX e transferência bancária.
+                    </div>
+                </div>
+
+                <div class="faq-item" style="padding: 15px 0;">
+                    <div class="faq-question" onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Vocês atendem pets agressivos?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding-top: 10px; color: #666; line-height: 1.6;">
+                        Sim, temos profissionais experientes para lidar com pets mais agitados. Pode haver uma taxa adicional de R$ 20,00 para garantir a segurança de todos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Função para enviar mensagem
+        function enviarMensagem(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const dados = Object.fromEntries(formData);
+            
+            // Simular envio
+            alert(`Mensagem enviada com sucesso!\n\nObrigado pelo contato, ${dados.nome}!\nRetornaremos em breve através do e-mail: ${dados.email}`);
+            
+            // Limpar formulário
+            event.target.reset();
+        }
+
+        // Função para abrir mapa
+        function abrirMapa() {
+            // Simular abertura do Google Maps
+            alert('Redirecionando para o Google Maps...\nRua Feliz, 999 - Bairro Feliz, São Paulo - SP');
+        }
+
+        // Função para toggle do FAQ
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                icon.textContent = '-';
+                answer.style.animation = 'fadeIn 0.3s ease';
+            } else {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            }
+        }
+
+        // Adiciona animação CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

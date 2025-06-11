@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donos - Petshop</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciamento de Donos</h1>
+        <button id="theme-toggle" class="theme-toggle">☀️</button>
+    </header>
+    <nav>
+       <ul>
+            <li><a href="index.html" class="nav-button">Homepage</a></li>
+            <li><a href="donos.html" class="nav-button active-link">Donos</a></li>
+            <li><a href="animais.html" class="nav-button">Animais</a></li>
+            <li><a href="servicos.html" class="nav-button">Serviços</a></li>
+            <li><a href="funcionarios.html" class="nav-button">Funcionários</a></li>
+            <li><a href="agenda.html" class="nav-button">Agenda</a></li>
+            <li><a href="produtos.html" class="nav-button">Produtos</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="donos-content">
+            <h2>Lista de Donos</h2>
+            <!-- Conteúdo da página de Donos -->
+            <p>Aqui você pode gerenciar os donos dos pets.</p>
+            <!-- Tabela e formulário de Donos como no index.html original -->
+             <form class="add-form">
+                <h3>Adicionar Novo Dono</h3>
+                <label for="dono-nome">Nome:</label>
+                <input type="text" id="dono-nome" name="nome" required>
+                <label for="dono-telefone">Telefone:</label>
+                <input type="tel" id="dono-telefone" name="telefone">
+                <label for="dono-email">Email:</label>
+                <input type="email" id="dono-email" name="email">
+                <label for="dono-endereco">Endereço:</label>
+                <input type="text" id="dono-endereco" name="endereco">
+                <button type="submit">Adicionar Dono</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Endereço</th>
+                        <th>Data Cadastro</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>João Silva</td>
+                        <td>(11) 98765-4321</td>
+                        <td>joao.silva@example.com</td>
+                        <td>Rua das Flores, 123</td>
+                        <td>2024-01-15</td>
+                        <td><button class="edit-btn">Editar</button> <button class="delete-btn">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Petshop. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+
+
+    <script>
+        // Função para alternar tema
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            // Salva a preferência do usuário
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                this.textContent = "🌙";
+            } else {
+                localStorage.setItem("theme", "light");
+                this.textContent = "☀️";
+            }
+        });
+
+        // Carrega o tema preferido do usuário ao carregar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.getElementById("theme-toggle").textContent = "🌙";
+            } else {
+                document.getElementById("theme-toggle").textContent = "☀️";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll("nav ul li a.nav-button");
+            const currentPath = window.location.pathname.split("/").pop();
+            links.forEach(link => {
+                link.classList.remove("active-link"); // Remove active from all
+                if (link.getAttribute("href") === currentPath || (currentPath === "" && link.getAttribute("href") === "index.html")) {
+                    link.classList.add("active-link");
+                }
+                link.addEventListener("mouseover", () => link.classList.add("nav-hover"));
+                link.addEventListener("mouseout", () => link.classList.remove("nav-hover"));
+            });
+        });
+    </script>
+</body>
+</html>
+

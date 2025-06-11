@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Petshop Feliz</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./placeholder_logo.png" alt="Logo Petshop Feliz" id="logo">
+            <h1>Petshop Feliz</h1>
+        </div>
+        <p class="subtitle">Gerenciamento de Agenda</p>
+        <button id="theme-toggle" class="theme-toggle">☀️</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="nav-button">Homepage</a></li>
+            <li><a href="donos.html" class="nav-button">Donos</a></li>
+            <li><a href="animais.html" class="nav-button">Animais</a></li>
+            <li><a href="servicos.html" class="nav-button">Serviços</a></li>
+            <li><a href="funcionarios.html" class="nav-button">Funcionários</a></li>
+            <li><a href="agenda.html" class="nav-button active-link">Agenda</a></li>
+            <li><a href="produtos.html" class="nav-button">Produtos</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="agenda-gerenciamento">
+            <h2>Gerenciamento de Agenda</h2>
+            <form class="add-form">
+                <h3>Agendar Novo Serviço</h3>
+                <label for="agenda-data">Data:</label>
+                <input type="date" id="agenda-data" name="data" required>
+                <label for="agenda-horario">Horário:</label>
+                <input type="time" id="agenda-horario" name="horario" required>
+                <label for="agenda-id-funcionario">ID Funcionário:</label>
+                <input type="number" id="agenda-id-funcionario" name="id_funcionario" required>
+                <label for="agenda-id-servico">ID Serviço:</label>
+                <input type="number" id="agenda-id-servico" name="id_servico" required>
+                <label for="agenda-id-animal">ID Animal:</label>
+                <input type="number" id="agenda-id-animal" name="id_animal" required>
+                <button type="submit">Agendar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>ID Funcionário</th>
+                        <th>ID Serviço</th>
+                        <th>ID Animal</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>401</td>
+                        <td>2024-05-20</td>
+                        <td>10:00</td>
+                        <td>301</td>
+                        <td>201</td>
+                        <td>101</td>
+                        <td><button class="edit-btn">Editar</button> <button class="delete-btn">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>402</td>
+                        <td>2024-05-21</td>
+                        <td>14:30</td>
+                        <td>302</td>
+                        <td>202</td>
+                        <td>102</td>
+                        <td><button class="edit-btn">Editar</button> <button class="delete-btn">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 Petshop Feliz. Todos os direitos reservados.</p>
+        <p>Desenvolvido com <span class="heart">&hearts;</span> pela Equipe Manus</p>
+    </footer>
+
+    <script>
+        // Função para alternar tema
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            // Salva a preferência do usuário
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                this.textContent = "🌙";
+            } else {
+                localStorage.setItem("theme", "light");
+                this.textContent = "☀️";
+            }
+        });
+
+        // Carrega o tema preferido do usuário ao carregar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.getElementById("theme-toggle").textContent = "🌙";
+            } else {
+                document.getElementById("theme-toggle").textContent = "☀️";
+            }
+            
+            const links = document.querySelectorAll("nav ul li a.nav-button");
+            const currentPath = window.location.pathname.split("/").pop();
+            links.forEach(link => {
+                link.classList.remove("active-link");
+                if (link.getAttribute("href") === currentPath || (currentPath === "" && link.getAttribute("href") === "index.html")) {
+                    link.classList.add("active-link");
+                }
+                link.addEventListener("mouseover", () => link.classList.add("nav-hover"));
+                link.addEventListener("mouseout", () => link.classList.remove("nav-hover"));
+            });
+        });
+    </script>
+</body>
+</html>
+

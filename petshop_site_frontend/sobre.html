@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <h1>Sobre Nós</h1>
+            <p>Conheça nossa história e nossa paixão pelos animais</p>
+        </div>
+
+        <!-- Nossa História -->
+        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">Nossa História</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: center;">
+                <div>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        O <strong>Pet Shop Feliz</strong> nasceu em 2015 do sonho de <strong>Maria Silva</strong>, uma veterinária apaixonada por animais que sempre acreditou que nossos pets merecem o melhor cuidado e carinho. Após anos trabalhando em clínicas veterinárias, Maria percebeu a necessidade de um espaço que oferecesse não apenas produtos de qualidade, mas também serviços especializados com o toque humano que cada animal merece.
+                    </p>
+                    
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        Começamos com um pequeno espaço de 50m² no bairro Jardim Feliz, em São Paulo, com apenas Maria e seu sócio, <strong>Kurt Cobain</strong>. O que começou como um sonho modesto rapidamente se transformou em referência na região, graças ao atendimento personalizado e ao genuíno amor pelos animais que sempre demonstramos.
+                    </p>
+                    
+                    <p style="color: #666; line-height: 1.8; font-size: 1.1rem;">
+                        Hoje, após quase 10 anos de dedicação, somos uma equipe de 8 profissionais especializados, atendemos mais de 2.000 famílias e seus pets, e nos tornamos referência em cuidados pet na região. Nossa missão continua a mesma: proporcionar felicidade e bem-estar para você e seu melhor amigo, sob a liderança de Kurt como gerente geral.
+                    </p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <img src="./imagens/primeira_loja_2015_v3.jpg" alt="Nossa primeira loja em 2015" style="width: 250px; height: 200px; border-radius: 15px; object-fit: cover; margin: 0 auto 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    <p style="color: #666; font-style: italic;">Nossa primeira loja inaugurada em 2015, atualmente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Missão, Visão e Valores -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
+            <!-- Missão -->
+            <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">🎯</div>
+                <h3 style="color: #333; margin-bottom: 15px; font-family: 'Ubuntu', sans-serif;">Nossa Missão</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Proporcionar produtos de qualidade e serviços especializados que promovam a saúde, felicidade e bem-estar dos pets, fortalecendo o vínculo entre os animais e suas famílias através de um atendimento humanizado e profissional.
+                </p>
+            </div>
+
+            <!-- Visão -->
+            <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">👁️</div>
+                <h3 style="color: #333; margin-bottom: 15px; font-family: 'Ubuntu', sans-serif;">Nossa Visão</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Ser reconhecido como o pet shop de referência em São Paulo, expandindo nossos serviços para atender cada vez mais famílias e seus pets, sempre mantendo nossos valores de qualidade, carinho e dedicação.
+                </p>
+            </div>
+
+            <!-- Valores -->
+            <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">💎</div>
+                <h3 style="color: #333; margin-bottom: 15px; font-family: 'Ubuntu', sans-serif;">Nossos Valores</h3>
+                <ul style="color: #666; line-height: 1.6; text-align: left; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;">❤️ Amor pelos animais</li>
+                    <li style="margin-bottom: 8px;">🏆 Qualidade em produtos e serviços</li>
+                    <li style="margin-bottom: 8px;">🤝 Atendimento humanizado</li>
+                    <li style="margin-bottom: 8px;">🔬 Conhecimento técnico</li>
+                    <li style="margin-bottom: 8px;">🌱 Responsabilidade social</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nossa Equipe -->
+        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">Nossa Equipe</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <!-- Maria Silva -->
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #666; font-size: 3rem; margin: 0 auto 15px;">👩‍⚕️</div>
+                    <h4 style="color: #333; margin-bottom: 5px;">Maria Silva</h4>
+                    <p style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Fundadora e Veterinária</p>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                        Veterinária formada pela USP com 15 anos de experiência. Especialista em clínica geral e dermatologia veterinária.
+                    </p>
+                </div>
+
+                <!-- Kurt Cobain -->
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #666; font-size: 3rem; margin: 0 auto 15px;">👨‍💼</div>
+                    <h4 style="color: #333; margin-bottom: 5px;">Kurt Cobain</h4>
+                    <p style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Fundador e Gerente Geral</p>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                        Fundador da empresa e gerente geral, Kurt lidera nossa equipe há 9 anos com paixão e dedicação aos animais.
+                    </p>
+                </div>
+
+                <!-- Ana Costa -->
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #666; font-size: 3rem; margin: 0 auto 15px;">💇‍♀️</div>
+                    <h4 style="color: #333; margin-bottom: 5px;">Ana Costa</h4>
+                    <p style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Tosadora Profissional</p>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                        Especialista em tosa e estética animal com certificação internacional. 12 anos de experiência no cuidado estético dos pets.
+                    </p>
+                </div>
+
+                <!-- Juliana Oliveira -->
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #666; font-size: 3rem; margin: 0 auto 15px;">👩‍🔬</div>
+                    <h4 style="color: #333; margin-bottom: 5px;">Juliana Oliveira</h4>
+                    <p style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">Auxiliar Veterinária</p>
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                        Técnica em veterinária especializada em primeiros socorros e cuidados preventivos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nossos Números -->
+        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">Nossos Números</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; text-align: center;">
+                <div>
+                    <div style="font-size: 3rem; color: #4CAF50; font-weight: bold; margin-bottom: 10px;">9</div>
+                    <p style="color: #333; font-weight: bold;">Anos de Experiência</p>
+                </div>
+                
+                <div>
+                    <div style="font-size: 3rem; color: #4CAF50; font-weight: bold; margin-bottom: 10px;">2000+</div>
+                    <p style="color: #333; font-weight: bold;">Clientes Atendidos</p>
+                </div>
+                
+                <div>
+                    <div style="font-size: 3rem; color: #4CAF50; font-weight: bold; margin-bottom: 10px;">8</div>
+                    <p style="color: #333; font-weight: bold;">Profissionais</p>
+                </div>
+                
+                <div>
+                    <div style="font-size: 3rem; color: #4CAF50; font-weight: bold; margin-bottom: 10px;">500+</div>
+                    <p style="color: #333; font-weight: bold;">Produtos Disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificações e Parcerias -->
+        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">Certificações e Parcerias</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 100px; height: 100px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 2rem; margin: 0 auto 15px;">🏆</div>
+                    <h4 style="color: #333; margin-bottom: 10px;">CRMV-SP</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Registrados no Conselho Regional de Medicina Veterinária de São Paulo</p>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 100px; height: 100px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 2rem; margin: 0 auto 15px;">🤝</div>
+                    <h4 style="color: #333; margin-bottom: 10px;">Parceiros Premium</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Parceria com as melhores marcas do mercado pet nacional e internacional</p>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #f0f0f0; width: 100px; height: 100px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 2rem; margin: 0 auto 15px;">🌱</div>
+                    <h4 style="color: #333; margin-bottom: 10px;">Responsabilidade Social</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Apoiamos ONGs locais e projetos de adoção responsável</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">O que nossos clientes dizem</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div style="background: #f9f9f9; padding: 25px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                    <p style="color: #666; font-style: italic; margin-bottom: 15px; line-height: 1.6;">
+                        "O Pet Shop Feliz é incrível! Minha Luna sempre sai de lá linda e cheirosa. A equipe é super carinhosa e profissional. Recomendo de olhos fechados!"
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: #4CAF50; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">👩</div>
+                        <div>
+                            <strong style="color: #333;">Fernanda Silva</strong><br>
+                            <small style="color: #666;">Cliente há 3 anos</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f9f9f9; padding: 25px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                    <p style="color: #666; font-style: italic; margin-bottom: 15px; line-height: 1.6;">
+                        "Atendimento excepcional! A Ana é uma artista na tosa, e a Maria sempre dá as melhores dicas para cuidar do meu Rex. Virei cliente fiel!"
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: #4CAF50; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">👨</div>
+                        <div>
+                            <strong style="color: #333;">Roberto Santos</strong><br>
+                            <small style="color: #666;">Cliente há 5 anos</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f9f9f9; padding: 25px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                    <p style="color: #666; font-style: italic; margin-bottom: 15px; line-height: 1.6;">
+                        "Produtos de qualidade e preços justos. Além disso, sempre me ajudam a escolher o melhor para minha gatinha Mimi. Equipe nota 10!"
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: #4CAF50; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">👩</div>
+                        <div>
+                            <strong style="color: #333;">Carla Oliveira</strong><br>
+                            <small style="color: #666;">Cliente há 2 anos</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector('.navbar');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navbar.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+
+        // Animação dos números quando a seção entra na tela
+        function animarNumeros() {
+            const numeros = document.querySelectorAll('[style*="font-size: 3rem"]');
+            
+            numeros.forEach(numero => {
+                const valorFinal = parseInt(numero.textContent.replace('+', ''));
+                let valorAtual = 0;
+                const incremento = valorFinal / 50;
+                
+                const timer = setInterval(() => {
+                    valorAtual += incremento;
+                    if (valorAtual >= valorFinal) {
+                        numero.textContent = numero.textContent.includes('+') ? valorFinal + '+' : valorFinal;
+                        clearInterval(timer);
+                    } else {
+                        numero.textContent = Math.floor(valorAtual);
+                    }
+                }, 30);
+            });
+        }
+
+        // Observador para animar quando a seção aparecer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animarNumeros();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const numerosSection = document.querySelector('[style*="Nossos Números"]')?.parentElement;
+            if (numerosSection) {
+                observer.observe(numerosSection);
+            }
+        });
+
+        // CSS responsivo
+        const style = document.createElement('style');
+        style.textContent = `
+            @media screen and (max-width: 768px) {
+                .container > div > div[style*="grid-template-columns: 1fr 300px"] {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px !important;
+                }
+                
+                .container > div > div[style*="grid-template-columns: 1fr 300px"] > div:last-child {
+                    order: -1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
+
+
+        // Função para alternar tema
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            // Salva a preferência do usuário
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                this.textContent = "🌙";
+            } else {
+                localStorage.setItem("theme", "light");
+                this.textContent = "☀️";
+            }
+        });
+
+        // Carrega o tema preferido do usuário ao carregar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.getElementById("theme-toggle").textContent = "🌙";
+            } else {
+                document.getElementById("theme-toggle").textContent = "☀️";
+            }
+        });
+
+

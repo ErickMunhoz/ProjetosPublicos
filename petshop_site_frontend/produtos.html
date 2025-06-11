@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Pet Shop Feliz</title>
+    <link rel="stylesheet" href="style_atualizado.css">
+</head>
+<body>
+    <!-- Navbar responsiva -->
+    <nav>
+        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="banho-tosa.html">Banho e Tosa</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="sobre.html" class="ultimolink">Sobre Nós</a>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+        
+        <!-- Menu sanduíche para mobile -->
+        <div class="menu-icon" onclick="MostraEscondeMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <h1>Nossos Produtos</h1>
+            <p>Encontre tudo o que seu pet precisa com a melhor qualidade</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filtros" style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 15px; margin-bottom: 30px; text-align: center;">
+            <h3 style="margin-bottom: 15px; color: #333;">Filtrar por categoria:</h3>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <button class="filtro-btn active" onclick="filtrarProdutos('todos')" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" onclick="filtrarProdutos('racao')" data-categoria="racao">Ração</button>
+                <button class="filtro-btn" onclick="filtrarProdutos('brinquedos')" data-categoria="brinquedos">Brinquedos</button>
+                <button class="filtro-btn" onclick="filtrarProdutos('acessorios')" data-categoria="acessorios">Acessórios</button>
+                <button class="filtro-btn" onclick="filtrarProdutos('higiene')" data-categoria="higiene">Higiene</button>
+            </div>
+        </div>
+
+        <!-- Grid de produtos -->
+        <section class="content-cards-produto">
+            <!-- Rações -->
+            <div class="card-produto" data-categoria="racao" onclick="window.location.href='produto-racao-cao.html'">
+                <img src="./imagens/placeholder_racao.png" alt="Ração Premium para Cães" />
+                <div class="body-card-produto">
+                    <h3>Ração Premium para Cães</h3>
+                    <p><span>R$89,90</span><label>R$79,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="racao" onclick="window.location.href='produto-racao-gato.html'">
+                <img src="./imagens/placeholder_racao_gato.png" alt="Ração Premium para Gatos" />
+                <div class="body-card-produto">
+                    <h3>Ração Premium para Gatos</h3>
+                    <p><span>R$75,90</span><label>R$69,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="racao" onclick="window.location.href='produto-racao-filhote.html'">
+                <img src="./imagens/placeholder_racao.png" alt="Ração para Filhotes" />
+                <div class="body-card-produto">
+                    <h3>Ração para Filhotes</h3>
+                    <p><span>R$95,90</span><label>R$85,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Brinquedos -->
+            <div class="card-produto" data-categoria="brinquedos" onclick="window.location.href='produto-brinquedo.html'">
+                <img src="./imagens/placeholder_brinquedo.png" alt="Brinquedo Interativo" />
+                <div class="body-card-produto">
+                    <h3>Brinquedo Interativo</h3>
+                    <p><span>R$35,90</span><label>R$29,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="brinquedos" onclick="window.location.href='produto-bola.html'">
+                <img src="./imagens/bola_borracha_desenho_v3.webp" alt="Bola de Borracha" />
+                <div class="body-card-produto">
+                    <h3>Bola de Borracha</h3>
+                    <p><span>R$25,90</span><label>R$19,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="brinquedos" onclick="window.location.href='produto-corda.html'">
+                <img src="./imagens/corda_pet_desenho.jpg" alt="Corda para Cães" />
+                <div class="body-card-produto">
+                    <h3>Corda para Cães</h3>
+                    <p><span>R$22,90</span><label>R$17,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Acessórios -->
+            <div class="card-produto" data-categoria="acessorios" onclick="window.location.href='produto-cama.html'">
+                <img src="./imagens/placeholder_cama.png" alt="Cama Confortável" />
+                <div class="body-card-produto">
+                    <h3>Cama Confortável</h3>
+                    <p><span>R$120,00</span><label>R$99,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="acessorios" onclick="window.location.href='produto-coleira.html'">
+                <img src="./imagens/placeholder_coleira.png" alt="Coleira Estilosa" />
+                <div class="body-card-produto">
+                    <h3>Coleira Estilosa</h3>
+                    <p><span>R$45,90</span><label>R$39,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="acessorios" onclick="window.location.href='produto-guia.html'">
+                <img src="./imagens/guia_resistente_desenho.jpg" alt="Guia Resistente" />
+                <div class="body-card-produto">
+                    <h3>Guia Resistente</h3>
+                    <p><span>R$35,90</span><label>R$29,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Higiene -->
+            <div class="card-produto" data-categoria="higiene" onclick="window.location.href='produto-shampoo.html'">
+                <img src="./imagens/placeholder_shampoo.png" alt="Shampoo Especial" />
+                <div class="body-card-produto">
+                    <h3>Shampoo Especial</h3>
+                    <p><span>R$28,90</span><label>R$24,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="higiene" onclick="window.location.href='produto-condicionador.html'">
+                <img src="./imagens/condicionador_pet_desenho.jpg" alt="Condicionador Hidratante" />
+                <div class="body-card-produto">
+                    <h3>Condicionador Hidratante</h3>
+                    <p><span>R$32,90</span><label>R$27,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto" data-categoria="higiene" onclick="window.location.href='produto-escova.html'">
+                <img src="./imagens/escova_dentes_pet_desenho_v3.webp" alt="Escova de Dentes" />
+                <div class="body-card-produto">
+                    <h3>Escova de Dentes</h3>
+                    <p><span>R$18,90</span><label>R$14,90</label></p>
+                    <button type="button" onclick="event.stopPropagation(); alert('Produto adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Pet Shop Feliz. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span style="color: red;">&hearts;</span> para você e seu pet</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector('.navbar');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navbar.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+
+        // Função para filtrar produtos
+        function filtrarProdutos(categoria) {
+            const produtos = document.querySelectorAll('.card-produto');
+            const botoes = document.querySelectorAll('.filtro-btn');
+            
+            // Remove classe active de todos os botões
+            botoes.forEach(btn => btn.classList.remove('active'));
+            
+            // Adiciona classe active ao botão clicado
+            event.target.classList.add('active');
+            
+            // Mostra/esconde produtos baseado na categoria
+            produtos.forEach(produto => {
+                if (categoria === 'todos' || produto.dataset.categoria === categoria) {
+                    produto.style.display = 'flex';
+                    produto.style.animation = 'fadeIn 0.5s ease';
+                } else {
+                    produto.style.display = 'none';
+                }
+            });
+        }
+
+        // CSS para animação
+        const style = document.createElement('style');
+        style.textContent = `
+            .filtro-btn {
+                background: #f0f0f0;
+                border: 2px solid #ddd;
+                padding: 10px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s;
+                font-weight: bold;
+            }
+            
+            .filtro-btn:hover {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+            }
+            
+            .filtro-btn.active {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
+
+
+    <script>
+        // Função para mostrar/esconder menu mobile
+        function MostraEscondeMenu() {
+            const navbar = document.querySelector(".navbar");
+            const menuIcon = document.querySelector(".menu-icon");
+            
+            navbar.classList.toggle("show");
+            menuIcon.classList.toggle("active");
+        }
+
+        // Função para filtrar produtos
+        function filtrarProdutos(categoria) {
+            const produtos = document.querySelectorAll(".card-produto");
+            const botoes = document.querySelectorAll(".filtro-btn");
+            
+            // Remove classe active de todos os botões
+            botoes.forEach(btn => btn.classList.remove("active"));
+            
+            // Adiciona classe active ao botão clicado
+            event.target.classList.add("active");
+            
+            // Mostra/esconde produtos baseado na categoria
+            produtos.forEach(produto => {
+                if (categoria === "todos" || produto.dataset.categoria === categoria) {
+                    produto.style.display = "flex";
+                    produto.style.animation = "fadeIn 0.5s ease";
+                } else {
+                    produto.style.display = "none";
+                }
+            });
+        }
+
+        // CSS para animação
+        const style = document.createElement("style");
+        style.textContent = `
+            .filtro-btn {
+                background: #f0f0f0;
+                border: 2px solid #ddd;
+                padding: 10px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s;
+                font-weight: bold;
+            }
+            
+            .filtro-btn:hover {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+            }
+            
+            .filtro-btn.active {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Função para alternar tema
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            // Salva a preferência do usuário
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                this.textContent = "🌙";
+            } else {
+                localStorage.setItem("theme", "light");
+                this.textContent = "☀️";
+            }
+        });
+
+        // Carrega o tema preferido do usuário ao carregar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.getElementById("theme-toggle").textContent = "🌙";
+            } else {
+                document.getElementById("theme-toggle").textContent = "☀️";
+            }
+        });
+    </script>
+</body>
+</html>
+
