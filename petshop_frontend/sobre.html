@@ -9,7 +9,9 @@
 <body>
     <!-- Navbar responsiva -->
     <nav>
-        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <a href="index.html">
+            <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        </a>
         <div class="navbar">
             <a href="index.html">Home</a>
             <a href="produtos.html">Produtos</a>
@@ -36,8 +38,8 @@
         </div>
 
         <!-- Nossa História -->
-        <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px;">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #333; font-family: 'Ubuntu', sans-serif;">Nossa História</h2>
+        <div class="sobre-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">Nossa História</h2>
             
             <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: center;">
                 <div>
@@ -65,7 +67,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
             <!-- Missão -->
             <div class="sobre-section" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
-                <div style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">🎯</div>
+                <div class="icone-circular">🎯</div>
                 <h3 style="color: #333; margin-bottom: 15px; font-family: 'Ubuntu', sans-serif;">Nossa Missão</h3>
                 <p style="color: #666; line-height: 1.6;">
                     Proporcionar produtos de qualidade e serviços especializados que promovam a saúde, felicidade e bem-estar dos pets, fortalecendo o vínculo entre os animais e suas famílias através de um atendimento humanizado e profissional.
@@ -312,11 +314,6 @@
             }
         `;
         document.head.appendChild(style);
-    </script>
-</body>
-</html>
-
-
 
         // Função para alternar tema
         document.getElementById("theme-toggle").addEventListener("click", function() {
@@ -340,5 +337,109 @@
                 document.getElementById("theme-toggle").textContent = "☀️";
             }
         });
+    </script>
+
+    <style>
+        /* Sobre - Cards e seções */
+        .sobre-section {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .sobre-section h2,
+        .sobre-section h3,
+        .sobre-section h4 {
+            color: #333;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .sobre-section p,
+        .sobre-section ul,
+        .sobre-section li {
+            color: #666;
+        }
+        .sobre-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sobre-section .icone-circular {
+            background: #4CAF50;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+        }
+        .sobre-section .icone-circular-pequeno {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        /* Tema escuro */
+        body.dark-mode .sobre-section {
+            background: rgba(40,40,40,0.95) !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        body.dark-mode .sobre-section h2,
+        body.dark-mode .sobre-section h3,
+        body.dark-mode .sobre-section h4 {
+            color: #eee !important;
+        }
+        body.dark-mode .sobre-section p,
+        body.dark-mode .sobre-section ul,
+        body.dark-mode .sobre-section li {
+            color: #bbb !important;
+        }
+        body.dark-mode .sobre-section .icone-circular {
+            background: #388e3c !important;
+            color: #fff !important;
+        }
+        body.dark-mode .sobre-section .icone-circular-pequeno {
+            background: #388e3c !important;
+            color: #fff !important;
+        }
+        body.dark-mode .sobre-section [style*="background: #f9f9f9"] {
+            background: #222 !important;
+            color: #bbb !important;
+        }
+        body.dark-mode .sobre-section [style*="color: #333"] {
+            color: #eee !important;
+        }
+
+        /* Efeitos no botão de alternar tema */
+        .theme-toggle {
+            border: none !important;
+            outline: none !important;
+            background: transparent;
+            box-shadow: none !important;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 6px;
+            border-radius: 50%;
+            transition: 
+                background 0.2s,
+                color 0.2s,
+                box-shadow 0.2s,
+                border 0.2s,
+                transform 0.15s cubic-bezier(.4,2,.6,1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15);
+            background: #4CAF50 !important;
+            color: #fff !important;
+            box-shadow: 0 4px 16px 0 rgba(76,175,80,0.25);
+            border: 2px solid #fff;
+        }
+    </style>
+</body>
+</html>
 
 

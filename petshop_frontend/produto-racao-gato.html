@@ -5,11 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ração Premium para Gatos - Pet Shop Feliz</title>
     <link rel="stylesheet" href="style_atualizado.css">
+    <style>
+body.dark-mode {
+    background: #181818;
+    color: #eee;
+}
+body.dark-mode .produto-detalhes {
+    background: rgba(40,40,40,0.95) !important;
+    color: #eee !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+body.dark-mode .produto-detalhes h1,
+body.dark-mode .produto-detalhes h3 {
+    color: #eee !important;
+}
+body.dark-mode .produto-detalhes p,
+body.dark-mode .produto-detalhes ul,
+body.dark-mode .produto-detalhes li,
+body.dark-mode .produto-detalhes label,
+body.dark-mode .produto-detalhes span {
+    color: #bbb !important;
+}
+body.dark-mode .produto-imagem img {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark-mode .acoes button,
+body.dark-mode .btn-primary {
+    background: #4CAF50 !important;
+    color: #fff !important;
+    border: none !important;
+}
+body.dark-mode .acoes button:hover,
+body.dark-mode .btn-primary:hover {
+    background: #388e3c !important;
+}
+body.dark-mode .content-cards-produto {
+    background: transparent !important;
+}
+body.dark-mode .card-produto {
+    background: rgba(40,40,40,0.95) !important;
+    color: #eee !important;
+    border: 1px solid #333 !important;
+    box-shadow: none !important;
+}
+body.dark-mode .body-card-produto h3 {
+    color: #fff !important;
+}
+body.dark-mode .body-card-produto p,
+body.dark-mode .body-card-produto label,
+body.dark-mode .body-card-produto span {
+    color: #bbb !important;
+}
+body.dark-mode .card-produto button {
+    background: #4CAF50 !important;
+    color: #fff !important;
+    border: none !important;
+}
+body.dark-mode .card-produto button:hover {
+    background: #388e3c !important;
+}
+body.dark-mode footer {
+    background: #181818 !important;
+    color: #bbb !important;
+}
+
+/* Botão de alternar tema igual em todas as páginas */
+.theme-toggle {
+    border: none !important;
+    outline: none !important;
+    background: transparent;
+    box-shadow: none !important;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 6px;
+    border-radius: 50%;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s,
+        border 0.2s,
+        transform 0.15s cubic-bezier(.4,2,.6,1);
+}
+.theme-toggle:hover {
+    transform: scale(1.15);
+    background: #4CAF50 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px 0 rgba(76,175,80,0.25);
+    border: 2px solid #fff;
+}
+</style>
 </head>
 <body>
     <!-- Navbar responsiva -->
     <nav>
-        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <a href="index.html">
+            <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        </a>
         <div class="navbar">
             <a href="index.html">Home</a>
             <a href="produtos.html">Produtos</a>
@@ -176,63 +268,6 @@
 
         // Responsividade para a página de produto
         const style = document.createElement('style');
-        style.textContent = `
-            @media screen and (max-width: 768px) {
-                .produto-detalhes > div {
-                    grid-template-columns: 1fr !important;
-                    gap: 20px !important;
-                }
-                
-                .acoes {
-                    flex-direction: column !important;
-                }
-                
-                .acoes button {
-                    min-width: auto !important;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
-
-
-
-    <script>
-        // Função para mostrar/esconder menu mobile
-        function MostraEscondeMenu() {
-            const navbar = document.querySelector(".navbar");
-            const menuIcon = document.querySelector(".menu-icon");
-            
-            navbar.classList.toggle("show");
-            menuIcon.classList.toggle("active");
-        }
-
-        let quantidade = 1;
-
-        function aumentarQuantidade() {
-            quantidade++;
-            document.getElementById("quantidade").textContent = quantidade;
-        }
-
-        function diminuirQuantidade() {
-            if (quantidade > 1) {
-                quantidade--;
-                document.getElementById("quantidade").textContent = quantidade;
-            }
-        }
-
-        function adicionarCarrinho() {
-            alert(`${quantidade} unidade(s) de Ração Premium para Gatos adicionada(s) ao carrinho!`);
-        }
-
-        function comprarAgora() {
-            alert(`Redirecionando para finalização da compra de ${quantidade} unidade(s)...`);
-        }
-
-        // Responsividade para a página de produto
-        const style = document.createElement("style");
         style.textContent = `
             @media screen and (max-width: 768px) {
                 .produto-detalhes > div {

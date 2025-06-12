@@ -5,18 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banho e Tosa - Pet Shop Feliz</title>
     <link rel="stylesheet" href="style_atualizado.css">
+    <style>
+        .carrinho-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.6rem;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+            color: #333;
+            vertical-align: middle;
+        }
+        .carrinho-btn:hover,
+        .carrinho-btn:focus {
+            color: #4CAF50;
+            transform: scale(1.15);
+            outline: none;
+        }
+        body.dark-mode .carrinho-btn {
+            color: #eee;
+        }
+        body.dark-mode .carrinho-btn:hover,
+        body.dark-mode .carrinho-btn:focus {
+            color: #4CAF50;
+        }
+        .theme-toggle,
+        .carrinho-btn.theme-toggle-btn {
+            border: none !important;
+            outline: none !important;
+            background: transparent;
+            box-shadow: none !important;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 6px;
+            border-radius: 50%;
+            transition:
+                background 0.2s,
+                color 0.2s,
+                box-shadow 0.2s,
+                border 0.2s,
+                transform 0.15s cubic-bezier(.4,2,.6,1);
+            margin-left: 10px;
+            color: #333;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover,
+        .carrinho-btn.theme-toggle-btn:hover {
+            transform: scale(1.15);
+            background: #4CAF50 !important;
+            color: #fff !important;
+            box-shadow: 0 4px 16px 0 rgba(76,175,80,0.25);
+            border: 2px solid #fff;
+        }
+        body.dark-mode .theme-toggle,
+        body.dark-mode .carrinho-btn.theme-toggle-btn {
+            color: #eee;
+            background: transparent;
+        }
+        body.dark-mode .theme-toggle:hover,
+        body.dark-mode .carrinho-btn.theme-toggle-btn:hover {
+            background: #fff !important;
+            color: #4CAF50 !important;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.15);
+            border: 2px solid #4CAF50;
+        }
+        .theme-toggle:focus,
+        .theme-toggle:focus-visible,
+        .theme-toggle:active,
+        .carrinho-btn.theme-toggle-btn:focus,
+        .carrinho-btn.theme-toggle-btn:focus-visible,
+        .carrinho-btn.theme-toggle-btn:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar responsiva -->
     <nav>
-        <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        <a href="index.html">
+            <img src="./placeholder_logo.png" alt="Logo Pet Shop Feliz">
+        </a>
         <div class="navbar">
             <a href="index.html">Home</a>
             <a href="produtos.html">Produtos</a>
             <a href="banho-tosa.html">Banho e Tosa</a>
             <a href="contato.html">Fale Conosco</a>
             <a href="sobre.html" class="ultimolink">Sobre Nós</a>
-            <button id="theme-toggle" class="theme-toggle">☀️</button>
+            <button id="carrinho-btn" class="carrinho-btn theme-toggle-btn" title="Ver Carrinho" onclick="abrirCarrinho()">🛒</button>
+            <button id="theme-toggle" class="theme-toggle" title="Alternar tema">☀️</button>
         </div>
         
         <!-- Menu sanduíche para mobile -->
@@ -338,39 +417,10 @@
                 });
             });
         });
-    </script>
-</body>
-</html>
 
-
-
-    <script>
-        // Função para mostrar/esconder menu mobile
-        function MostraEscondeMenu() {
-            const navbar = document.querySelector(".navbar");
-            const menuIcon = document.querySelector(".menu-icon");
-            
-            navbar.classList.toggle("show");
-            menuIcon.classList.toggle("active");
-        }
-
-        // Função para abrir agendamento (simulada)
-        function abrirAgendamento(servico) {
-            alert(`Você selecionou: ${servico}. Redirecionando para o formulário de agendamento.`);
-            window.location.href = "#formulario-agendamento";
-            document.getElementById("servico").value = servico.toLowerCase().replace(/ /g, "-");
-        }
-
-        // Função para enviar agendamento (simulada)
-        function enviarAgendamento(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const dados = Object.fromEntries(formData);
-            
-            alert(`Agendamento enviado com sucesso!\n\nObrigado, ${dados["nome-dono"]}! Seu agendamento para ${dados.servico} no dia ${dados.data} às ${dados.horario} foi recebido.`);
-            
-            event.target.reset();
+        // Função para abrir carrinho (simulada)
+        function abrirCarrinho() {
+            alert('Carrinho de compras em breve!');
         }
 
         // Função para alternar tema
