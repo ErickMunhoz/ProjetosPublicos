@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 - sempre deve ser a primeira linha -->
+<html lang="pt-BR">
+<!-- Tag raiz do HTML com idioma português brasileiro para acessibilidade -->
+
+<head>
+    <!-- Seção HEAD contém metadados que não aparecem na página, mas são importantes para o navegador -->
+    
+    <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    
+    <!-- Configuração para responsividade - faz a página se adaptar a diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Descrição da página para motores de busca (SEO) -->
+    <meta name="description" content="DevPlay - Plataforma de jogos educativos para treinar desenvolvimento de sistemas">
+    
+    <!-- Palavras-chave para motores de busca -->
+    <meta name="keywords" content="jogos, desenvolvimento, programação, educação, sistemas">
+    
+    <!-- Autor da página -->
+    <meta name="author" content="Alunos do Curso de Desenvolvimento de Sistemas">
+    
+    <!-- Favicon - ícone que aparece na aba do navegador (usando emoji como ícone) -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>DevPlay - Plataforma de Jogos para Treinar Programação</title>
+    
+    <!-- Link para o arquivo CSS externo que contém todos os estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Corpo da página onde fica todo o conteúdo visível -->
+    
+    <!-- CABEÇALHO FIXO DA PÁGINA -->
+    <!-- role="banner" ajuda leitores de tela a identificar o cabeçalho principal -->
+    <header class="header" role="banner">
+        <!-- Container centraliza o conteúdo e limita a largura máxima -->
+        <div class="container">
+            <!-- Flexbox para organizar logo e navegação lado a lado -->
+            <div class="header-content">
+                
+                <!-- SEÇÃO DO LOGO E NOME -->
+                <div class="logo-section">
+                    <!-- Logo usando emoji (funciona em todos os dispositivos) -->
+                    <div class="logo" aria-label="DevPlay Logo">🎮</div>
+                    <!-- Título principal do site -->
+                    <h1 class="site-title">DevPlay</h1>
+                    <!-- Subtítulo explicativo -->
+                    <span class="site-subtitle">Plataforma de Jogos para Treinar Programação</span>
+                </div>
+                
+                <!-- MENU DE NAVEGAÇÃO -->
+                <!-- role="navigation" e aria-label ajudam na acessibilidade -->
+                <nav class="nav" role="navigation" aria-label="Navegação principal">
+                    <!-- Botão hambúrguer para menu mobile -->
+                    <!-- aria-expanded informa se o menu está aberto ou fechado -->
+                    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                        <!-- Ícone hambúrguer feito com CSS -->
+                        <span class="hamburger"></span>
+                    </button>
+                    <!-- Lista de links de navegação -->
+                    <ul class="nav-menu">
+                        <!-- Links para seções da página usando âncoras (#) -->
+                        <li><a href="#jogos" class="nav-link">Jogos</a></li>
+                        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+    <!-- role="main" identifica o conteúdo principal para leitores de tela -->
+    <main class="main" role="main">
+        <div class="container">
+            
+            <!-- SEÇÃO DE INTRODUÇÃO/HERO -->
+            <!-- aria-labelledby conecta a seção com seu título -->
+            <section class="hero" aria-labelledby="hero-title">
+                <!-- Título principal da seção -->
+                <h2 id="hero-title" class="hero-title">Aprenda Programação Jogando</h2>
+                <!-- Parágrafo explicativo -->
+                <p class="hero-description">
+                    Desenvolva suas habilidades de programação através de jogos interativos e desafios práticos.
+                    Criado por alunos, para alunos.
+                </p>
+            </section>
+
+            <!-- SEÇÃO DOS JOGOS -->
+            <!-- id="jogos" permite navegação via âncora -->
+            <section class="games-section" id="jogos" aria-labelledby="games-title">
+                <!-- Título da seção -->
+                <h2 id="games-title" class="section-title">Jogos Disponíveis</h2>
+                
+                <!-- GRID DE JOGOS -->
+                <!-- role="list" informa que é uma lista de itens -->
+                <div class="games-grid" role="list">
+                    
+                    <!-- CARD DE JOGO EXTERNO - SCRATCH -->
+                    <!-- article é usado para conteúdo independente -->
+                    <!-- role="listitem" marca como item da lista -->
+                    <article class="game-card" role="listitem">
+                        <!-- Container da imagem do jogo -->
+                        <div class="game-image">
+                            <!-- Imagem usando SVG inline para não depender de arquivos externos -->
+                            <!-- loading="lazy" carrega a imagem apenas quando necessário -->
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%236366f1'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>Scratch</text></svg>" 
+                                 alt="Scratch - Programação Visual" 
+                                 loading="lazy">
+                        </div>
+                        <!-- Conteúdo textual do card -->
+                        <div class="game-content">
+                            <!-- Título do jogo -->
+                            <h3 class="game-title">Scratch</h3>
+                            <!-- Descrição do que o jogo ensina -->
+                            <p class="game-description">Aprenda lógica de programação com blocos visuais</p>
+                            <!-- Botão para jogar -->
+                            <!-- data-type="external" indica que é um link externo -->
+                            <!-- data-url contém o endereço do jogo -->
+                            <button class="game-button" 
+                                    data-type="external" 
+                                    data-url="https://scratch.mit.edu"
+                                    aria-label="Jogar Scratch">
+                                Jogar Agora
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- CARD DE JOGO INTERNO - QUIZ HTML -->
+                    <article class="game-card" role="listitem">
+                        <div class="game-image">
+                            <!-- Imagem com cor diferente para distinguir tipos de jogo -->
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%238b5cf6'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='16' font-family='Arial'>Quiz HTML</text></svg>" 
+                                 alt="Quiz HTML - Teste seus conhecimentos" 
+                                 loading="lazy">
+                        </div>
+                        <div class="game-content">
+                            <h3 class="game-title">Quiz HTML</h3>
+                            <p class="game-description">Teste seus conhecimentos sobre HTML básico</p>
+                            <!-- data-type="internal" indica que é um jogo hospedado localmente -->
+                            <!-- Será aberto em modal fullscreen -->
+                            <button class="game-button" 
+                                    data-type="internal" 
+                                    data-url="games/quiz-html/index.html"
+                                    aria-label="Jogar Quiz HTML">
+                                Jogar Agora
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- CARD DE JOGO EXTERNO - CODECADEMY -->
+                    <article class="game-card" role="listitem">
+                        <div class="game-image">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%2306b6d4'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='14' font-family='Arial'>Codecademy</text></svg>" 
+                                 alt="Codecademy - Cursos interativos" 
+                                 loading="lazy">
+                        </div>
+                        <div class="game-content">
+                            <h3 class="game-title">Codecademy</h3>
+                            <p class="game-description">Cursos interativos de programação</p>
+                            <button class="game-button" 
+                                    data-type="external" 
+                                    data-url="https://www.codecademy.com"
+                                    aria-label="Acessar Codecademy">
+                                Acessar
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- CARD PLACEHOLDER PARA NOVOS JOGOS -->
+                    <!-- Classe adicional "game-card--placeholder" para estilo diferente -->
+                    <article class="game-card game-card--placeholder" role="listitem">
+                        <div class="game-image">
+                            <!-- Imagem com borda tracejada para indicar que é placeholder -->
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23e2e8f0' stroke='%2394a3b8' stroke-width='2' stroke-dasharray='10,5'/><text x='150' y='100' text-anchor='middle' fill='%2364748b' font-size='18' font-family='Arial'>+</text></svg>" 
+                                 alt="Novo Jogo - Em breve" 
+                                 loading="lazy">
+                        </div>
+                        <div class="game-content">
+                            <h3 class="game-title">Novo Jogo</h3>
+                            <p class="game-description">Em breve! Espaço reservado para novos jogos criados pelos alunos</p>
+                            <!-- Botão desabilitado com classe especial -->
+                            <!-- disabled impede cliques -->
+                            <button class="game-button game-button--disabled" 
+                                    disabled
+                                    aria-label="Novo jogo em desenvolvimento">
+                                Em Desenvolvimento
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SEÇÃO SOBRE O PROJETO -->
+            <section class="about-section" id="sobre" aria-labelledby="about-title">
+                <h2 id="about-title" class="section-title">Sobre o DevPlay</h2>
+                <div class="about-content">
+                    <!-- Parágrafos explicativos sobre o projeto -->
+                    <p>
+                        O DevPlay é uma plataforma educativa desenvolvida para auxiliar no aprendizado de programação 
+                        e desenvolvimento de sistemas. Através de jogos interativos e desafios práticos, 
+                        os estudantes podem aplicar conceitos teóricos de forma divertida e engajante.
+                    </p>
+                    <p>
+                        Esta plataforma foi criada como projeto colaborativo pelos alunos do curso de 
+                        Desenvolvimento de Sistemas, demonstrando na prática os conhecimentos adquiridos 
+                        em HTML, CSS e JavaScript.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL PARA JOGOS INTERNOS -->
+    <!-- Modal é uma janela que aparece sobre o conteúdo principal -->
+    <!-- role="dialog" indica que é uma caixa de diálogo -->
+    <!-- aria-hidden="true" esconde do leitor de tela quando fechado -->
+    <div class="modal" id="gameModal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <!-- Overlay escuro atrás do modal -->
+        <div class="modal-overlay" aria-label="Fechar modal"></div>
+        <!-- Conteúdo principal do modal -->
+        <div class="modal-content">
+            <!-- Cabeçalho do modal com título e botão fechar -->
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title">Carregando jogo...</h3>
+                <!-- Botão X para fechar -->
+                <button class="modal-close" aria-label="Fechar jogo">
+                    <!-- &times; é o símbolo × -->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- Corpo do modal onde o jogo será carregado -->
+            <div class="modal-body">
+                <!-- iframe carrega páginas externas dentro da nossa página -->
+                <!-- allowfullscreen permite que o jogo use tela cheia se necessário -->
+                <iframe id="gameFrame" 
+                        src="" 
+                        title="Jogo"
+                        allowfullscreen>
+                </iframe>
+                <!-- Spinner de carregamento mostrado enquanto o jogo carrega -->
+                <div class="loading-spinner" aria-label="Carregando...">
+                    <!-- Círculo que gira (animação feita com CSS) -->
+                    <div class="spinner"></div>
+                    <p>Carregando jogo...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST PARA NOTIFICAÇÕES -->
+    <!-- Toast são mensagens temporárias que aparecem no canto da tela -->
+    <!-- role="alert" faz leitores de tela anunciarem a mensagem -->
+    <!-- aria-live="polite" anuncia mudanças sem interromper o usuário -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <div class="toast-content">
+            <!-- Ícone da notificação (emoji) -->
+            <span class="toast-icon"></span>
+            <!-- Texto da mensagem -->
+            <span class="toast-message"></span>
+        </div>
+        <!-- Botão para fechar a notificação -->
+        <button class="toast-close" aria-label="Fechar notificação">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <!-- role="contentinfo" identifica informações sobre a página -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Texto principal do rodapé -->
+                <p class="footer-text">
+                    Feito por alunos do curso de Desenvolvimento de Sistemas
+                </p>
+                <!-- Copyright -->
+                <p class="footer-year">
+                    © 2025 DevPlay - Todos os direitos reservados
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- Carregado no final para garantir que o HTML já foi processado -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+

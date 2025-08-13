@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!-- Declaração HTML5 - sempre a primeira linha -->
+<html lang="pt-BR">
+<!-- Idioma português brasileiro para acessibilidade -->
+
+<head>
+    <!-- Seção HEAD - metadados que não aparecem na página -->
+    
+    <!-- Codificação de caracteres para acentos -->
+    <meta charset="UTF-8">
+    
+    <!-- Configuração para responsividade mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>Quiz HTML - DevPlay</title>
+    
+    <!-- CSS INTERNO - estilos específicos deste jogo -->
+    <style>
+        /* ===== RESET BÁSICO ===== */
+        /* Remove margens e paddings padrão de todos os elementos */
+        * {
+            margin: 0;              /* Remove margem externa */
+            padding: 0;             /* Remove espaçamento interno */
+            box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+        }
+        
+        /* ===== ESTILOS DO CORPO ===== */
+        body {
+            /* Fonte do sistema para melhor performance */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Gradiente de fundo - do azul para o roxo */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;      /* Altura mínima = altura da tela */
+            display: flex;          /* Layout flexível */
+            align-items: center;    /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            padding: 20px;          /* Espaçamento interno */
+        }
+        
+        /* ===== CONTAINER PRINCIPAL DO QUIZ ===== */
+        .quiz-container {
+            background: white;           /* Fundo branco */
+            border-radius: 20px;         /* Bordas bem arredondadas */
+            padding: 40px;               /* Espaçamento interno generoso */
+            max-width: 600px;            /* Largura máxima */
+            width: 100%;                 /* Ocupa toda largura disponível */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Sombra suave */
+            text-align: center;          /* Texto centralizado */
+        }
+        
+        /* ===== CABEÇALHO DO QUIZ ===== */
+        .quiz-header {
+            margin-bottom: 30px;         /* Espaço abaixo do cabeçalho */
+        }
+        
+        /* Título principal */
+        .quiz-title {
+            font-size: 2.5rem;          /* Tamanho grande (40px) */
+            color: #333;                 /* Cor escura */
+            margin-bottom: 10px;         /* Espaço abaixo */
+        }
+        
+        /* Subtítulo explicativo */
+        .quiz-subtitle {
+            color: #666;                 /* Cor cinza */
+            font-size: 1.1rem;          /* Tamanho médio (17.6px) */
+        }
+        
+        /* ===== BARRA DE PROGRESSO ===== */
+        .progress-bar {
+            width: 100%;                 /* Largura total */
+            height: 8px;                 /* Altura da barra */
+            background: #e0e0e0;         /* Cor de fundo cinza claro */
+            border-radius: 4px;          /* Bordas arredondadas */
+            margin: 20px 0;              /* Margem vertical */
+            overflow: hidden;            /* Esconde conteúdo que sai das bordas */
+        }
+        
+        /* Preenchimento da barra de progresso */
+        .progress-fill {
+            height: 100%;                /* Altura total da barra */
+            background: linear-gradient(90deg, #667eea, #764ba2); /* Gradiente */
+            width: 0%;                   /* Começa vazia */
+            transition: width 0.3s ease; /* Transição suave ao mudar largura */
+        }
+        
+        /* ===== CONTAINER DA PERGUNTA ===== */
+        .question-container {
+            margin: 30px 0;              /* Margem vertical */
+            text-align: left;            /* Texto alinhado à esquerda */
+        }
+        
+        /* Texto da pergunta */
+        .question {
+            font-size: 1.3rem;          /* Tamanho grande (20.8px) */
+            color: #333;                 /* Cor escura */
+            margin-bottom: 20px;         /* Espaço abaixo */
+            font-weight: 600;            /* Semi-negrito */
+        }
+        
+        /* ===== OPÇÕES DE RESPOSTA ===== */
+        .options {
+            display: grid;               /* Layout em grade */
+            gap: 15px;                   /* Espaço entre opções */
+        }
+        
+        /* Cada opção de resposta */
+        .option {
+            padding: 15px 20px;          /* Espaçamento interno */
+            border: 2px solid #e0e0e0;   /* Borda cinza */
+            border-radius: 10px;         /* Bordas arredondadas */
+            cursor: pointer;             /* Cursor de clique */
+            transition: all 0.3s ease;   /* Transição suave */
+            background: #f9f9f9;         /* Fundo cinza muito claro */
+        }
+        
+        /* Efeito hover na opção */
+        .option:hover {
+            border-color: #667eea;       /* Borda azul */
+            background: #f0f4ff;         /* Fundo azul claro */
+        }
+        
+        /* Opção selecionada */
+        .option.selected {
+            border-color: #667eea;       /* Borda azul */
+            background: #667eea;         /* Fundo azul */
+            color: white;                /* Texto branco */
+        }
+        
+        /* Opção correta (mostrada após responder) */
+        .option.correct {
+            border-color: #4caf50;       /* Borda verde */
+            background: #4caf50;         /* Fundo verde */
+            color: white;                /* Texto branco */
+        }
+        
+        /* Opção incorreta (mostrada após responder) */
+        .option.incorrect {
+            border-color: #f44336;       /* Borda vermelha */
+            background: #f44336;         /* Fundo vermelho */
+            color: white;                /* Texto branco */
+        }
+        
+        /* ===== BOTÕES DO QUIZ ===== */
+        .quiz-button {
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Gradiente */
+            color: white;                /* Texto branco */
+            border: none;                /* Sem borda */
+            padding: 15px 30px;          /* Espaçamento interno */
+            border-radius: 10px;         /* Bordas arredondadas */
+            font-size: 1.1rem;           /* Tamanho médio (17.6px) */
+            font-weight: 600;            /* Semi-negrito */
+            cursor: pointer;             /* Cursor de clique */
+            transition: all 0.3s ease;   /* Transição suave */
+            margin: 20px 10px;           /* Margem ao redor */
+        }
+        
+        /* Efeito hover no botão */
+        .quiz-button:hover {
+            transform: translateY(-2px);  /* Move ligeiramente para cima */
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); /* Sombra colorida */
+        }
+        
+        /* Botão desabilitado */
+        .quiz-button:disabled {
+            opacity: 0.6;               /* Semi-transparente */
+            cursor: not-allowed;        /* Cursor de proibido */
+            transform: none;            /* Não move */
+            box-shadow: none;           /* Sem sombra */
+        }
+        
+        /* ===== CONTAINER DO RESULTADO ===== */
+        .result-container {
+            display: none;              /* Escondido por padrão */
+            text-align: center;         /* Texto centralizado */
+        }
+        
+        /* ===== PONTUAÇÃO ===== */
+        .score {
+            font-size: 3rem;           /* Tamanho muito grande (48px) */
+            font-weight: bold;          /* Negrito */
+            margin: 20px 0;             /* Margem vertical */
+        }
+        
+        /* Cores da pontuação baseadas no desempenho */
+        .score.excellent { color: #4caf50; }      /* Verde - excelente */
+        .score.good { color: #ff9800; }           /* Laranja - bom */
+        .score.needs-improvement { color: #f44336; } /* Vermelho - precisa melhorar */
+        
+        /* Feedback textual */
+        .feedback {
+            font-size: 1.2rem;         /* Tamanho médio-grande (19.2px) */
+            margin: 20px 0;             /* Margem vertical */
+            color: #666;                /* Cor cinza */
+        }
+        
+        /* ===== CLASSE UTILITÁRIA ===== */
+        .hidden {
+            display: none;              /* Esconde elemento */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        /* Estilos para telas pequenas (celulares) */
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 20px;          /* Menos padding em telas pequenas */
+            }
+            
+            .quiz-title {
+                font-size: 2rem;       /* Título menor (32px) */
+            }
+            
+            .question {
+                font-size: 1.1rem;     /* Pergunta menor (17.6px) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPAL DO QUIZ -->
+    <div class="quiz-container">
+        
+        <!-- CABEÇALHO COM TÍTULO E PROGRESSO -->
+        <div class="quiz-header">
+            <!-- Título principal com emoji -->
+            <h1 class="quiz-title">🎯 Quiz HTML</h1>
+            <!-- Subtítulo explicativo -->
+            <p class="quiz-subtitle">Teste seus conhecimentos sobre HTML básico</p>
+            
+            <!-- Barra de progresso visual -->
+            <div class="progress-bar">
+                <!-- Preenchimento da barra (controlado por JavaScript) -->
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <!-- Contador de perguntas (ex: "Pergunta 1 de 5") -->
+            <p id="questionCounter">Pergunta 1 de 5</p>
+        </div>
+        
+        <!-- CONTAINER DA PERGUNTA ATUAL -->
+        <div class="question-container" id="questionContainer">
+            <!-- Texto da pergunta (preenchido por JavaScript) -->
+            <div class="question" id="questionText"></div>
+            <!-- Container das opções de resposta (preenchido por JavaScript) -->
+            <div class="options" id="optionsContainer"></div>
+        </div>
+        
+        <!-- CONTROLES DO QUIZ -->
+        <div class="quiz-controls">
+            <!-- Botão para próxima pergunta (desabilitado até selecionar resposta) -->
+            <button class="quiz-button" id="nextButton" onclick="nextQuestion()" disabled>
+                Próxima Pergunta
+            </button>
+        </div>
+        
+        <!-- CONTAINER DO RESULTADO FINAL (escondido inicialmente) -->
+        <div class="result-container" id="resultContainer">
+            <h2>🎉 Quiz Concluído!</h2>
+            <!-- Pontuação final (preenchida por JavaScript) -->
+            <div class="score" id="finalScore"></div>
+            <!-- Feedback baseado na pontuação (preenchido por JavaScript) -->
+            <div class="feedback" id="feedback"></div>
+            
+            <!-- Botões de ação final -->
+            <button class="quiz-button" onclick="restartQuiz()">Jogar Novamente</button>
+            <!-- Botão para voltar ao DevPlay (comunica com a página pai) -->
+            <button class="quiz-button" onclick="window.parent.postMessage('closeGame', '*')">
+                Voltar ao DevPlay
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DO QUIZ -->
+    <script>
+        // ===== DADOS DO QUIZ =====
+        // Array com todas as perguntas, opções e respostas corretas
+        const questions = [
+            {
+                question: "Qual tag HTML é usada para criar um parágrafo?",
+                options: ["<paragraph>", "<p>", "<para>", "<text>"],
+                correct: 1  // Índice da resposta correta (0-based, então 1 = "<p>")
+            },
+            {
+                question: "Qual atributo é usado para especificar o endereço de um link?",
+                options: ["src", "link", "href", "url"],
+                correct: 2  // href
+            },
+            {
+                question: "Qual tag é usada para inserir uma imagem?",
+                options: ["<image>", "<img>", "<picture>", "<photo>"],
+                correct: 1  // <img>
+            },
+            {
+                question: "Qual tag define o cabeçalho principal de uma página?",
+                options: ["<header>", "<h1>", "<head>", "<title>"],
+                correct: 1  // <h1>
+            },
+            {
+                question: "Qual tag é usada para criar uma lista não ordenada?",
+                options: ["<ol>", "<list>", "<ul>", "<li>"],
+                correct: 2  // <ul>
+            }
+        ];
+        
+        // ===== VARIÁVEIS GLOBAIS =====
+        let currentQuestion = 0;    // Índice da pergunta atual
+        let score = 0;              // Pontuação do usuário
+        let selectedOption = null;  // Opção selecionada pelo usuário
+        
+        // ===== ELEMENTOS DOM =====
+        // Busca e armazena referências aos elementos HTML
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const nextButton = document.getElementById('nextButton');
+        const questionCounter = document.getElementById('questionCounter');
+        const progressFill = document.getElementById('progressFill');
+        const questionContainer = document.getElementById('questionContainer');
+        const resultContainer = document.getElementById('resultContainer');
+        const finalScore = document.getElementById('finalScore');
+        const feedback = document.getElementById('feedback');
+        
+        // ===== FUNÇÃO DE INICIALIZAÇÃO =====
+        /**
+         * Inicializa o quiz resetando todas as variáveis
+         */
+        function initQuiz() {
+            currentQuestion = 0;    // Volta para a primeira pergunta
+            score = 0;              // Zera a pontuação
+            selectedOption = null;  // Limpa seleção
+            showQuestion();         // Mostra a primeira pergunta
+        }
+        
+        // ===== FUNÇÃO PARA MOSTRAR PERGUNTA =====
+        /**
+         * Exibe a pergunta atual na tela
+         */
+        function showQuestion() {
+            // Pega os dados da pergunta atual
+            const question = questions[currentQuestion];
+            
+            // Atualiza o texto da pergunta
+            questionText.textContent = question.question;
+            
+            // Atualiza o contador (ex: "Pergunta 2 de 5")
+            questionCounter.textContent = `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+            
+            // ===== ATUALIZA BARRA DE PROGRESSO =====
+            // Calcula porcentagem de progresso
+            const progress = ((currentQuestion) / questions.length) * 100;
+            // Atualiza largura da barra
+            progressFill.style.width = progress + '%';
+            
+            // ===== LIMPA OPÇÕES ANTERIORES =====
+            optionsContainer.innerHTML = '';
+            
+            // ===== CRIA NOVAS OPÇÕES =====
+            // Para cada opção da pergunta atual
+            question.options.forEach((option, index) => {
+                // Cria elemento div para a opção
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';        // Adiciona classe CSS
+                optionElement.textContent = option;        // Define o texto
+                // Adiciona evento de clique que chama selectOption
+                optionElement.onclick = () => selectOption(index, optionElement);
+                // Adiciona a opção ao container
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // ===== RESET DO BOTÃO =====
+            nextButton.disabled = true;  // Desabilita botão até selecionar opção
+            // Muda texto do botão na última pergunta
+            nextButton.textContent = currentQuestion === questions.length - 1 ? 'Ver Resultado' : 'Próxima Pergunta';
+            selectedOption = null;       // Limpa seleção anterior
+        }
+        
+        // ===== FUNÇÃO PARA SELECIONAR OPÇÃO =====
+        /**
+         * Manipula a seleção de uma opção pelo usuário
+         * @param {number} index - Índice da opção selecionada
+         * @param {HTMLElement} element - Elemento HTML da opção
+         */
+        function selectOption(index, element) {
+            // ===== REMOVE SELEÇÃO ANTERIOR =====
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // ===== SELECIONA NOVA OPÇÃO =====
+            element.classList.add('selected');  // Adiciona classe visual
+            selectedOption = index;              // Armazena índice selecionado
+            nextButton.disabled = false;         // Habilita botão "Próxima"
+        }
+        
+        // ===== FUNÇÃO PARA PRÓXIMA PERGUNTA =====
+        /**
+         * Processa a resposta e avança para próxima pergunta ou resultado
+         */
+        function nextQuestion() {
+            // Se nenhuma opção foi selecionada, não faz nada
+            if (selectedOption === null) return;
+            
+            // Pega dados da pergunta atual
+            const question = questions[currentQuestion];
+            // Pega todas as opções na tela
+            const options = document.querySelectorAll('.option');
+            
+            // ===== MOSTRA RESPOSTA CORRETA/INCORRETA =====
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    // Marca a resposta correta em verde
+                    option.classList.add('correct');
+                } else if (index === selectedOption && index !== question.correct) {
+                    // Marca a resposta incorreta em vermelho (se foi a selecionada)
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // ===== VERIFICA SE ACERTOU =====
+            if (selectedOption === question.correct) {
+                score++; // Incrementa pontuação
+            }
+            
+            // ===== AGUARDA ANTES DE CONTINUAR =====
+            // Dá tempo para o usuário ver o resultado antes de avançar
+            setTimeout(() => {
+                currentQuestion++; // Avança para próxima pergunta
+                
+                if (currentQuestion < questions.length) {
+                    // Ainda há perguntas - mostra a próxima
+                    showQuestion();
+                } else {
+                    // Acabaram as perguntas - mostra resultado
+                    showResult();
+                }
+            }, 1500); // Aguarda 1.5 segundos
+            
+            // Desabilita botão para evitar cliques duplos
+            nextButton.disabled = true;
+        }
+        
+        // ===== FUNÇÃO PARA MOSTRAR RESULTADO =====
+        /**
+         * Exibe a tela de resultado final com pontuação e feedback
+         */
+        function showResult() {
+            // Esconde container da pergunta
+            questionContainer.classList.add('hidden');
+            // Mostra container do resultado
+            resultContainer.style.display = 'block';
+            
+            // ===== CALCULA PORCENTAGEM =====
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            // ===== EXIBE PONTUAÇÃO =====
+            finalScore.textContent = `${score}/${questions.length} (${percentage}%)`;
+            
+            // ===== DEFINE FEEDBACK BASEADO NA PONTUAÇÃO =====
+            if (percentage >= 80) {
+                // 80% ou mais - Excelente
+                finalScore.className = 'score excellent';
+                feedback.textContent = 'Excelente! Você domina HTML básico! 🌟';
+            } else if (percentage >= 60) {
+                // 60-79% - Bom
+                finalScore.className = 'score good';
+                feedback.textContent = 'Bom trabalho! Continue estudando para melhorar! 👍';
+            } else {
+                // Menos de 60% - Precisa melhorar
+                finalScore.className = 'score needs-improvement';
+                feedback.textContent = 'Precisa estudar mais HTML. Não desista! 📚';
+            }
+            
+            // ===== COMPLETA BARRA DE PROGRESSO =====
+            progressFill.style.width = '100%';
+        }
+        
+        // ===== FUNÇÃO PARA REINICIAR QUIZ =====
+        /**
+         * Reinicia o quiz do começo
+         */
+        function restartQuiz() {
+            // Mostra container da pergunta
+            questionContainer.classList.remove('hidden');
+            // Esconde container do resultado
+            resultContainer.style.display = 'none';
+            // Reinicializa o quiz
+            initQuiz();
+        }
+        
+        // ===== INICIALIZAÇÃO AUTOMÁTICA =====
+        // Quando a página termina de carregar, inicia o quiz
+        window.onload = initQuiz;
+        
+        // ===== COMUNICAÇÃO COM O DEVPLAY =====
+        // Escuta mensagens da página pai (DevPlay)
+        window.addEventListener('message', (event) => {
+            if (event.data === 'closeGame') {
+                // Pode ser usado para limpeza antes de fechar
+                console.log('Fechando jogo...');
+            }
+        });
+    </script>
+</body>
+</html>
+
