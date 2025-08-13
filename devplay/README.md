@@ -1,4 +1,4 @@
-# 🎮 DevPlay - Plataforma de Jogos para Treinar Desenvolvimento
+# 🎮 DevPlay - Plataforma de Jogos para Treinar Programação
 
 Uma plataforma educativa moderna e responsiva para aprender programação através de jogos interativos. Desenvolvida com HTML, CSS e JavaScript puro, sem dependências externas.
 
