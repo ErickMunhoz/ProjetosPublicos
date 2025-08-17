@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatizador PCI Concursos</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section { 
+            margin-bottom: 30px; 
+            padding: 20px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            background-color: #fafafa;
+        }
+        h2 { 
+            margin-top: 0; 
+            color: #34495e;
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="url"] { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button { 
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; 
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .result { 
+            background-color: #ecf0f1; 
+            padding: 15px; 
+            border: 1px solid #bdc3c7; 
+            border-radius: 5px; 
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            margin-top: 15px;
+            font-family: monospace;
+        }
+        .error {
+            background-color: #fadbd8;
+            border-color: #e74c3c;
+            color: #c0392b;
+        }
+        .success {
+            background-color: #d5f4e6;
+            border-color: #27ae60;
+            color: #1e8449;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .download-links {
+            margin-top: 15px;
+        }
+        .download-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #2e7d32;
+        }
+        .download-link:hover {
+            background-color: #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Automatizador PCI Concursos</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Automatize o download e renomeação de provas do PCI Concursos
+        </p>
+
+        <div class="section">
+            <h2>📥 Download e Renomeação de Provas</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                Cole o link da página de download do PCI Concursos para baixar e renomear automaticamente os arquivos PDF.
+            </p>
+            
+            <label for="pci-url">URL da página do PCI Concursos:</label>
+            <input type="url" id="pci-url" name="pci-url" 
+                   placeholder="https://www.pciconcursos.com.br/provas/download/..." 
+                   value="https://www.pciconcursos.com.br/provas/download/analista-area-de-apoio-especializado-tecnologia-da-informacao-desenvolvimento-de-sistemas-dpe-rs-fgv-2023">
+            
+            <button onclick="processUrl()" id="process-btn">🚀 Processar e Baixar</button>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Processando...</p>
+            </div>
+            
+            <div id="result" class="result" style="display: none;"></div>
+            <div id="download-links" class="download-links" style="display: none;"></div>
+        </div>
+
+        <div class="section">
+            <h2>ℹ️ Como usar</h2>
+            <ol>
+                <li>Acesse uma página de download do PCI Concursos</li>
+                <li>Copie a URL da página</li>
+                <li>Cole a URL no campo acima</li>
+                <li>Clique em "Processar e Baixar"</li>
+                <li>Os arquivos serão baixados e renomeados automaticamente</li>
+            </ol>
+            
+            <h3>Formato de renomeação:</h3>
+            <p style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; font-family: monospace;">
+                Cargo [Nome do Cargo] Ano [Ano] Órgão [Órgão] Instituição [Instituição] Nível [Nível] [PROVA/GABARITO]
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = '/api/pci';
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('process-btn').disabled = true;
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('download-links').style.display = 'none';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('process-btn').disabled = false;
+        }
+
+        function displayResult(message, isError = false) {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = message;
+            resultElement.className = isError ? 'result error' : 'result success';
+            resultElement.style.display = 'block';
+        }
+
+        function displayDownloadLinks(links) {
+            const linksElement = document.getElementById('download-links');
+            if (links && links.length > 0) {
+                linksElement.innerHTML = '<h3>📁 Arquivos baixados:</h3>' + 
+                    links.map(link => `<a href="${link.url}" class="download-link" download="${link.filename}">📄 ${link.filename}</a>`).join('');
+                linksElement.style.display = 'block';
+            }
+        }
+
+        async function processUrl() {
+            const url = document.getElementById('pci-url').value.trim();
+            
+            if (!url) {
+                displayResult('Por favor, insira uma URL válida.', true);
+                return;
+            }
+
+            if (!url.includes('pciconcursos.com.br')) {
+                displayResult('Por favor, insira uma URL válida do PCI Concursos.', true);
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/process`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: url })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || `Erro HTTP: ${response.status}`);
+                }
+
+                displayResult(data.message || 'Processamento concluído com sucesso!');
+                
+                if (data.downloads) {
+                    displayDownloadLinks(data.downloads);
+                }
+
+            } catch (error) {
+                displayResult(`Erro: ${error.message}`, true);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // Allow Enter key to trigger processing
+        document.getElementById('pci-url').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                processUrl();
+            }
+        });
+    </script>
+</body>
+</html>
+
