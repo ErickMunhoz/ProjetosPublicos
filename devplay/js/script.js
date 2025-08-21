@@ -346,23 +346,12 @@ class DevPlayApp {
             // Mostra notificação de que está verificando
             this.showToast(`Verificando disponibilidade de "${title}"...`, 'info');
             
-            // Verifica se o link está acessível
-            const isAccessible = await this.checkLinkAccessibility(url);
+            const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
             
-            if (isAccessible) {
-                // Link funcionando - abre em nova aba
-                const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                
-                if (newWindow) {
-                    // Sucesso
-                    this.showToast(`"${title}" aberto em nova aba!`, 'success');
-                } else {
-                    // Popup foi bloqueado pelo navegador
-                    this.showToast('Popup bloqueado. Clique no botão novamente e permita popups.', 'warning');
-                }
+            if (newWindow) {
+                this.showToast(`"${title}" aberto em nova aba!`, 'success');
             } else {
-                // Link não está funcionando
-                this.handleExternalGameError(title);
+                this.showToast('Popup bloqueado. Clique no botão novamente e permita popups.', 'warning');
             }
         } catch (error) {
             // Erro inesperado
