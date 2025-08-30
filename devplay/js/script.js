@@ -42,6 +42,13 @@ class DevPlayApp {
         this.gameFrame = null;      // Iframe onde os jogos são carregados
         this.loadingSpinner = null; // Indicador de carregamento
         
+        // Sistema de notificações
+        this.notificationButton = null;    // Botão de notificações
+        this.notificationHistory = null;   // Container do histórico
+        this.notificationBadge = null;     // Badge de contagem
+        this.notificationHistoryBody = null; // Corpo do histórico
+        this.notifications = [];           // Array de notificações
+        
         // Inicia a aplicação
         this.init();
     }
@@ -96,6 +103,12 @@ class DevPlayApp {
         
         // Busca todos os botões de jogos (exceto os desabilitados)
         this.gameButtons = document.querySelectorAll('.game-button:not(.game-button--disabled)');
+        
+        // Busca elementos do sistema de notificações
+        this.notificationButton = document.getElementById('notificationButton');
+        this.notificationHistory = document.getElementById('notificationHistory');
+        this.notificationBadge = document.getElementById('notificationBadge');
+        this.notificationHistoryBody = document.getElementById('notificationHistoryBody');
     }
     
     /**
@@ -148,6 +161,25 @@ class DevPlayApp {
             closeBtn?.addEventListener('click', () => this.hideToast());
         }
         
+        // Configura sistema de notificações
+        if (this.notificationButton) {
+            this.notificationButton.addEventListener('click', () => this.toggleNotificationHistory());
+        }
+        
+        if (this.notificationHistory) {
+            const closeBtn = this.notificationHistory.querySelector('.history-close');
+            closeBtn?.addEventListener('click', () => this.hideNotificationHistory());
+            
+            // Fecha histórico ao clicar fora dele
+            document.addEventListener('click', (e) => {
+                if (!this.notificationHistory.contains(e.target) && 
+                    !this.notificationButton.contains(e.target) &&
+                    this.notificationHistory.classList.contains('show')) {
+                    this.hideNotificationHistory();
+                }
+            });
+        }
+        
         // Scroll suave para links âncora (links que começam com #)
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => this.handleSmoothScroll(e));
@@ -155,6 +187,9 @@ class DevPlayApp {
         
         // Evento de redimensionamento da janela
         window.addEventListener('resize', () => this.handleResize());
+        
+        // Listener para mensagens dos jogos internos
+        window.addEventListener('message', (e) => this.handleGameMessage(e));
     }
     
     /**
@@ -605,6 +640,18 @@ class DevPlayApp {
     }
     
     /**
+     * Manipula mensagens dos jogos internos
+     * Recebe mensagens enviadas pelos jogos via postMessage
+     */
+    handleGameMessage(event) {
+        // Verifica se a mensagem é para fechar o jogo
+        if (event.data === 'closeGame') {
+            this.closeModal();
+            this.showToast('Jogo fechado com sucesso!', 'success');
+        }
+    }
+    
+    /**
      * Mostra toast de notificação
      * Toast são mensagens temporárias que aparecem no canto da tela
      */
@@ -630,6 +677,9 @@ class DevPlayApp {
         
         // Mostra o toast
         this.toast.classList.add('show');
+        
+        // Adiciona notificação ao histórico
+        this.addNotificationToHistory(message, type);
         
         // Auto-hide após duração especificada
         if (duration > 0) {
@@ -679,6 +729,137 @@ class DevPlayApp {
                 // Marca que o usuário já visitou
                 localStorage.setItem('devplay_visited', 'true');
             }, 1000);
+        }
+    }
+    
+    /**
+     * Adiciona notificação ao histórico
+     */
+    addNotificationToHistory(message, type) {
+        const notification = {
+            id: Date.now(),
+            message,
+            type,
+            timestamp: new Date()
+        };
+        
+        // Adiciona ao início do array
+        this.notifications.unshift(notification);
+        
+        // Mantém apenas as últimas 50 notificações
+        if (this.notifications.length > 50) {
+            this.notifications = this.notifications.slice(0, 50);
+        }
+        
+        // Atualiza o badge
+        this.updateNotificationBadge();
+        
+        // Atualiza o histórico visual
+        this.renderNotificationHistory();
+    }
+    
+    /**
+     * Atualiza o badge de contagem de notificações
+     */
+    updateNotificationBadge() {
+        if (!this.notificationBadge) return;
+        
+        const count = this.notifications.length;
+        this.notificationBadge.textContent = count;
+        
+        if (count > 0) {
+            this.notificationBadge.classList.remove('hidden');
+        } else {
+            this.notificationBadge.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Renderiza o histórico de notificações
+     */
+    renderNotificationHistory() {
+        if (!this.notificationHistoryBody) return;
+        
+        if (this.notifications.length === 0) {
+            this.notificationHistoryBody.innerHTML = '<p class="no-notifications">Nenhuma notificação ainda.</p>';
+            return;
+        }
+        
+        const notificationsHTML = this.notifications.map(notification => {
+            const timeAgo = this.getTimeAgo(notification.timestamp);
+            const icon = this.getToastIcon(notification.type);
+            
+            return `
+                <div class="notification-item ${notification.type}">
+                    <div class="notification-item-icon">${icon}</div>
+                    <div class="notification-item-content">
+                        <div class="notification-item-message">${notification.message}</div>
+                        <div class="notification-item-time">${timeAgo}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        this.notificationHistoryBody.innerHTML = notificationsHTML;
+    }
+    
+    /**
+     * Alterna visibilidade do histórico de notificações
+     */
+    toggleNotificationHistory() {
+        if (!this.notificationHistory) return;
+        
+        const isVisible = this.notificationHistory.classList.contains('show');
+        
+        if (isVisible) {
+            this.hideNotificationHistory();
+        } else {
+            this.showNotificationHistory();
+        }
+    }
+    
+    /**
+     * Mostra o histórico de notificações
+     */
+    showNotificationHistory() {
+        if (!this.notificationHistory) return;
+        
+        this.notificationHistory.classList.add('show');
+        this.notificationHistory.setAttribute('aria-hidden', 'false');
+        
+        // Renderiza o histórico atualizado
+        this.renderNotificationHistory();
+    }
+    
+    /**
+     * Esconde o histórico de notificações
+     */
+    hideNotificationHistory() {
+        if (!this.notificationHistory) return;
+        
+        this.notificationHistory.classList.remove('show');
+        this.notificationHistory.setAttribute('aria-hidden', 'true');
+    }
+    
+    /**
+     * Calcula tempo relativo (ex: "há 2 minutos")
+     */
+    getTimeAgo(timestamp) {
+        const now = new Date();
+        const diff = now - timestamp;
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        
+        if (days > 0) {
+            return `há ${days} dia${days > 1 ? 's' : ''}`;
+        } else if (hours > 0) {
+            return `há ${hours} hora${hours > 1 ? 's' : ''}`;
+        } else if (minutes > 0) {
+            return `há ${minutes} minuto${minutes > 1 ? 's' : ''}`;
+        } else {
+            return 'agora mesmo';
         }
     }
 }

@@ -162,6 +162,14 @@ body {
     gap: var(--spacing-3);        /* Espaço entre elementos */
 }
 
+/* Link do logo */
+.logo-link {
+    text-decoration: none;                /* Remove sublinhado */
+    display: inline-block;                /* Para permitir transformações */
+    border-radius: var(--radius-xl);      /* Bordas arredondadas */
+    transition: transform var(--transition-fast); /* Transição para hover */
+}
+
 /* Estilo do logo */
 .logo {
     font-size: var(--font-size-2xl);     /* Tamanho da fonte */
@@ -176,8 +184,8 @@ body {
     transition: transform var(--transition-fast); /* Transição para hover */
 }
 
-/* Efeito hover no logo */
-.logo:hover {
+/* Efeito hover no link do logo */
+.logo-link:hover {
     transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
 }
 
@@ -226,6 +234,7 @@ body {
 .nav {
     display: flex;        /* Layout flexível */
     align-items: center;  /* Alinha verticalmente */
+    gap: var(--spacing-3); /* Espaço entre elementos */
 }
 
 /* Botão hambúrguer (menu mobile) */
@@ -252,6 +261,7 @@ body {
     background: var(--text-primary);        /* Cor */
     position: relative;                      /* Para posicionar as outras linhas */
     transition: all var(--transition-normal); /* Transição */
+    margin: 0 auto;                         /* Centraliza horizontalmente */
 }
 
 /* Linhas superior e inferior do hambúrguer */
@@ -259,6 +269,7 @@ body {
 .hamburger::after {
     content: '';                            /* Conteúdo vazio (necessário para ::before/::after) */
     position: absolute;                     /* Posicionamento absoluto */
+    left: 0;                               /* Alinha à esquerda do elemento pai */
     width: 100%;                           /* Mesma largura */
     height: 2px;                           /* Mesma altura */
     background: var(--text-primary);       /* Mesma cor */
@@ -285,7 +296,8 @@ body {
     border-radius: var(--radius-lg);       /* Bordas arredondadas */
     box-shadow: var(--shadow-lg);          /* Sombra */
     padding: var(--spacing-4);             /* Espaçamento interno */
-    min-width: 200px;                      /* Largura mínima */
+    width: max-content;                    /* Largura se adapta ao conteúdo */
+    min-width: auto;                       /* Remove largura mínima fixa */
     opacity: 0;                            /* Invisível por padrão */
     visibility: hidden;                     /* Escondido */
     transform: translateY(-10px);           /* Deslocado para cima */
@@ -325,10 +337,78 @@ body {
     color: var(--primary);                 /* Cor primária */
 }
 
+/* ===== BOTÃO DE NOTIFICAÇÕES ===== */
+.notification-button {
+    background: none;                       /* Sem fundo */
+    border: none;                          /* Sem borda */
+    cursor: pointer;                       /* Cursor de clique */
+    padding: var(--spacing-2) var(--spacing-3); /* Padding igual aos links */
+    border-radius: var(--radius-md);       /* Bordas arredondadas */
+    transition: all var(--transition-fast); /* Transição */
+    font-size: var(--font-size-base);     /* Tamanho da fonte igual aos links */
+    position: relative;                    /* Para posicionar o badge */
+    display: block;                        /* Bloco igual aos links */
+    width: 100%;                          /* Largura total no mobile */
+    text-align: left;                     /* Alinha texto à esquerda */
+    outline: none;                         /* Remove outline padrão */
+}
+
+.notification-button:hover {
+    background-color: var(--surface-hover); /* Fundo claro no hover */
+    color: var(--primary);                 /* Cor primária igual aos links */
+}
+
+.notification-button:focus {
+    background-color: var(--surface-hover); /* Fundo claro no focus */
+    color: var(--primary);                 /* Cor primária igual aos links */
+    outline: 2px solid var(--primary);     /* Contorno roxo */
+    outline-offset: -2px;                  /* Contorno interno */
+}
+
+/* Container do conteúdo do botão */
+.notification-button-content {
+    display: flex;                         /* Layout flexível */
+    align-items: center;                   /* Alinha verticalmente */
+    gap: 0px;                              /* Remove gap para máxima proximidade */
+}
+
+/* Badge de contagem */
+.notification-badge {
+    background: var(--error);              /* Fundo vermelho */
+    color: white;                          /* Texto branco */
+    border-radius: 50%;                    /* Círculo perfeito */
+    font-size: var(--font-size-xs);       /* Fonte pequena */
+    font-weight: 600;                      /* Semi-negrito */
+    min-width: 16px;                       /* Largura mínima menor */
+    height: 16px;                          /* Altura menor */
+    display: flex;                         /* Layout flexível */
+    align-items: center;                   /* Centraliza verticalmente */
+    justify-content: center;               /* Centraliza horizontalmente */
+    line-height: 1;                       /* Altura da linha */
+    margin-left: -4px;                    /* Sobrepõe mais o sino */
+    position: relative;                    /* Para ficar acima do sino */
+    z-index: 1;                           /* Fica acima do sino */
+}
+
+.notification-badge.hidden {
+    display: none;                         /* Esconde quando não há notificações */
+}
+
 /* Responsividade da navegação */
 @media (min-width: 768px) {
     .nav-toggle {
         display: none; /* Esconde botão hambúrguer em tablets+ */
+    }
+    
+    .notification-button {
+        width: auto;                        /* Largura automática no desktop */
+        padding: var(--spacing-2);          /* Padding menor no desktop */
+        justify-content: center;            /* Centraliza no desktop */
+    }
+    
+    .notification-button-content {
+        padding: 0;                         /* Remove padding no desktop */
+        justify-content: center;            /* Centraliza no desktop */
     }
     
     .nav-menu {
@@ -359,7 +439,7 @@ body {
 .hero {
     text-align: center;                    /* Texto centralizado */
     padding: var(--spacing-16) 0 var(--spacing-12); /* Espaçamento vertical */
-    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%); /* Gradiente sutil */
+    background: var(--background);         /* Mesmo fundo da página */
 }
 
 /* Título principal */
@@ -755,12 +835,16 @@ body {
     max-width: 400px;                  /* Largura máxima */
     z-index: 3000;                     /* Acima de tudo */
     transform: translateX(100%);        /* Fora da tela à direita */
-    transition: transform var(--transition-normal); /* Transição */
+    opacity: 0;                         /* Totalmente transparente */
+    visibility: hidden;                 /* Garante que não ocupe espaço */
+    transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal); /* Transição */
 }
 
 /* Toast visível */
 .toast.show {
     transform: translateX(0);           /* Posição normal */
+    opacity: 1;                         /* Totalmente visível */
+    visibility: visible;                /* Visível */
 }
 
 /* Variações de cor do toast */
@@ -943,5 +1027,196 @@ select:focus {
 @keyframes highlight-pulse {
     0%, 100% { transform: scale(1); }    /* Tamanho normal */
     50% { transform: scale(1.02); }      /* Ligeiramente maior */
+}
+
+
+
+/* ===== BOTÃO DE NOTIFICAÇÃO ===== */
+.notification-button {
+    background: none;                   /* Sem fundo */
+    color: var(--text-primary);        /* Cor do texto */
+    border: none;                      /* Sem borda */
+    border-radius: var(--radius-md);   /* Bordas arredondadas */
+    padding: var(--spacing-2) var(--spacing-3); /* Espaçamento interno */
+    font-size: var(--font-size-base); /* Tamanho da fonte normal */
+    cursor: pointer;                   /* Cursor de clique */
+    transition: all var(--transition-fast); /* Transição suave */
+    display: flex;                     /* Layout flexível */
+    align-items: center;               /* Centraliza verticalmente */
+    justify-content: center;           /* Centraliza horizontalmente */
+    position: relative;                /* Para posicionamento da badge */
+}
+
+/* Hover no botão de notificação */
+.notification-button:hover {
+    background-color: var(--surface-hover); /* Fundo claro */
+    color: var(--primary);                 /* Cor primária */
+}
+
+/* Badge de contagem de notificações */
+.notification-badge {
+    position: absolute;                /* Posicionamento absoluto */
+    top: -5px;                        /* Acima do botão */
+    right: -5px;                      /* À direita do botão */
+    background: var(--error);         /* Fundo vermelho */
+    color: white;                     /* Texto branco */
+    border-radius: 50%;               /* Círculo */
+    width: 20px;                      /* Largura */
+    height: 20px;                     /* Altura */
+    font-size: var(--font-size-xs);   /* Fonte pequena */
+    display: flex;                    /* Para centralizar */
+    align-items: center;              /* Centraliza verticalmente */
+    justify-content: center;          /* Centraliza horizontalmente */
+    font-weight: 700;                 /* Negrito */
+    min-width: 20px;                  /* Largura mínima */
+}
+
+/* Esconde badge quando não há notificações */
+.notification-badge.hidden {
+    display: none;
+}
+
+/* ===== HISTÓRICO DE NOTIFICAÇÕES ===== */
+.notification-history {
+    position: fixed;                  /* Fixo na tela */
+    top: 80px;                       /* Abaixo do botão */
+    right: var(--spacing-4);         /* Margem direita */
+    width: 350px;                    /* Largura fixa */
+    max-height: 400px;               /* Altura máxima */
+    background: var(--surface);      /* Fundo branco */
+    border: 1px solid var(--border); /* Borda */
+    border-radius: var(--radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--shadow-xl);    /* Sombra grande */
+    z-index: 2500;                   /* Acima do botão */
+    opacity: 0;                      /* Invisível por padrão */
+    visibility: hidden;              /* Escondido */
+    transform: translateY(-10px);     /* Deslocado para cima */
+    transition: all var(--transition-normal); /* Transição */
+}
+
+/* Histórico visível */
+.notification-history.show {
+    opacity: 1;                      /* Visível */
+    visibility: visible;             /* Mostrado */
+    transform: translateY(0);        /* Posição normal */
+}
+
+/* Cabeçalho do histórico */
+.notification-history-header {
+    display: flex;                   /* Layout flexível */
+    justify-content: space-between;  /* Espaça elementos */
+    align-items: center;             /* Alinha verticalmente */
+    padding: var(--spacing-4);       /* Espaçamento interno */
+    border-bottom: 1px solid var(--border); /* Borda inferior */
+}
+
+/* Título do histórico */
+.notification-history-header h3 {
+    margin: 0;                       /* Remove margem */
+    font-size: var(--font-size-lg);  /* Tamanho grande */
+    color: var(--text-primary);     /* Cor primária */
+}
+
+/* Botão de fechar histórico */
+.history-close {
+    background: none;                /* Sem fundo */
+    border: none;                    /* Sem borda */
+    font-size: var(--font-size-xl);  /* Tamanho grande */
+    color: var(--text-secondary);   /* Cor secundária */
+    cursor: pointer;                 /* Cursor de clique */
+    padding: var(--spacing-1);       /* Espaçamento pequeno */
+    border-radius: var(--radius-sm); /* Bordas arredondadas */
+    transition: all var(--transition-fast); /* Transição */
+}
+
+/* Hover no botão de fechar */
+.history-close:hover {
+    background: var(--surface-hover); /* Fundo claro */
+    color: var(--text-primary);      /* Cor primária */
+}
+
+/* Corpo do histórico */
+.notification-history-body {
+    max-height: 300px;               /* Altura máxima */
+    overflow-y: auto;                /* Scroll vertical */
+    padding: var(--spacing-2);       /* Espaçamento interno */
+}
+
+/* Item de notificação no histórico */
+.notification-item {
+    display: flex;                   /* Layout flexível */
+    align-items: flex-start;         /* Alinha no topo */
+    gap: var(--spacing-3);           /* Espaço entre elementos */
+    padding: var(--spacing-3);       /* Espaçamento interno */
+    border-radius: var(--radius-md); /* Bordas arredondadas */
+    margin-bottom: var(--spacing-2); /* Margem inferior */
+    transition: background-color var(--transition-fast); /* Transição */
+}
+
+/* Hover no item de notificação */
+.notification-item:hover {
+    background: var(--surface-hover); /* Fundo claro */
+}
+
+/* Ícone do item de notificação */
+.notification-item-icon {
+    font-size: var(--font-size-lg);  /* Tamanho grande */
+    flex-shrink: 0;                  /* Não encolhe */
+}
+
+/* Conteúdo do item de notificação */
+.notification-item-content {
+    flex: 1;                         /* Ocupa espaço restante */
+}
+
+/* Mensagem do item */
+.notification-item-message {
+    font-size: var(--font-size-sm);  /* Tamanho pequeno */
+    color: var(--text-primary);     /* Cor primária */
+    margin-bottom: var(--spacing-1); /* Margem inferior */
+}
+
+/* Timestamp do item */
+.notification-item-time {
+    font-size: var(--font-size-xs);  /* Tamanho muito pequeno */
+    color: var(--text-muted);       /* Cor clara */
+}
+
+/* Mensagem quando não há notificações */
+.no-notifications {
+    text-align: center;              /* Centralizado */
+    color: var(--text-secondary);   /* Cor secundária */
+    font-style: italic;              /* Itálico */
+    padding: var(--spacing-8);       /* Espaçamento grande */
+}
+
+/* Variações de cor para diferentes tipos de notificação */
+.notification-item.error .notification-item-icon {
+    color: var(--error);             /* Vermelho */
+}
+
+.notification-item.success .notification-item-icon {
+    color: var(--success);           /* Verde */
+}
+
+.notification-item.warning .notification-item-icon {
+    color: var(--warning);           /* Amarelo */
+}
+
+.notification-item.info .notification-item-icon {
+    color: var(--accent);            /* Ciano */
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .notification-history {
+        width: calc(100vw - 2 * var(--spacing-4)); /* Largura responsiva */
+        right: var(--spacing-4);     /* Margem direita */
+        left: var(--spacing-4);      /* Margem esquerda */
+    }
+    
+    .notification-button {
+        right: var(--spacing-4);     /* Margem direita */
+    }
 }
 

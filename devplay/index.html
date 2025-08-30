@@ -4,6 +4,10 @@
 <!-- Tag raiz do HTML com idioma português brasileiro para acessibilidade -->
 
 <head>
+    <!-- script para ativar recursos de acessibilidade vindas do site UserWay -->
+     <!-- https://manage.userway.org/widget/my-sites/p/1 -->
+    <script src="https://cdn.userway.org/widget.js" data-account="9Htbp7aBd8"></script>
+
     <!-- Seção HEAD contém metadados que não aparecem na página, mas são importantes para o navegador -->
     
     <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
@@ -45,7 +49,9 @@
                 <!-- SEÇÃO DO LOGO E NOME -->
                 <div class="logo-section">
                     <!-- Logo usando emoji (funciona em todos os dispositivos) -->
-                    <div class="logo" aria-label="DevPlay Logo">🎮</div>
+                    <a href="index.html" class="logo-link" aria-label="Voltar à página inicial">
+                        <div class="logo" aria-label="DevPlay Logo">🎮</div>
+                    </a>
                     <!-- Título principal do site -->
                     <h1 class="site-title">DevPlay</h1>
                     <!-- Subtítulo explicativo -->
@@ -61,11 +67,19 @@
                         <!-- Ícone hambúrguer feito com CSS -->
                         <span class="hamburger"></span>
                     </button>
+                    
                     <!-- Lista de links de navegação -->
                     <ul class="nav-menu">
                         <!-- Links para seções da página usando âncoras (#) -->
                         <li><a href="#jogos" class="nav-link">Jogos</a></li>
                         <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                        <li>
+                            <button class="notification-button" id="notificationButton" aria-label="Ver notificações">
+                                <span class="notification-button-content">
+                                    🔔<span class="notification-badge" id="notificationBadge">0</span>
+                                </span>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -268,6 +282,19 @@
         </button>
     </div>
 
+
+    <!-- Histórico de Notificações -->
+    <div class="notification-history" id="notificationHistory" aria-hidden="true">
+        <div class="notification-history-header">
+            <h3>Notificações</h3>
+            <button class="history-close" aria-label="Fechar histórico">&times;</button>
+        </div>
+        <div class="notification-history-body" id="notificationHistoryBody">
+            <!-- Notificações serão inseridas aqui pelo JavaScript -->
+            <p class="no-notifications">Nenhuma notificação ainda.</p>
+        </div>
+    </div>
+
     <!-- RODAPÉ DA PÁGINA -->
     <!-- role="contentinfo" identifica informações sobre a página -->
     <footer class="footer" role="contentinfo">
@@ -285,9 +312,20 @@
         </div>
     </footer>
 
+    <!-- VLibras Widget - Acessibilidade em Libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <!-- JAVASCRIPT -->
     <!-- Carregado no final para garantir que o HTML já foi processado -->
     <script src="js/script.js"></script>
 </body>
 </html>
-
