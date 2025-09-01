@@ -325,7 +325,7 @@ getToastIcon(type) {
 
 ### 3. Navegação por Teclado
 
-O DevPlay possui navegação completa por teclado para acessibilidade:
+O DevPlay deve possuir navegação completa por teclado para acessibilidade:
 
 **Controles Principais:**
 - **Tab/Shift+Tab:** Navega entre elementos
@@ -350,7 +350,7 @@ O DevPlay possui navegação completa por teclado para acessibilidade:
 **UserWay (Ferramentas de Acessibilidade):**
 - Widget com recursos como zoom, contraste, navegação
 - Ativado automaticamente
-- Personalizável através do painel UserWay
+- Personalizável através do painel UserWay no site (link no código)
 
 ## 🐛 Como Debugar (Encontrar Erros)
 
