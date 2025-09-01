@@ -10,7 +10,6 @@ Uma plataforma educativa moderna e responsiva para aprender programação atrav�
 - **Acessibilidade**: Navegação por teclado, ARIA labels e focus management
 - **Notificações**: Sistema de toast para feedback do usuário
 - **Performance**: Carregamento rápido e animações suaves
-- **Offline Ready**: Funciona sem dependências externas
 
 ## 🚀 Como Usar
 
@@ -165,7 +164,7 @@ A plataforma é otimizada para:
 
 ## 🎓 Exemplos de Jogos
 
-### Quiz HTML (Incluído)
+### Quiz HTML (Incluído Protótipo de Demonstração)
 Um quiz interativo sobre HTML básico com:
 - 5 perguntas de múltipla escolha
 - Feedback visual imediato
@@ -178,7 +177,7 @@ Um quiz interativo sobre HTML básico com:
 - Jogo da Memória com conceitos de programação
 - Simulador de Git
 - Desafios de lógica
-- Code Golf challenges
+- Desafio de Golf com Código
 
 ## 🤝 Contribuindo
 
@@ -217,7 +216,6 @@ Se encontrar problemas ou tiver sugestões:
 - [ ] Mais jogos educativos
 - [ ] Integração com APIs educacionais
 - [ ] Sistema de conquistas
-- [ ] Modo offline completo
 - [ ] PWA (Progressive Web App)
 - [ ] Multiplayer básico
 
