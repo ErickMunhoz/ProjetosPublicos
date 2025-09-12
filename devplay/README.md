@@ -218,6 +218,7 @@ Se encontrar problemas ou tiver sugestões:
 - [ ] Sistema de conquistas
 - [ ] PWA (Progressive Web App)
 - [ ] Multiplayer básico
+- [ ] Logotipo e Linguagem Visual
 
 ---
 
