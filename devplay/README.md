@@ -193,7 +193,7 @@ Este projeto é open source e está disponível sob a [MIT License](LICENSE).
 
 ## 👥 Créditos
 
-Desenvolvido com ❤️ por alunos do curso de Desenvolvimento de Sistemas.
+Desenvolvido por alunos do curso de Desenvolvimento de Sistemas.
 
 ### Tecnologias Utilizadas
 - HTML5 semântico
