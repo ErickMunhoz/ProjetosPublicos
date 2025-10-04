@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Dashboard</h2>
+                <div class="navbar-user">
+                    <span>Olá, Admin!</span>
+                    <img src="https://via.placeholder.com/30" alt="User Avatar" class="user-avatar">
+                </div>
+            </header>
+            <section class="dashboard-metrics">
+                <div class="metric-card">
+                    <h3>Devoluções Pendentes</h3>
+                    <p>15</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Devoluções Aprovadas</h3>
+                    <p>85</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Total de Vendas</h3>
+                    <p>R$ 120.000</p>
+                </div>
+            </section>
+            <section class="dashboard-charts">
+                <div class="chart-card">
+                    <h3>Devoluções por Mês</h3>
+                    <img src="https://via.placeholder.com/400x200?text=Gráfico+de+Barras" alt="Gráfico de Devoluções por Mês">
+                </div>
+                <div class="chart-card">
+                    <h3>Status de Devoluções</h3>
+                    <img src="https://via.placeholder.com/400x200?text=Gráfico+de+Pizza" alt="Gráfico de Status de Devoluções">
+                </div>
+            </section>
+            <section class="dashboard-alerts">
+                <h3>Alertas e Ações Rápidas</h3>
+                <ul>
+                    <li><a href="devolucoes.html?status=pendente">10 novas solicitações de devolução pendentes.</a></li>
+                    <li><a href="email_atendimento.html">5 solicitações de e-mail com dados incompletos.</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

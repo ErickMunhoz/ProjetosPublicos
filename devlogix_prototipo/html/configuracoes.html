@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Configurações</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html" class="active">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Configurações do Sistema</h2>
+            </header>
+            <section class="settings-layout">
+                <nav class="settings-menu">
+                    <ul>
+                        <li><a href="#" class="active">Gerenciamento de Usuários</a></li>
+                        <li><a href="#">Regras de Negócio</a></li>
+                        <li><a href="#">Integrações</a></li>
+                        <li><a href="#">Configurações Gerais</a></li>
+                    </ul>
+                </nav>
+                <div class="settings-content">
+                    <h3>Gerenciamento de Usuários</h3>
+                    <button class="btn-primary">Adicionar Novo Usuário</button>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Nível de Acesso</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Admin Geral</td>
+                                <td>admin@devlogix.com</td>
+                                <td>Administrador</td>
+                                <td><a href="#">Editar</a> | <a href="#">Remover</a></td>
+                            </tr>
+                            <tr>
+                                <td>Atendente 01</td>
+                                <td>atendente01@devlogix.com</td>
+                                <td>Atendimento</td>
+                                <td><a href="#">Editar</a> | <a href="#">Remover</a></td>
+                            </tr>
+                            <!-- Mais usuários -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

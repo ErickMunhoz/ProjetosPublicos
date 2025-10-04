@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Gerenciamento de Clientes</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html" class="active">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Gerenciamento de Clientes</h2>
+                <div class="navbar-actions">
+                    <button class="btn-primary">Novo Cliente</button>
+                </div>
+            </header>
+            <section class="filters-section">
+                <input type="text" placeholder="Buscar por nome, e-mail, CPF/CNPJ...">
+                <select>
+                    <option value="">Status</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </section>
+            <section class="data-table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>CPF/CNPJ</th>
+                            <th>Telefone</th>
+                            <th>Data de Cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>joao.silva@email.com</td>
+                            <td>123.456.789-00</td>
+                            <td>(11) 98765-4321</td>
+                            <td>2024-01-15</td>
+                            <td><a href="#">Ver Detalhes</a> | <a href="#">Editar</a></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Souza</td>
+                            <td>maria.souza@email.com</td>
+                            <td>987.654.321-00</td>
+                            <td>(11) 91234-5678</td>
+                            <td>2024-02-01</td>
+                            <td><a href="#">Ver Detalhes</a> | <a href="#">Editar</a></td>
+                        </tr>
+                        <!-- Mais linhas de clientes -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

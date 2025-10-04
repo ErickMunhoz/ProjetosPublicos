@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Relatórios</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html" class="active">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Relatórios e Análises</h2>
+            </header>
+            <section class="reports-layout">
+                <nav class="reports-menu">
+                    <ul>
+                        <li><a href="#" class="active">Relatório de Devoluções</a></li>
+                        <li><a href="#">Relatório de Vendas</a></li>
+                        <li><a href="#">Relatório de Clientes</a></li>
+                        <li><a href="#">Relatório de Eficiência Logística</a></li>
+                    </ul>
+                </nav>
+                <div class="reports-content">
+                    <h3>Relatório de Devoluções (Geral)</h3>
+                    <div class="filters-section">
+                        <select>
+                            <option value="">Período</option>
+                            <option value="ultimos_7_dias">Últimos 7 dias</option>
+                            <option value="ultimos_30_dias">Últimos 30 dias</option>
+                            <option value="este_ano">Este Ano</option>
+                        </select>
+                        <select>
+                            <option value="">Status</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="aprovada">Aprovada</option>
+                            <option value="rejeitada">Rejeitada</option>
+                        </select>
+                        <button class="btn-secondary">Gerar Relatório</button>
+                        <button class="btn-secondary">Exportar CSV</button>
+                    </div>
+                    <div class="report-summary">
+                        <div class="metric-card">
+                            <h3>Total de Devoluções</h3>
+                            <p>120</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Taxa de Devolução</h3>
+                            <p>15%</p>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Devoluções por Motivo</h3>
+                        <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Pizza+Motivos+Devolução" alt="Gráfico de Devoluções por Motivo">
+                    </div>
+                    <div class="chart-card">
+                        <h3>Tendência de Devoluções</h3>
+                        <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Linhas+Tendência+Devolução" alt="Gráfico de Tendência de Devoluções">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

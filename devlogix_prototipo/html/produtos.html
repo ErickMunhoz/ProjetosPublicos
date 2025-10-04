@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Gerenciamento de Produtos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html" class="active">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Gerenciamento de Produtos</h2>
+                <div class="navbar-actions">
+                    <button class="btn-primary">Novo Produto</button>
+                </div>
+            </header>
+            <section class="filters-section">
+                <input type="text" placeholder="Buscar por nome, SKU, categoria...">
+                <select>
+                    <option value="">Status</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+                <select>
+                    <option value="">Categoria</option>
+                    <option value="eletronicos">Eletrônicos</option>
+                    <option value="roupas">Roupas</option>
+                </select>
+            </section>
+            <section class="data-table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>SKU</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Produto" class="product-thumbnail"></td>
+                            <td>Camiseta Esportiva</td>
+                            <td>TSHIRT001</td>
+                            <td>R$ 79,90</td>
+                            <td>150</td>
+                            <td>Ativo</td>
+                            <td><a href="#">Ver Detalhes</a> | <a href="#">Editar</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Produto" class="product-thumbnail"></td>
+                            <td>Tênis de Corrida</td>
+                            <td>TENIS002</td>
+                            <td>R$ 299,90</td>
+                            <td>80</td>
+                            <td>Ativo</td>
+                            <td><a href="#">Ver Detalhes</a> | <a href="#">Editar</a></td>
+                        </tr>
+                        <!-- Mais linhas de produtos -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

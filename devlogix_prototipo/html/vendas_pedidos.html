@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Gestão de Vendas e Pedidos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html" class="active">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Gestão de Vendas e Pedidos</h2>
+                <div class="navbar-actions">
+                    <button class="btn-primary">Novo Pedido</button>
+                </div>
+            </header>
+            <section class="filters-section">
+                <input type="text" placeholder="Buscar por pedido, cliente, produto...">
+                <select>
+                    <option value="">Status</option>
+                    <option value="em_processamento">Em Processamento</option>
+                    <option value="enviado">Enviado</option>
+                    <option value="entregue">Entregue</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+                <input type="date">
+            </section>
+            <section class="data-table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Número do Pedido</th>
+                            <th>Cliente</th>
+                            <th>Data do Pedido</th>
+                            <th>Valor Total</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#12345</td>
+                            <td>João Silva</td>
+                            <td>2025-09-20</td>
+                            <td>R$ 150,00</td>
+                            <td>Entregue</td>
+                            <td><a href="#">Ver Detalhes</a> | <a href="#">Registrar Devolução</a></td>
+                        </tr>
+                        <tr>
+                            <td>#12346</td>
+                            <td>Maria Souza</td>
+                            <td>2025-09-22</td>
+                            <td>R$ 230,00</td>
+                            <td>Em Processamento</td>
+                            <td><a href="#">Ver Detalhes</a></td>
+                        </tr>
+                        <!-- Mais linhas de pedidos -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

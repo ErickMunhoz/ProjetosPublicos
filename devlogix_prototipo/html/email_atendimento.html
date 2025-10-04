@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Cadastro Manual de Devolução</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/LogoStilFit-removebg-preview.png" alt="StilFitrmovebg Logo" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="vendas_pedidos.html">Pedidos</a></li>
+                    <li><a href="devolucoes.html">Devoluções</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: Admin</span>
+                <a href="login.html">Sair</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="navbar">
+                <h2>Cadastro Manual de Solicitação de Devolução</h2>
+            </header>
+            <section class="form-section">
+                <form>
+                    <h3>Dados do Pedido</h3>
+                    <div class="input-group">
+                        <label for="numeroPedido">Número do Pedido</label>
+                        <input type="text" id="numeroPedido" name="numeroPedido" placeholder="Ex: #12345">
+                    </div>
+                    <div class="input-group">
+                        <label for="notaFiscal">Nota Fiscal</label>
+                        <input type="file" id="notaFiscal" name="notaFiscal">
+                        <p class="help-text">Ou preencha os dados da nota fiscal manualmente.</p>
+                    </div>
+
+                    <h3>Dados do Cliente</h3>
+                    <div class="input-group">
+                        <label for="cpfCnpj">CPF/CNPJ</label>
+                        <input type="text" id="cpfCnpj" name="cpfCnpj" placeholder="Buscar cliente existente">
+                    </div>
+                    <div class="input-group">
+                        <label for="nomeCliente">Nome Completo</label>
+                        <input type="text" id="nomeCliente" name="nomeCliente">
+                    </div>
+                    <div class="input-group">
+                        <label for="emailCliente">E-mail</label>
+                        <input type="email" id="emailCliente" name="emailCliente">
+                    </div>
+                    <div class="input-group">
+                        <label for="telefoneCliente">Telefone</label>
+                        <input type="tel" id="telefoneCliente" name="telefoneCliente">
+                    </div>
+                    <div class="input-group">
+                        <label for="enderecoCliente">Endereço</label>
+                        <input type="text" id="enderecoCliente" name="enderecoCliente">
+                    </div>
+
+                    <h3>Dados do Produto</h3>
+                    <div class="input-group">
+                        <label for="produto">Produto</label>
+                        <select id="produto" name="produto">
+                            <option value="">Selecione um produto</option>
+                            <!-- Opções de produtos vinculados ao pedido -->
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="fotosProduto">Fotos do Produto</label>
+                        <input type="file" id="fotosProduto" name="fotosProduto" multiple>
+                    </div>
+
+                    <h3>Detalhes da Devolução</h3>
+                    <div class="input-group">
+                        <label for="motivoDevolucao">Motivo da Devolução</label>
+                        <select id="motivoDevolucao" name="motivoDevolucao">
+                            <option value="">Selecione o motivo</option>
+                            <option value="tamanho_errado">Tamanho errado</option>
+                            <option value="defeito">Defeito</option>
+                            <option value="nao_gostei">Não gostei</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Tipo de Solicitação</label>
+                        <div class="radio-group">
+                            <input type="radio" id="reembolso" name="tipoSolicitacao" value="reembolso">
+                            <label for="reembolso">Reembolso</label>
+                            <input type="radio" id="troca" name="tipoSolicitacao" value="troca">
+                            <label for="troca">Troca</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="observacoes">Observações Adicionais</label>
+                        <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Registrar Devolução</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

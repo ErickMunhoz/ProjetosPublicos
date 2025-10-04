@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLogix - Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <video autoplay muted loop id="background-video">
+            <source src="../assets/loading_animation.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+        
+        <div class="login-box">
+            <img src="../assets/LogoDevLogix.png" alt="DevLogix Logo" class="logo">
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">E-mail/Usuário</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu e-mail ou usuário">
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha">
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Aceitar qualquer credencial e redirecionar para a animação de carregamento
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    
+                    // Verificar se os campos não estão vazios
+                    if (email.trim() === '' || password.trim() === '') {
+                        alert('Por favor, preencha todos os campos.');
+                        return;
+                    }
+                    
+                    // Redirecionar para a página de carregamento
+                    window.location.href = 'loading.html';
+                });
+            </script>
+            <p class="copyright">&copy; 2025 DevLogix. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
