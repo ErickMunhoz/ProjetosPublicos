@@ -69,17 +69,21 @@
                             <p>15%</p>
                         </div>
                     </div>
-                    <div class="chart-card">
-                        <h3>Devoluções por Motivo</h3>
-                        <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Pizza+Motivos+Devolução" alt="Gráfico de Devoluções por Motivo">
-                    </div>
-                    <div class="chart-card">
-                        <h3>Tendência de Devoluções</h3>
-                        <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Linhas+Tendência+Devolução" alt="Gráfico de Tendência de Devoluções">
+                    <div class="charts-row">
+                        <div class="chart-card">
+                            <h3>Devoluções por Motivo</h3>
+                            <div id="pieChart2"></div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Tendência de Devoluções</h3>
+                            <div id="lineChart2"></div>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../js/dashboard-charts.js"></script>
 </body>
 </html>
