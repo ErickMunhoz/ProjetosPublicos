@@ -490,6 +490,40 @@ table td a {
     margin-bottom: 30px;
 }
 
+.proposta-devlogix {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  line-height: 1.7;
+  color: #333;
+}
+
+.proposta-devlogix h2, 
+.proposta-devlogix h3, 
+.proposta-devlogix h4 {
+  color: #0a3d62;
+  margin-top: 20px;
+}
+
+.proposta-devlogix ul, 
+.proposta-devlogix ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.proposta-devlogix li {
+  margin-bottom: 5px;
+}
+
+.proposta-logo {
+  display: block;
+  margin: 0 auto 25px;
+  max-width: 220px;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .app-container {

@@ -27,6 +27,13 @@
     ]
   };
 
+
+// document.getElementById("proposta-btn").addEventListener("click", function (e) {
+// e.preventDefault();
+// const content = document.getElementById("proposta-content");
+// content.style.display = content.style.display === "none" ? "block" : "none";
+// });
+
   function drawPieChart(elementId, pieData, customWidth, customHeight) {
     var containerEl = document.getElementById(elementId),
         width = customWidth || containerEl.clientWidth || 300,
