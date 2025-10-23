@@ -1,2 +1,6 @@
 Byte_Burger
-Bem-vindo à falha no teu apetite. Hackeie o menu e prove o código na lanchonete digital onde cada mordida é uma referência jornada do escolhido e cada convidado faz parte da nossa família de hackers. Mergulhe em pratos icónicos, troque histórias com outros fãs. Pronto para se juntar à resistência na mesa? A Matrix te chama, sente-se na cadeira e conecte-se com sua equipe.
+Bem-vindo à falha no teu apetite. 
+Hackeie o menu e prove o código na lanchonete digital onde cada mordida é uma referência a jornada do escolhido, 
+e cada convidado faz parte da nossa família de hackers. Mergulhe em pratos icónicos, troque histórias com outros fãs. 
+Pronto para se juntar à resistência na mesa? A Matrix te chama, sente-se na cadeira e conecte-se com sua equipe.
+
