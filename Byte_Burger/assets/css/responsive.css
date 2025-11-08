@@ -1,0 +1,157 @@
+/* ==========================================
+   BYTE_BURGER - RESPONSIVE CSS
+   Media queries para mobile, tablet e desktop
+   ========================================== */
+
+/* ========== TABLET (768px e abaixo) ========== */
+@media (max-width: 768px) {
+    .navbar-menu {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+/* ========== MOBILE (480px e abaixo) ========== */
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.125rem;
+    }
+
+    .navbar-menu {
+        display: none;
+        gap: 0;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        border-bottom: 2px solid var(--border-color);
+        width: 100%;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color-light);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+        text-align: center;
+        border: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .card {
+        padding: 0.75rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .carousel-item {
+        padding: 1.5rem;
+    }
+
+    footer {
+        padding: 1.5rem 0.75rem;
+    }
+}
+
+/* ========== EXTRA SMALL (320px e abaixo) ========== */
+@media (max-width: 320px) {
+    .navbar-logo {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .card {
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,78 @@
+/**
+ * BYTE_BURGER - DECRYPTED-TEXT.CSS
+ * =================================
+ * Efeito Decrypted Text nos títulos
+ * Inspirado em: https://www.reactbits.dev/text-animations/decrypted-text
+ */
+
+/* ========== DECRYPTED TEXT ANIMATION ========== */
+.decrypted-text {
+    position: relative;
+    display: inline-block;
+}
+
+.decrypted-text span {
+    display: inline-block;
+    opacity: 0;
+    animation: decrypt 0.5s ease-in-out forwards;
+}
+
+/* Cada letra tem um delay diferente para criar o efeito */
+.decrypted-text span:nth-child(1) { animation-delay: 0.0s; }
+.decrypted-text span:nth-child(2) { animation-delay: 0.05s; }
+.decrypted-text span:nth-child(3) { animation-delay: 0.1s; }
+.decrypted-text span:nth-child(4) { animation-delay: 0.15s; }
+.decrypted-text span:nth-child(5) { animation-delay: 0.2s; }
+.decrypted-text span:nth-child(6) { animation-delay: 0.25s; }
+.decrypted-text span:nth-child(7) { animation-delay: 0.3s; }
+.decrypted-text span:nth-child(8) { animation-delay: 0.35s; }
+.decrypted-text span:nth-child(9) { animation-delay: 0.4s; }
+.decrypted-text span:nth-child(10) { animation-delay: 0.45s; }
+.decrypted-text span:nth-child(11) { animation-delay: 0.5s; }
+.decrypted-text span:nth-child(12) { animation-delay: 0.55s; }
+.decrypted-text span:nth-child(13) { animation-delay: 0.6s; }
+.decrypted-text span:nth-child(14) { animation-delay: 0.65s; }
+.decrypted-text span:nth-child(15) { animation-delay: 0.7s; }
+
+@keyframes decrypt {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 10px #00ff00;
+        color: #00ff00;
+        filter: blur(2px);
+    }
+    50% {
+        opacity: 0.5;
+        text-shadow: 0 0 20px #00ff00;
+        color: #00ff41;
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        color: #00ff00;
+        filter: blur(0);
+    }
+}
+
+/* Variante: Decrypt on hover */
+.decrypted-text-hover:hover span {
+    animation: decrypt 0.5s ease-in-out forwards;
+}
+
+.decrypted-text-hover span {
+    opacity: 0.5;
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.decrypted-text-hover:hover span:nth-child(1) { animation-delay: 0.0s; }
+.decrypted-text-hover:hover span:nth-child(2) { animation-delay: 0.05s; }
+.decrypted-text-hover:hover span:nth-child(3) { animation-delay: 0.1s; }
+.decrypted-text-hover:hover span:nth-child(4) { animation-delay: 0.15s; }
+.decrypted-text-hover:hover span:nth-child(5) { animation-delay: 0.2s; }
+.decrypted-text-hover:hover span:nth-child(6) { animation-delay: 0.25s; }
+.decrypted-text-hover:hover span:nth-child(7) { animation-delay: 0.3s; }
+.decrypted-text-hover:hover span:nth-child(8) { animation-delay: 0.35s; }
+.decrypted-text-hover:hover span:nth-child(9) { animation-delay: 0.4s; }
+.decrypted-text-hover:hover span:nth-child(10) { animation-delay: 0.45s; }

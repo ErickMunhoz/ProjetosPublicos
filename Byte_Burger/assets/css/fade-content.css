@@ -1,0 +1,115 @@
+/**
+ * BYTE_BURGER - FADE-CONTENT.CSS
+ * ===============================
+ * Efeito Fade Content ao scroll
+ * Inspirado em: https://www.reactbits.dev/animations/fade-content
+ */
+
+/* ========== FADE CONTENT ANIMATION ========== */
+.fade-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Delay para cada elemento */
+.fade-content:nth-child(1) { animation-delay: 0.1s; }
+.fade-content:nth-child(2) { animation-delay: 0.2s; }
+.fade-content:nth-child(3) { animation-delay: 0.3s; }
+.fade-content:nth-child(4) { animation-delay: 0.4s; }
+.fade-content:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(4px);
+    }
+    50% {
+        opacity: 0.5;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ========== FADE ON SCROLL ========== */
+.fade-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== FADE IN LEFT ========== */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========== FADE IN RIGHT ========== */
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========== FADE IN SCALE ========== */
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========== STAGGER ANIMATION ========== */
+.stagger-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.0s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.2s; }
+.stagger-item:nth-child(4) { animation-delay: 0.3s; }
+.stagger-item:nth-child(5) { animation-delay: 0.4s; }
+.stagger-item:nth-child(6) { animation-delay: 0.5s; }
