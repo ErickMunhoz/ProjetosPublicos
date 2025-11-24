@@ -1,166 +1,112 @@
-/**
- * BYTE_BURGER - GLITCH-BACKGROUND.CSS
- * ====================================
- * Efeito Letter Glitch no background da homepage
- * Inspirado em: https://www.reactbits.dev/backgrounds/letter-glitch
- */
-
-/* ========== GLITCH BACKGROUND CONTAINER ========== */
-.glitch-background {
-    position: fixed;
-    top: 0;
+/* ===========================================================
+   BACKGROUND BUBBLES (CodePen: sedai77)
+   =========================================================== */
+#background-wrap {
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    z-index: -1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -10;
     overflow: hidden;
 }
 
-/* ========== GLITCH TEXT ========== */
-.glitch-text {
+/* Bubbles Base */
+.bubble {
     position: absolute;
+    bottom: -150px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,255,0,0.15);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,255,0,0.2);
+    animation: rise 20s infinite ease-in;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-1200px) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Each bubble speed / size variation */
+.x1 { left: 10%; animation-duration: 18s; animation-delay: 0s; }
+.x2 { left: 20%; width: 25px; height: 25px; animation-duration: 22s; animation-delay: 2s; }
+.x3 { left: 30%; width: 15px; height: 15px; animation-duration: 26s; animation-delay: 4s; }
+.x4 { left: 40%; animation-duration: 16s; animation-delay: 1s; }
+.x5 { left: 50%; width: 30px; height: 30px; animation-duration: 20s; animation-delay: 3s; }
+.x6 { left: 60%; animation-duration: 24s; animation-delay: 5s; }
+.x7 { left: 70%; width: 20px; height: 20px; animation-duration: 18s; animation-delay: 2s; }
+.x8 { left: 80%; animation-duration: 26s; animation-delay: 1s; }
+.x9 { left: 90%; width: 10px; height: 10px; animation-duration: 30s; animation-delay: 1s; }
+.x10 { left: 95%; width: 50px; height: 50px; animation-duration: 35s; animation-delay: 0s; }
+
+/* ===========================================================
+   GLITCH TEXT (CodePen)
+   =========================================================== */
+
+.glitch-container {
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(2rem, 10vw, 8rem);
-    font-weight: bold;
-    color: transparent;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-family: 'Courier New', monospace;
-    line-height: 1.2;
     text-align: center;
-    pointer-events: none;
+    margin-top: 120px;
+    position: relative;
+    z-index: -5;
 }
 
-/* Camada 1: Verde principal */
-.glitch-text::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+.glitch-text {
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
     color: #00ff00;
-    z-index: 1;
-    animation: glitch-1 0.3s infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 58%);
-    text-shadow: -2px 0 #ff00ff;
+    text-shadow: 0 0 12px rgba(0,255,0,0.7);
+    animation: glitch-skew 1s infinite linear alternate-reverse;
 }
 
-/* Camada 2: Deslocamento vermelho */
+.glitch-text::before,
 .glitch-text::after {
     content: attr(data-text);
     position: absolute;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    color: #00ff00;
-    z-index: 2;
-    animation: glitch-2 0.3s infinite;
-    clip-path: polygon(0 58%, 100% 45%, 100% 100%, 0 100%);
-    text-shadow: 2px 0 #00ffff;
+    left: 0;
 }
 
-/* ========== KEYFRAMES GLITCH ========== */
-@keyframes glitch-1 {
-    0% {
-        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 58%);
-        transform: translate(0);
-    }
-    20% {
-        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 48%);
-        transform: translate(-2px, 2px);
-    }
-    40% {
-        clip-path: polygon(0 0, 100% 0, 100% 55%, 0 68%);
-        transform: translate(2px, -2px);
-    }
-    60% {
-        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 53%);
-        transform: translate(-1px, 1px);
-    }
-    80% {
-        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 63%);
-        transform: translate(1px, -1px);
-    }
-    100% {
-        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 58%);
-        transform: translate(0);
-    }
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch-anim-1 0.7s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-2 {
-    0% {
-        clip-path: polygon(0 58%, 100% 45%, 100% 100%, 0 100%);
-        transform: translate(0);
-    }
-    20% {
-        clip-path: polygon(0 48%, 100% 35%, 100% 100%, 0 100%);
-        transform: translate(2px, -2px);
-    }
-    40% {
-        clip-path: polygon(0 68%, 100% 55%, 100% 100%, 0 100%);
-        transform: translate(-2px, 2px);
-    }
-    60% {
-        clip-path: polygon(0 53%, 100% 40%, 100% 100%, 0 100%);
-        transform: translate(1px, -1px);
-    }
-    80% {
-        clip-path: polygon(0 63%, 100% 50%, 100% 100%, 0 100%);
-        transform: translate(-1px, 1px);
-    }
-    100% {
-        clip-path: polygon(0 58%, 100% 45%, 100% 100%, 0 100%);
-        transform: translate(0);
-    }
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation: glitch-anim-2 0.7s infinite linear alternate-reverse;
 }
 
-/* ========== PARTÍCULAS GLITCH ========== */
-.glitch-particle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.05;
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(0 0 80% 0); }
+    20% { clip-path: inset(10% 0 60% 0); }
+    40% { clip-path: inset(40% 0 20% 0); }
+    60% { clip-path: inset(80% 0 0 0); }
+    100% { clip-path: inset(0 0 80% 0); }
 }
 
-.glitch-particle::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #00ff00, transparent);
-    animation: glitch-line 0.5s infinite;
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(80% 0 0 0); }
+    20% { clip-path: inset(60% 0 10% 0); }
+    40% { clip-path: inset(20% 0 40% 0); }
+    60% { clip-path: inset(0 0 80% 0); }
+    100% { clip-path: inset(80% 0 0 0); }
 }
 
-@keyframes glitch-line {
-    0% {
-        top: 0%;
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
-}
-
-/* ========== RESPONSIVIDADE ========== */
-@media (max-width: 768px) {
-    .glitch-text {
-        font-size: clamp(1.5rem, 8vw, 4rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .glitch-text {
-        font-size: clamp(1rem, 6vw, 2.5rem);
-    }
+@keyframes glitch-skew {
+    0% { transform: skew(2deg); }
+    50% { transform: skew(-2deg); }
+    100% { transform: skew(2deg); }
 }

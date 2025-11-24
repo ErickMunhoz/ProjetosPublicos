@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BYTE_BURGER - CONTATO.PHP
  * =========================
@@ -10,6 +11,79 @@
 $page_title = 'Contato - Byte_Burger';
 include 'componentes/header.php';
 ?>
+
+<!-- ========== MATRIX BACKGROUND ========== -->
+<style>
+    body {
+        background-color: black;
+        margin: 0;
+    }
+
+    .matrix-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .character {
+        position: absolute;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+
+<div class="matrix-bg"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const matrix = document.querySelector(".matrix-bg");
+        const columns = 50; // Number of columns
+        const rows = 30; // Increased rows for better coverage
+        const characters = "01";
+
+        for (let i = 0; i < columns; i++) {
+            for (let j = 0; j < rows; j++) {
+                const char = document.createElement("div");
+                char.classList.add("character");
+                char.innerText = characters.charAt(
+                    Math.floor(Math.random() * characters.length)
+                );
+
+                // Random positioning within the column strip
+                char.style.left = `${i * 2}%`;
+                char.style.top = `${Math.random() * 100}%`;
+
+                // Random animation delay for twinkling effect
+                char.style.animationDelay = `${Math.random() * 2}s`;
+
+                // Set color to Matrix Green
+                char.style.color = '#00ff00';
+
+                matrix.appendChild(char);
+            }
+        }
+    });
+</script>
 
 <?php include 'componentes/nav.php'; ?>
 
@@ -26,46 +100,43 @@ include 'componentes/header.php';
             <p style="color: #888;">Queremos ouvir você! Envie sua mensagem.</p>
         </div>
     </section>
-    
+
     <!-- ========== FORMULÁRIO ========== -->
     <section style="padding: 3rem 1rem;">
         <div class="container" style="max-width: 600px;">
             <form class="form-container" method="POST" action="#">
                 <!-- Campo: Nome -->
                 <div class="form-group-advanced">
-                    <input 
-                        type="text" 
-                        id="nome" 
-                        name="nome" 
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
                         required
-                        placeholder="Seu nome completo"
-                    >
+                        placeholder="Seu nome completo">
                     <label for="nome">Nome *</label>
                 </div>
-                
+
                 <!-- Campo: Email -->
                 <div class="form-group-advanced">
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
                         required
-                        placeholder="seu@email.com"
-                    >
+                        placeholder="seu@email.com">
                     <label for="email">Email *</label>
                 </div>
-                
+
                 <!-- Campo: Telefone -->
                 <div class="form-group-advanced">
-                    <input 
-                        type="tel" 
-                        id="telefone" 
+                    <input
+                        type="tel"
+                        id="telefone"
                         name="telefone"
-                        placeholder="(11) 99999-9999"
-                    >
+                        placeholder="(11) 99999-9999">
                     <label for="telefone">Telefone</label>
                 </div>
-                
+
                 <!-- Campo: Assunto -->
                 <div class="form-group-advanced">
                     <select id="assunto" name="assunto" required>
@@ -77,24 +148,23 @@ include 'componentes/header.php';
                     </select>
                     <label for="assunto">Assunto *</label>
                 </div>
-                
+
                 <!-- Campo: Mensagem -->
                 <div class="form-group-advanced">
-                    <textarea 
-                        id="mensagem" 
-                        name="mensagem" 
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
                         required
-                        placeholder="Sua mensagem aqui..."
-                    ></textarea>
+                        placeholder="Sua mensagem aqui..."></textarea>
                     <label for="mensagem">Mensagem *</label>
                 </div>
-                
+
                 <!-- Botão de envio -->
                 <button type="submit" class="btn-submit">
                     Enviar Mensagem
                 </button>
             </form>
-            
+
             <!-- Informações de contato -->
             <div style="
                 margin-top: 3rem;

@@ -14,26 +14,27 @@
  * 
  * É aqui que inicializamos todos os componentes
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     matrixLog('=== BYTE_BURGER INICIANDO ===');
-    
+
     // Inicializar navbar (menu)
     initNavbar();
-    
+
     // Inicializar carrossel (slides de produtos)
     initCarousel();
-    
+
     // Inicializar formulários (validação e feedback)
     initForms();
-    
+
     // Inicializar animações ao scroll (Intersection Observer)
     // Funciona 100% offline, sem GSAP!
     initScrollAnimations();
     initParallax();
     initCardHoverEffects();
     initSmoothScroll();
+    initPageTransitions();
     animatePageEntry();
-    
+
     matrixLog('=== BYTE_BURGER PRONTO ===');
     matrixLog('✅ Todas as animações estão funcionando OFFLINE!');
 });
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * Dispara quando TUDO foi carregado (HTML, CSS, imagens, etc)
  * Útil para coisas que precisam de imagens carregadas
  */
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     matrixLog('Página totalmente carregada!');
 });
 
@@ -51,7 +52,7 @@ window.addEventListener('load', function() {
  * EVENTO: Erro não capturado
  * Se algo der errado, mostra o erro no console
  */
-window.addEventListener('error', function(event) {
+window.addEventListener('error', function (event) {
     console.error('Erro não capturado:', event.error);
 });
 

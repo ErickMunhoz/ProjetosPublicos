@@ -21,8 +21,16 @@
 <!-- Matrix Rain (para login) -->
 <script src="assets/js/matrix-rain.js"></script>
 
+<!-- Page Transitions -->
+<script src="assets/js/page-transitions.js"></script>
+
 <!-- Main (inicializa tudo) -->
 <script src="assets/js/main.js"></script>
 
+<!-- glitch-background -->
+<script src="assets/js/glitch-background.js"></script>
+
+
 </body>
+
 </html>

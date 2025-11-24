@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BYTE_BURGER - INDEX.PHP
  * =======================
@@ -9,16 +10,76 @@ $page_title = 'Home - Byte_Burger';
 include 'componentes/header.php';
 ?>
 
-<!-- GLITCH BACKGROUND -->
-<div class="glitch-bg">
-    <div class="glitch-text">BYTE_BURGER</div>
-    <div class="glitch-text">BYTE_BURGER</div>
-    <div class="glitch-text">BYTE_BURGER</div>
+<!-- ========== MATRIX BACKGROUND ========== -->
+<style>
+    #matrix {
+        font-family: monospace;
+        color: green;
+        background-color: black;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        letter-spacing: 10px;
+        pointer-events: none;
+    }
+
+    /* Ensure body matches theme */
+    body {
+        background-color: black;
+    }
+</style>
+
+<div id="matrix">
+    <p>
+        loading...
+    </p>
 </div>
+
+<script>
+    const matrix = document.getElementById('matrix');
+
+    // Generate random text
+    const randomChar = () => {
+        const chars = '01';
+        return chars[Math.floor(Math.random() * chars.length)];
+    };
+
+    const randomLine = () => {
+        const length = Math.floor(Math.random() * 800) + 20;
+        let line = '';
+        for (let i = 0; i < length; i++) {
+            line += randomChar();
+        }
+        return line;
+    };
+
+    const generateText = () => {
+        const lines = [];
+        // Calculate lines needed to fill screen (assuming ~20px per line) + buffer
+        const lineCount = Math.ceil(window.innerHeight / 20) + 5;
+        for (let i = 0; i < lineCount; i++) {
+            lines.push(randomLine());
+        }
+        return lines.join('<br>');
+    };
+
+    // Scroll text
+    const scrollText = () => {
+        matrix.innerHTML = generateText();
+        requestAnimationFrame(scrollText);
+    };
+
+    scrollText();
+</script>
 
 <?php include 'componentes/nav.php'; ?>
 
 <main style="padding-top: 60px; position: relative; z-index: 5;">
+
     <!-- ========== SEÇÃO HERO COM GLITCH ========== -->
     <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.05) 0%, rgba(0, 0, 0, 0.95) 100%);
@@ -28,42 +89,38 @@ include 'componentes/header.php';
         position: relative;
     ">
         <div class="container">
-            <!-- Título com Decrypted Text -->
             <h1 class="decrypted-text" style="margin-bottom: 1rem; font-size: 3rem;">
                 Byte_Burger
             </h1>
-            
-            <!-- Subtítulo -->
+
             <p style="color: #888; font-size: 1.2rem; margin: 1rem 0;">
                 A lanchonete do futuro, onde código e sabor se encontram.
             </p>
-            
-            <!-- CTA Button -->
+
             <button class="btn" onclick="document.querySelector('#cardapio').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">
                 Ver Cardápio
             </button>
         </div>
     </section>
-    
+
     <!-- ========== SEÇÃO DE DESTAQUE ========== -->
     <section id="cardapio" style="padding: 3rem 1rem;">
         <div class="container">
             <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
                 Destaques
             </h2>
-            
-            <!-- Carrossel -->
+
             <?php include 'componentes/carousel.php'; ?>
         </div>
     </section>
-    
+
     <!-- ========== SEÇÃO DE CARDS COM SPOTLIGHT ========== -->
     <section style="padding: 3rem 1rem; background: rgba(0, 0, 0, 0.5);">
         <div class="container">
             <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
                 Populares
             </h2>
-            
+
             <div style="
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -93,7 +150,7 @@ include 'componentes/header.php';
                         <button class="spotlight-card-btn">Adicionar</button>
                     </div>
                 </div>
-                
+
                 <!-- Card 2 -->
                 <div class="spotlight-card stagger-item fade-content">
                     <div class="spotlight-card-content">
@@ -118,7 +175,7 @@ include 'componentes/header.php';
                         <button class="spotlight-card-btn">Adicionar</button>
                     </div>
                 </div>
-                
+
                 <!-- Card 3 -->
                 <div class="spotlight-card stagger-item fade-content">
                     <div class="spotlight-card-content">
@@ -146,7 +203,7 @@ include 'componentes/header.php';
             </div>
         </div>
     </section>
-    
+
     <!-- ========== SEÇÃO FINAL ========== -->
     <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);

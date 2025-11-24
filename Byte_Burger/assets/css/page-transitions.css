@@ -1,0 +1,19 @@
+/* ==========================================
+   BYTE_BURGER - PAGE TRANSITIONS CSS
+   ========================================== */
+
+/* Estado inicial da página (invisível) */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Quando a página carregou (visível) */
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Quando a página está saindo (invisível) */
+body.page-exiting {
+    opacity: 0;
+}

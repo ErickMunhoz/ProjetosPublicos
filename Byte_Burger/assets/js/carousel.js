@@ -35,7 +35,8 @@ function initCarousel() {
      */
     function showSlide(index) {
         const wrapper = document.querySelector('.carousel-wrapper');
-        const totalSlides = document.querySelectorAll('.carousel-item').length;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
         
         // Validar índice (se for maior que total, volta para 0)
         if (index >= totalSlides) {
@@ -46,9 +47,14 @@ function initCarousel() {
             currentSlide = index;
         }
         
-        // Mover o carrossel (cada slide tem 100% de largura)
-        const offset = -currentSlide * 100;
-        wrapper.style.transform = `translateX(${offset}%)`;
+        // Fade effect: Toggle active class
+        slides.forEach((slide, i) => {
+            if (i === currentSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
         
         // Atualizar os dots (bolinhas)
         carouselDots.forEach((dot, i) => {
