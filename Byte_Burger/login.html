@@ -1,89 +1,153 @@
-<?php
-/**
- * BYTE_BURGER - LOGIN.PHP
- * =======================
- * Página de login com estilo Hacker Terminal
- * Inspirado em: https://codepen.io/codelyds/pen/dPGXXZW
- */
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-$page_title = 'Login - Byte_Burger';
-include 'componentes/header.php';
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A melhor lanchonete do futuro. Hamburguers feitos com código e paixão.">
+    <title>Login - Byte_Burger</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 
-<!-- Canvas para Matrix Rain -->
-<canvas id="matrix-canvas"></canvas>
+    <!-- Estilos CSS - Ordem importa! -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-<!-- Navbar -->
-<?php include 'componentes/nav.php'; ?>
+    <!-- Estilos de Animações Avançadas (CSS Puro) -->
+    <link rel="stylesheet" href="assets/css/glitch-background.css">
+    <link rel="stylesheet" href="assets/css/forms-advanced.css">
+    <link rel="stylesheet" href="assets/css/decrypted-text.css">
+    <link rel="stylesheet" href="assets/css/spotlight-card.css">
+    <link rel="stylesheet" href="assets/css/fade-content.css">
+    <link rel="stylesheet" href="assets/css/hacker-login.css">
+    <link rel="stylesheet" href="assets/css/page-transitions.css">
+</head>
 
-<!-- Terminal Wrapper (Centralizado) -->
-<main class="terminal-wrap" role="main">
-    <div class="terminal">
-        <!-- Terminal Header -->
-        <div class="term-header">
-            <div class="dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+<body class="matrix-theme page-transition">
+
+    <!-- Canvas para Matrix Rain -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar-dock">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-text">Byte_Burger</span>
+            </a>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+
+            <div class="navbar-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </div>
-            <div class="term-title">BYTE_BURGER AUTH</div>
         </div>
-        
-        <!-- Terminal Body -->
-        <div class="term-body">
-            <!-- Terminal Log (efeito de digitação) -->
-            <div class="term-log">booting security modules...</div>
-            
-            <!-- Login Form -->
-            <form id="loginForm" class="login-form" method="POST" action="#" novalidate>
-                <!-- Campo: Username/Email -->
-                <div class="form-field">
-                    <label class="field-label" for="username">username</label>
-                    <div class="input-wrap">
-                        <input 
-                            type="email" 
-                            id="username" 
-                            name="username" 
-                            required
-                            placeholder="admin@byte_burger.com"
-                            autocomplete="off"
-                        >
-                    </div>
-                </div>
-                
-                <!-- Campo: Password -->
-                <div class="form-field">
-                    <label class="field-label" for="password">passcode</label>
-                    <div class="input-wrap">
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            required
-                            placeholder="••••••••"
-                            autocomplete="off"
-                        >
-                    </div>
-                </div>
-                
-                <!-- Botões -->
-                <div class="form-buttons">
-                    <button type="submit" class="btn-terminal">
-                        ENTER
-                    </button>
-                    <button type="reset" class="btn-terminal btn-secondary">
-                        CLEAR
-                    </button>
-                </div>
-                
-                <!-- Links -->
-                <div class="form-footer">
-                    <p>Não tem conta? <a href="#">Cadastre-se aqui</a></p>
-                    <p><a href="#">Esqueceu a senha?</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-</main>
+    </nav>
 
-<?php include 'componentes/footer.php'; ?>
+    <!-- Terminal Wrapper (Centralizado) -->
+    <main class="terminal-wrap" role="main">
+        <div class="terminal">
+            <!-- Terminal Header -->
+            <div class="term-header">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="term-title">BYTE_BURGER AUTH</div>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="term-body">
+                <!-- Terminal Log (efeito de digitação) -->
+                <div class="term-log">booting security modules...</div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form" method="POST" action="#" novalidate>
+                    <!-- Campo: Username/Email -->
+                    <div class="form-field">
+                        <label class="field-label" for="username">username</label>
+                        <div class="input-wrap">
+                            <input type="email" id="username" name="username" required
+                                placeholder="admin@byte_burger.com" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Password -->
+                    <div class="form-field">
+                        <label class="field-label" for="password">passcode</label>
+                        <div class="input-wrap">
+                            <input type="password" id="password" name="password" required placeholder="••••••••"
+                                autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-terminal">
+                            ENTER
+                        </button>
+                        <button type="reset" class="btn-terminal btn-secondary">
+                            CLEAR
+                        </button>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="form-footer">
+                        <p>Não tem conta? <a href="#">Cadastre-se aqui</a></p>
+                        <p><a href="#">Esqueceu a senha?</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Byte_Burger. Todos os direitos reservados.</p>
+            <p>Feito com 💚 e código.</p>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+
+    <!-- Utilitários -->
+    <script src="assets/js/utils.js"></script>
+
+    <!-- Decrypted Text (efeito hover) -->
+    <script src="assets/js/decrypted-text.js"></script>
+
+    <!-- Navbar -->
+    <script src="assets/js/navbar.js"></script>
+
+    <!-- Carrossel -->
+    <script src="assets/js/carousel.js"></script>
+
+    <!-- Formulários -->
+    <script src="assets/js/forms.js"></script>
+
+    <!-- Animações ao Scroll (sem GSAP, 100% offline) -->
+    <script src="assets/js/scroll-animations.js"></script>
+
+    <!-- Matrix Rain (para login) -->
+    <script src="assets/js/matrix-rain.js"></script>
+
+    <!-- Page Transitions -->
+    <script src="assets/js/page-transitions.js"></script>
+
+    <!-- Main (inicializa tudo) -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- glitch-background -->
+    <script src="assets/js/glitch-background.js"></script>
+
+</body>
+
+</html>

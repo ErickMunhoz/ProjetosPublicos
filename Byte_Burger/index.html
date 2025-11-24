@@ -1,135 +1,275 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-/**
- * BYTE_BURGER - INDEX.PHP
- * =======================
- * Página inicial com glitch background e animações
- */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A melhor lanchonete do futuro. Hamburguers feitos com código e paixão.">
+    <title>Home - Byte_Burger</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 
-$page_title = 'Home - Byte_Burger';
-include 'componentes/header.php';
-?>
+    <!-- Estilos CSS - Ordem importa! -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-<!-- ========== MATRIX BACKGROUND ========== -->
-<style>
-    #matrix {
-        font-family: monospace;
-        color: green;
-        background-color: black;
-        overflow: hidden;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        letter-spacing: 10px;
-        pointer-events: none;
-    }
+    <!-- Estilos de Animações Avançadas (CSS Puro) -->
+    <link rel="stylesheet" href="assets/css/glitch-background.css">
+    <link rel="stylesheet" href="assets/css/forms-advanced.css">
+    <link rel="stylesheet" href="assets/css/decrypted-text.css">
+    <link rel="stylesheet" href="assets/css/spotlight-card.css">
+    <link rel="stylesheet" href="assets/css/fade-content.css">
+    <link rel="stylesheet" href="assets/css/hacker-login.css">
+    <link rel="stylesheet" href="assets/css/page-transitions.css">
+</head>
 
-    /* Ensure body matches theme */
-    body {
-        background-color: black;
-    }
-</style>
+<body class="matrix-theme page-transition">
 
-<div id="matrix">
-    <p>
-        loading...
-    </p>
-</div>
-
-<script>
-    const matrix = document.getElementById('matrix');
-
-    // Generate random text
-    const randomChar = () => {
-        const chars = '01';
-        return chars[Math.floor(Math.random() * chars.length)];
-    };
-
-    const randomLine = () => {
-        const length = Math.floor(Math.random() * 800) + 20;
-        let line = '';
-        for (let i = 0; i < length; i++) {
-            line += randomChar();
+    <!-- ========== MATRIX BACKGROUND ========== -->
+    <style>
+        #matrix {
+            font-family: monospace;
+            color: green;
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            letter-spacing: 10px;
+            pointer-events: none;
         }
-        return line;
-    };
 
-    const generateText = () => {
-        const lines = [];
-        // Calculate lines needed to fill screen (assuming ~20px per line) + buffer
-        const lineCount = Math.ceil(window.innerHeight / 20) + 5;
-        for (let i = 0; i < lineCount; i++) {
-            lines.push(randomLine());
+        /* Ensure body matches theme */
+        body {
+            background-color: black;
         }
-        return lines.join('<br>');
-    };
+    </style>
 
-    // Scroll text
-    const scrollText = () => {
-        matrix.innerHTML = generateText();
-        requestAnimationFrame(scrollText);
-    };
+    <div id="matrix">
+        <p>
+            loading...
+        </p>
+    </div>
 
-    scrollText();
-</script>
+    <script>
+        const matrix = document.getElementById('matrix');
 
-<?php include 'componentes/nav.php'; ?>
+        // Generate random text
+        const randomChar = () => {
+            const chars = '01';
+            return chars[Math.floor(Math.random() * chars.length)];
+        };
 
-<main style="padding-top: 60px; position: relative; z-index: 5;">
+        const randomLine = () => {
+            const length = Math.floor(Math.random() * 800) + 20;
+            let line = '';
+            for (let i = 0; i < length; i++) {
+                line += randomChar();
+            }
+            return line;
+        };
 
-    <!-- ========== SEÇÃO HERO COM GLITCH ========== -->
-    <section style="
+        const generateText = () => {
+            const lines = [];
+            // Calculate lines needed to fill screen (assuming ~20px per line) + buffer
+            const lineCount = Math.ceil(window.innerHeight / 20) + 5;
+            for (let i = 0; i < lineCount; i++) {
+                lines.push(randomLine());
+            }
+            return lines.join('<br>');
+        };
+
+        // Scroll text
+        const scrollText = () => {
+            matrix.innerHTML = generateText();
+            requestAnimationFrame(scrollText);
+        };
+
+        scrollText();
+    </script>
+
+    <nav class="navbar-dock">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-text">Byte_Burger</span>
+            </a>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+
+            <div class="navbar-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 60px; position: relative; z-index: 5;">
+
+        <!-- ========== SEÇÃO HERO COM GLITCH ========== -->
+        <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.05) 0%, rgba(0, 0, 0, 0.95) 100%);
         border-bottom: 2px solid #00ff00;
         padding: 4rem 1rem;
         text-align: center;
         position: relative;
     ">
-        <div class="container">
-            <h1 class="decrypted-text" style="margin-bottom: 1rem; font-size: 3rem;">
-                Byte_Burger
-            </h1>
+            <div class="container">
+                <h1 class="decrypted-text" style="margin-bottom: 1rem; font-size: 3rem;">
+                    Byte_Burger
+                </h1>
 
-            <p style="color: #888; font-size: 1.2rem; margin: 1rem 0;">
-                A lanchonete do futuro, onde código e sabor se encontram.
-            </p>
+                <p style="color: #888; font-size: 1.2rem; margin: 1rem 0;">
+                    A lanchonete do futuro, onde código e sabor se encontram.
+                </p>
 
-            <button class="btn" onclick="document.querySelector('#cardapio').scrollIntoView({behavior: 'smooth'})" style="margin-top: 2rem;">
-                Ver Cardápio
-            </button>
-        </div>
-    </section>
+                <button class="btn" onclick="document.querySelector('#cardapio').scrollIntoView({behavior: 'smooth'})"
+                    style="margin-top: 2rem;">
+                    Ver Cardápio
+                </button>
+            </div>
+        </section>
 
-    <!-- ========== SEÇÃO DE DESTAQUE ========== -->
-    <section id="cardapio" style="padding: 3rem 1rem;">
-        <div class="container">
-            <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
-                Destaques
-            </h2>
+        <!-- ========== SEÇÃO DE DESTAQUE ========== -->
+        <section id="cardapio" style="padding: 3rem 1rem;">
+            <div class="container">
+                <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
+                    Destaques
+                </h2>
 
-            <?php include 'componentes/carousel.php'; ?>
-        </div>
-    </section>
+                <!-- CARROSSEL DE PRODUTOS -->
+                <div class="carousel-container">
+                    <!-- Wrapper: contém todos os slides -->
+                    <div class="carousel-wrapper">
+                        <!-- SLIDE 1: Byte_Classic -->
+                        <div class="carousel-item">
+                            <div class="carousel-content">
+                                <div class="carousel-image" style="
+                                width: 200px;
+                                height: 200px;
+                                background: linear-gradient(135deg, #00ff00, #00cc00);
+                                border: 2px solid #00ff00;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                                border-radius: 0;
+                            ">
+                                    <span style="color: #000; font-weight: bold; text-align: center;">
+                                        Byte_Classic
+                                    </span>
+                                </div>
 
-    <!-- ========== SEÇÃO DE CARDS COM SPOTLIGHT ========== -->
-    <section style="padding: 3rem 1rem; background: rgba(0, 0, 0, 0.5);">
-        <div class="container">
-            <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
-                Populares
-            </h2>
+                                <h3 style="color: #00ff00; margin-bottom: 0.5rem;">
+                                    Byte_Classic
+                                </h3>
+                                <p style="color: #888; margin-bottom: 1rem;">
+                                    Hamburger clássico com carne, alface, tomate e molho especial
+                                </p>
+                                <p style="color: #00ff41; font-size: 1.5rem; font-weight: bold;">
+                                    R$ 22,00
+                                </p>
+                            </div>
+                        </div>
 
-            <div style="
+                        <!-- SLIDE 2: Bit_Bacon -->
+                        <div class="carousel-item">
+                            <div class="carousel-content">
+                                <div class="carousel-image" style="
+                                width: 200px;
+                                height: 200px;
+                                background: linear-gradient(135deg, #00ff00, #00cc00);
+                                border: 2px solid #00ff00;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                                border-radius: 0;
+                            ">
+                                    <span style="color: #000; font-weight: bold; text-align: center;">
+                                        Bit_Bacon
+                                    </span>
+                                </div>
+
+                                <h3 style="color: #00ff00; margin-bottom: 0.5rem;">
+                                    Bit_Bacon
+                                </h3>
+                                <p style="color: #888; margin-bottom: 1rem;">
+                                    Hamburger com bacon crocante, cheddar e molho barbecue
+                                </p>
+                                <p style="color: #00ff41; font-size: 1.5rem; font-weight: bold;">
+                                    R$ 25,00
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3: Mega_Byte -->
+                        <div class="carousel-item">
+                            <div class="carousel-content">
+                                <div class="carousel-image" style="
+                                width: 200px;
+                                height: 200px;
+                                background: linear-gradient(135deg, #00ff00, #00cc00);
+                                border: 2px solid #00ff00;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 1rem;
+                                border-radius: 0;
+                            ">
+                                    <span style="color: #000; font-weight: bold; text-align: center;">
+                                        Mega_Byte
+                                    </span>
+                                </div>
+
+                                <h3 style="color: #00ff00; margin-bottom: 0.5rem;">
+                                    Mega_Byte
+                                </h3>
+                                <p style="color: #888; margin-bottom: 1rem;">
+                                    Hamburger duplo com todos os complementos. O maior da lanchonete!
+                                </p>
+                                <p style="color: #00ff41; font-size: 1.5rem; font-weight: bold;">
+                                    R$ 30,00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTROLES: bolinhas para navegação -->
+                    <div class="carousel-controls">
+                        <div class="carousel-dot active" data-slide="0"></div>
+                        <div class="carousel-dot" data-slide="1"></div>
+                        <div class="carousel-dot" data-slide="2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO DE CARDS COM SPOTLIGHT ========== -->
+        <section style="padding: 3rem 1rem; background: rgba(0, 0, 0, 0.5);">
+            <div class="container">
+                <h2 class="decrypted-text" style="text-align: center; margin-bottom: 2rem;">
+                    Populares
+                </h2>
+
+                <div style="
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 2rem;
             ">
-                <!-- Card 1 -->
-                <div class="spotlight-card stagger-item fade-content">
-                    <div class="spotlight-card-content">
-                        <div style="
+                    <!-- Card 1 -->
+                    <div class="spotlight-card stagger-item fade-content">
+                        <div class="spotlight-card-content">
+                            <div style="
                             width: 100%;
                             height: 120px;
                             background: linear-gradient(135deg, #00ff00, #00cc00);
@@ -140,21 +280,21 @@ include 'componentes/header.php';
                             font-weight: bold;
                             color: #000;
                         ">
-                            X-Burger
+                                X-Burger
+                            </div>
+                            <h3 class="spotlight-card-title">X-Burger Clássico</h3>
+                            <p class="spotlight-card-description">
+                                Hamburger com carne, alface, tomate e molho especial
+                            </p>
+                            <div class="spotlight-card-price">R$ 22,00</div>
+                            <button class="spotlight-card-btn">Adicionar</button>
                         </div>
-                        <h3 class="spotlight-card-title">X-Burger Clássico</h3>
-                        <p class="spotlight-card-description">
-                            Hamburger com carne, alface, tomate e molho especial
-                        </p>
-                        <div class="spotlight-card-price">R$ 22,00</div>
-                        <button class="spotlight-card-btn">Adicionar</button>
                     </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="spotlight-card stagger-item fade-content">
-                    <div class="spotlight-card-content">
-                        <div style="
+                    <!-- Card 2 -->
+                    <div class="spotlight-card stagger-item fade-content">
+                        <div class="spotlight-card-content">
+                            <div style="
                             width: 100%;
                             height: 120px;
                             background: linear-gradient(135deg, #00ff00, #00cc00);
@@ -165,21 +305,21 @@ include 'componentes/header.php';
                             font-weight: bold;
                             color: #000;
                         ">
-                            X-Bacon
+                                X-Bacon
+                            </div>
+                            <h3 class="spotlight-card-title">X-Bacon Premium</h3>
+                            <p class="spotlight-card-description">
+                                Hamburger com bacon crocante, cheddar e molho barbecue
+                            </p>
+                            <div class="spotlight-card-price">R$ 25,00</div>
+                            <button class="spotlight-card-btn">Adicionar</button>
                         </div>
-                        <h3 class="spotlight-card-title">X-Bacon Premium</h3>
-                        <p class="spotlight-card-description">
-                            Hamburger com bacon crocante, cheddar e molho barbecue
-                        </p>
-                        <div class="spotlight-card-price">R$ 25,00</div>
-                        <button class="spotlight-card-btn">Adicionar</button>
                     </div>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="spotlight-card stagger-item fade-content">
-                    <div class="spotlight-card-content">
-                        <div style="
+                    <!-- Card 3 -->
+                    <div class="spotlight-card stagger-item fade-content">
+                        <div class="spotlight-card-content">
+                            <div style="
                             width: 100%;
                             height: 120px;
                             background: linear-gradient(135deg, #00ff00, #00cc00);
@@ -190,44 +330,78 @@ include 'componentes/header.php';
                             font-weight: bold;
                             color: #000;
                         ">
-                            Mega Byte
+                                Mega Byte
+                            </div>
+                            <h3 class="spotlight-card-title">Mega Byte</h3>
+                            <p class="spotlight-card-description">
+                                Hamburger duplo com todos os complementos
+                            </p>
+                            <div class="spotlight-card-price">R$ 30,00</div>
+                            <button class="spotlight-card-btn">Adicionar</button>
                         </div>
-                        <h3 class="spotlight-card-title">Mega Byte</h3>
-                        <p class="spotlight-card-description">
-                            Hamburger duplo com todos os complementos
-                        </p>
-                        <div class="spotlight-card-price">R$ 30,00</div>
-                        <button class="spotlight-card-btn">Adicionar</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== SEÇÃO FINAL ========== -->
-    <section style="
+        <!-- ========== SEÇÃO FINAL ========== -->
+        <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
         padding: 3rem 1rem;
         text-align: center;
         border-top: 2px solid #00ff00;
     ">
-        <div class="container">
-            <h2 class="decrypted-text" style="margin-bottom: 1rem;">
-                Pronto?
-            </h2>
-            <p style="color: #888; margin-bottom: 2rem;">
-                Faça seu pedido agora e aproveite os melhores lanches!
-            </p>
-            <a href="cardapio.php" class="btn">Ver Cardápio Completo</a>
+            <div class="container">
+                <h2 class="decrypted-text" style="margin-bottom: 1rem;">
+                    Pronto?
+                </h2>
+                <p style="color: #888; margin-bottom: 2rem;">
+                    Faça seu pedido agora e aproveite os melhores lanches!
+                </p>
+                <a href="cardapio.html" class="btn">Ver Cardápio Completo</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Byte_Burger. Todos os direitos reservados.</p>
+            <p>Feito com 💚 e código.</p>
         </div>
-    </section>
-</main>
+    </footer>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2025 Byte_Burger. Todos os direitos reservados.</p>
-        <p>Feito com 💚 e código.</p>
-    </div>
-</footer>
+    <!-- ========== SCRIPTS ========== -->
 
-<?php include 'componentes/footer.php'; ?>
+    <!-- Utilitários -->
+    <script src="assets/js/utils.js"></script>
+
+    <!-- Decrypted Text (efeito hover) -->
+    <script src="assets/js/decrypted-text.js"></script>
+
+    <!-- Navbar -->
+    <script src="assets/js/navbar.js"></script>
+
+    <!-- Carrossel -->
+    <script src="assets/js/carousel.js"></script>
+
+    <!-- Formulários -->
+    <script src="assets/js/forms.js"></script>
+
+    <!-- Animações ao Scroll (sem GSAP, 100% offline) -->
+    <script src="assets/js/scroll-animations.js"></script>
+
+    <!-- Matrix Rain (para login) -->
+    <script src="assets/js/matrix-rain.js"></script>
+
+    <!-- Page Transitions -->
+    <script src="assets/js/page-transitions.js"></script>
+
+    <!-- Main (inicializa tudo) -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- glitch-background -->
+    <script src="assets/js/glitch-background.js"></script>
+
+</body>
+
+</html>

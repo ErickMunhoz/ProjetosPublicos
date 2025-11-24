@@ -1,283 +1,523 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-/**
- * BYTE_BURGER - CARDAPIO.PHP
- * ==========================
- * Página de cardápio com todos os produtos
- */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A melhor lanchonete do futuro. Hamburguers feitos com código e paixão.">
+    <title>Cardápio - Byte_Burger</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 
-$page_title = 'Cardápio - Byte_Burger';
-include 'componentes/header.php';
-?>
+    <!-- Estilos CSS - Ordem importa! -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-<!-- ========== MATRIX BACKGROUND ========== -->
-<style>
-    body {
-        background-color: black;
-        /* overflow: hidden; - REMOVED to allow scrolling */
-        margin: 0;
-    }
+    <!-- Estilos de Animações Avançadas (CSS Puro) -->
+    <link rel="stylesheet" href="assets/css/glitch-background.css">
+    <link rel="stylesheet" href="assets/css/forms-advanced.css">
+    <link rel="stylesheet" href="assets/css/decrypted-text.css">
+    <link rel="stylesheet" href="assets/css/spotlight-card.css">
+    <link rel="stylesheet" href="assets/css/fade-content.css">
+    <link rel="stylesheet" href="assets/css/hacker-login.css">
+    <link rel="stylesheet" href="assets/css/page-transitions.css">
+</head>
 
-    .matrix-container {
-        position: fixed;
-        /* Changed from absolute to fixed */
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: -1;
-        /* Behind content */
-        pointer-events: none;
-        /* Allow clicking through */
-    }
+<body class="matrix-theme page-transition">
 
-    #matrix {
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
-<div class="matrix-container">
-    <canvas id="matrix" class="matrix-code"></canvas>
-</div>
-
-<script>
-    function matrixEffect() {
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-
-        // Set canvas to full screen
-        const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const fontSize = 16;
-        let columns = Math.ceil(canvas.width / fontSize);
-        let rows = Math.ceil(canvas.height / fontSize);
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let charMatrix = [];
-        let opacityMatrix = [];
-
-        const initMatrix = () => {
-            columns = Math.ceil(canvas.width / fontSize);
-            rows = Math.ceil(canvas.height / fontSize);
-            charMatrix = Array.from({
-                length: columns
-            }, () => Array(rows).fill(''));
-            opacityMatrix = Array.from({
-                length: columns
-            }, () => Array(rows).fill(1));
-
-            // Generate matrix characters
-            for (let col = 0; col < columns; col++) {
-                for (let row = 0; row < rows; row++) {
-                    charMatrix[col][row] = chars.charAt(Math.floor(Math.random() * chars.length));
-                }
-            }
-        };
-
-        initMatrix();
-        window.addEventListener('resize', initMatrix);
-
-        function draw() {
-            // Use a slight fade effect for trails if desired, or clear completely
-            // ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            // ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.font = `${fontSize}px monospace`;
-
-            for (let col = 0; col < columns; col++) {
-                for (let row = 0; row < rows; row++) {
-                    // Ensure we don't access out of bounds if resizing happened
-                    if (!opacityMatrix[col] || !charMatrix[col]) continue;
-
-                    ctx.fillStyle = `rgba(0, 255, 0, ${opacityMatrix[col][row]})`; // Changed to Green for Matrix theme
-                    const text = charMatrix[col][row];
-                    ctx.fillText(text, col * fontSize, row * fontSize + fontSize);
-                }
-            }
+    <!-- ========== MATRIX BACKGROUND ========== -->
+    <style>
+        body {
+            background-color: black;
+            /* overflow: hidden; - REMOVED to allow scrolling */
+            margin: 0;
         }
 
-        function glitchEffect() {
-            for (let col = 0; col < columns; col++) {
-                for (let row = 0; row < rows; row++) {
-                    if (!opacityMatrix[col] || !charMatrix[col]) continue;
+        .matrix-container {
+            position: fixed;
+            /* Changed from absolute to fixed */
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1;
+            /* Behind content */
+            pointer-events: none;
+            /* Allow clicking through */
+        }
 
-                    if (Math.random() > 0.98) {
+        #matrix {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <div class="matrix-container">
+        <canvas id="matrix" class="matrix-code"></canvas>
+    </div>
+
+    <script>
+        function matrixEffect() {
+            const canvas = document.getElementById('matrix');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas to full screen
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const fontSize = 16;
+            let columns = Math.ceil(canvas.width / fontSize);
+            let rows = Math.ceil(canvas.height / fontSize);
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let charMatrix = [];
+            let opacityMatrix = [];
+
+            const initMatrix = () => {
+                columns = Math.ceil(canvas.width / fontSize);
+                rows = Math.ceil(canvas.height / fontSize);
+                charMatrix = Array.from({
+                    length: columns
+                }, () => Array(rows).fill(''));
+                opacityMatrix = Array.from({
+                    length: columns
+                }, () => Array(rows).fill(1));
+
+                // Generate matrix characters
+                for (let col = 0; col < columns; col++) {
+                    for (let row = 0; row < rows; row++) {
                         charMatrix[col][row] = chars.charAt(Math.floor(Math.random() * chars.length));
-                        opacityMatrix[col][row] = 0.1 + Math.random() * 0.9;
-                    } else {
-                        opacityMatrix[col][row] *= 0.95;
-                        if (opacityMatrix[col][row] < 0.1) {
-                            opacityMatrix[col][row] = 0.1;
-                        }
+                    }
+                }
+            };
+
+            initMatrix();
+            window.addEventListener('resize', initMatrix);
+
+            function draw() {
+                // Use a slight fade effect for trails if desired, or clear completely
+                // ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                // ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                ctx.font = `${fontSize}px monospace`;
+
+                for (let col = 0; col < columns; col++) {
+                    for (let row = 0; row < rows; row++) {
+                        // Ensure we don't access out of bounds if resizing happened
+                        if (!opacityMatrix[col] || !charMatrix[col]) continue;
+
+                        ctx.fillStyle = `rgba(0, 255, 0, ${opacityMatrix[col][row]})`; // Changed to Green for Matrix theme
+                        const text = charMatrix[col][row];
+                        ctx.fillText(text, col * fontSize, row * fontSize + fontSize);
                     }
                 }
             }
-            draw();
+
+            function glitchEffect() {
+                for (let col = 0; col < columns; col++) {
+                    for (let row = 0; row < rows; row++) {
+                        if (!opacityMatrix[col] || !charMatrix[col]) continue;
+
+                        if (Math.random() > 0.98) {
+                            charMatrix[col][row] = chars.charAt(Math.floor(Math.random() * chars.length));
+                            opacityMatrix[col][row] = 0.1 + Math.random() * 0.9;
+                        } else {
+                            opacityMatrix[col][row] *= 0.95;
+                            if (opacityMatrix[col][row] < 0.1) {
+                                opacityMatrix[col][row] = 0.1;
+                            }
+                        }
+                    }
+                }
+                draw();
+            }
+
+            setInterval(glitchEffect, 100);
         }
 
-        setInterval(glitchEffect, 100);
-    }
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', matrixEffect);
+    </script>
 
-    // Wait for DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', matrixEffect);
-</script>
+    <nav class="navbar-dock">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-text">Byte_Burger</span>
+            </a>
 
-<?php
-// Array de produtos
-$produtos = [
-    [
-        'nome' => 'Byte_Classic',
-        'descricao' => 'Hamburger clássico com carne, alface, tomate e molho especial',
-        'preco' => 22.00
-    ],
-    [
-        'nome' => 'Bit_Bacon',
-        'descricao' => 'Hamburger com bacon crocante, cheddar e molho barbecue',
-        'preco' => 25.00
-    ],
-    [
-        'nome' => 'Mega_Byte',
-        'descricao' => 'Hamburger duplo com todos os complementos. O maior da lanchonete!',
-        'preco' => 30.00
-    ],
-    [
-        'nome' => 'Cache_Fries',
-        'descricao' => 'Batata frita crocante com tempero especial Matrix',
-        'preco' => 12.00
-    ],
-    [
-        'nome' => 'Data_Drink',
-        'descricao' => 'Refrigerante gelado com sabor de código compilado',
-        'preco' => 8.00
-    ],
-    [
-        'nome' => 'Loop_Shake',
-        'descricao' => 'Milkshake infinito de chocolate com cobertura de bits',
-        'preco' => 15.00
-    ]
-];
-?>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
 
-<?php include 'componentes/nav.php'; ?>
+            <div class="navbar-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+            </div>
+        </div>
+    </nav>
 
-<main style="padding-top: 60px;">
-    <!-- ========== SEÇÃO HERO ========== -->
-    <section style="
+    <main style="padding-top: 60px;">
+        <!-- ========== SEÇÃO HERO ========== -->
+        <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
         border-bottom: 2px solid #00ff00;
         padding: 3rem 1rem;
         text-align: center;
     ">
-        <div class="container">
-            <h1 style="margin-bottom: 1rem;">Nosso Cardápio</h1>
-            <p style="color: #888;">Escolha seus lanches favoritos e aproveite!</p>
-        </div>
-    </section>
+            <div class="container">
+                <h1 style="margin-bottom: 1rem;">Nosso Cardápio</h1>
+                <p style="color: #888;">Escolha seus lanches favoritos e aproveite!</p>
+            </div>
+        </section>
 
-    <!-- ========== GRID DE PRODUTOS ========== -->
-    <section style="padding: 3rem 1rem;">
-        <div class="container">
-            <div style="
+        <!-- ========== GRID DE PRODUTOS ========== -->
+        <section style="padding: 3rem 1rem;">
+            <div class="container">
+                <div style="
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 2rem;
             ">
-                <?php foreach ($produtos as $index => $produto): ?>
-                    <div class="spotlight-card stagger-item" style="animation-delay: <?php echo $index * 0.1; ?>s;">
+                    <!-- Produto 1: Byte_Classic -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0s;">
                         <div class="spotlight-card-content">
                             <!-- Placeholder para imagem -->
                             <div style="
-                                width: 100%;
-                                height: 150px;
-                                background: linear-gradient(135deg, #00ff00, #00cc00);
-                                margin-bottom: 1rem;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-weight: bold;
-                                color: #000;
-                            ">
-                                <?php echo $produto['nome']; ?>
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Byte_Classic
                             </div>
 
                             <!-- Nome do produto -->
                             <h3 class="spotlight-card-title">
-                                <?php echo $produto['nome']; ?>
+                                Byte_Classic
                             </h3>
 
                             <!-- Descrição -->
                             <p class="spotlight-card-description">
-                                <?php echo $produto['descricao']; ?>
+                                Hamburger clássico com carne, alface, tomate e molho especial
                             </p>
 
                             <!-- Preço -->
                             <div class="spotlight-card-price">
-                                R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?>
+                                R$ 22,00
                             </div>
 
                             <!-- Botão -->
-                            <button class="spotlight-card-btn" onclick="addToCart('<?php echo $produto['nome']; ?>', <?php echo $produto['preco']; ?>)">
+                            <button class="spotlight-card-btn" onclick="addToCart('Byte_Classic', 22.00)">
                                 Adicionar ao Carrinho
                             </button>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========== CHAMADA PARA AÇÃO ========== -->
-    <section style="
+                    <!-- Produto 2: Bit_Bacon -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0.1s;">
+                        <div class="spotlight-card-content">
+                            <!-- Placeholder para imagem -->
+                            <div style="
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Bit_Bacon
+                            </div>
+
+                            <!-- Nome do produto -->
+                            <h3 class="spotlight-card-title">
+                                Bit_Bacon
+                            </h3>
+
+                            <!-- Descrição -->
+                            <p class="spotlight-card-description">
+                                Hamburger com bacon crocante, cheddar e molho barbecue
+                            </p>
+
+                            <!-- Preço -->
+                            <div class="spotlight-card-price">
+                                R$ 25,00
+                            </div>
+
+                            <!-- Botão -->
+                            <button class="spotlight-card-btn" onclick="addToCart('Bit_Bacon', 25.00)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3: Mega_Byte -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0.2s;">
+                        <div class="spotlight-card-content">
+                            <!-- Placeholder para imagem -->
+                            <div style="
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Mega_Byte
+                            </div>
+
+                            <!-- Nome do produto -->
+                            <h3 class="spotlight-card-title">
+                                Mega_Byte
+                            </h3>
+
+                            <!-- Descrição -->
+                            <p class="spotlight-card-description">
+                                Hamburger duplo com todos os complementos. O maior da lanchonete!
+                            </p>
+
+                            <!-- Preço -->
+                            <div class="spotlight-card-price">
+                                R$ 30,00
+                            </div>
+
+                            <!-- Botão -->
+                            <button class="spotlight-card-btn" onclick="addToCart('Mega_Byte', 30.00)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Produto 4: Cache_Fries -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0.3s;">
+                        <div class="spotlight-card-content">
+                            <!-- Placeholder para imagem -->
+                            <div style="
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Cache_Fries
+                            </div>
+
+                            <!-- Nome do produto -->
+                            <h3 class="spotlight-card-title">
+                                Cache_Fries
+                            </h3>
+
+                            <!-- Descrição -->
+                            <p class="spotlight-card-description">
+                                Batata frita crocante com tempero especial Matrix
+                            </p>
+
+                            <!-- Preço -->
+                            <div class="spotlight-card-price">
+                                R$ 12,00
+                            </div>
+
+                            <!-- Botão -->
+                            <button class="spotlight-card-btn" onclick="addToCart('Cache_Fries', 12.00)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Produto 5: Data_Drink -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0.4s;">
+                        <div class="spotlight-card-content">
+                            <!-- Placeholder para imagem -->
+                            <div style="
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Data_Drink
+                            </div>
+
+                            <!-- Nome do produto -->
+                            <h3 class="spotlight-card-title">
+                                Data_Drink
+                            </h3>
+
+                            <!-- Descrição -->
+                            <p class="spotlight-card-description">
+                                Refrigerante gelado com sabor de código compilado
+                            </p>
+
+                            <!-- Preço -->
+                            <div class="spotlight-card-price">
+                                R$ 8,00
+                            </div>
+
+                            <!-- Botão -->
+                            <button class="spotlight-card-btn" onclick="addToCart('Data_Drink', 8.00)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Produto 6: Loop_Shake -->
+                    <div class="spotlight-card stagger-item" style="animation-delay: 0.5s;">
+                        <div class="spotlight-card-content">
+                            <!-- Placeholder para imagem -->
+                            <div style="
+                            width: 100%;
+                            height: 150px;
+                            background: linear-gradient(135deg, #00ff00, #00cc00);
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            color: #000;
+                        ">
+                                Loop_Shake
+                            </div>
+
+                            <!-- Nome do produto -->
+                            <h3 class="spotlight-card-title">
+                                Loop_Shake
+                            </h3>
+
+                            <!-- Descrição -->
+                            <p class="spotlight-card-description">
+                                Milkshake infinito de chocolate com cobertura de bits
+                            </p>
+
+                            <!-- Preço -->
+                            <div class="spotlight-card-price">
+                                R$ 15,00
+                            </div>
+
+                            <!-- Botão -->
+                            <button class="spotlight-card-btn" onclick="addToCart('Loop_Shake', 15.00)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CHAMADA PARA AÇÃO ========== -->
+        <section style="
         background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
         padding: 3rem 1rem;
         text-align: center;
     ">
-        <div class="container">
-            <h2 style="margin-bottom: 1rem;">Pronto para fazer seu pedido?</h2>
-            <p style="margin-bottom: 2rem; color: #888;">
-                Escolha seus itens e finalize sua compra.
-            </p>
-            <button class="btn" onclick="goToCheckout()">
-                Ir para o Carrinho
-            </button>
+            <div class="container">
+                <h2 style="margin-bottom: 1rem;">Pronto para fazer seu pedido?</h2>
+                <p style="margin-bottom: 2rem; color: #888;">
+                    Escolha seus itens e finalize sua compra.
+                </p>
+                <button class="btn" onclick="goToCheckout()">
+                    Ir para o Carrinho
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Byte_Burger. Todos os direitos reservados.</p>
+            <p>Feito com 💚 e código.</p>
         </div>
-    </section>
-</main>
+    </footer>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2025 Byte_Burger. Todos os direitos reservados.</p>
-        <p>Feito com 💚 e código.</p>
-    </div>
-</footer>
+    <script>
+        /**
+         * Função: Adicionar produto ao carrinho
+         * @param {string} nome - Nome do produto
+         * @param {number} preco - Preço do produto
+         */
+        function addToCart(nome, preco) {
+            // matrixLog is likely defined in utils.js or main.js, if not we should be careful.
+            // But assuming it was working before or intended to work.
+            // If it's not defined, it might throw an error.
+            // I'll keep it as is since it was in the original file.
+            if (typeof matrixLog === 'function') {
+                matrixLog(`Adicionado ao carrinho: ${nome} - R$ ${preco.toFixed(2)}`);
+            }
+            alert(`${nome} adicionado ao carrinho! 🍔`);
+        }
 
-<script>
-    /**
-     * Função: Adicionar produto ao carrinho
-     * @param {string} nome - Nome do produto
-     * @param {number} preco - Preço do produto
-     */
-    function addToCart(nome, preco) {
-        matrixLog(`Adicionado ao carrinho: ${nome} - R$ ${preco.toFixed(2)}`);
-        alert(`${nome} adicionado ao carrinho! 🍔`);
-    }
+        /**
+         * Função: Ir para o carrinho
+         */
+        function goToCheckout() {
+            if (typeof matrixLog === 'function') {
+                matrixLog('Redirecionando para o carrinho...');
+            }
+            alert('Carrinho ainda não implementado! 🚧');
+        }
+    </script>
 
-    /**
-     * Função: Ir para o carrinho
-     */
-    function goToCheckout() {
-        matrixLog('Redirecionando para o carrinho...');
-        alert('Carrinho ainda não implementado! 🚧');
-    }
-</script>
+    <!-- ========== SCRIPTS ========== -->
 
-<?php include 'componentes/footer.php'; ?>
+    <!-- Utilitários -->
+    <script src="assets/js/utils.js"></script>
+
+    <!-- Decrypted Text (efeito hover) -->
+    <script src="assets/js/decrypted-text.js"></script>
+
+    <!-- Navbar -->
+    <script src="assets/js/navbar.js"></script>
+
+    <!-- Carrossel -->
+    <script src="assets/js/carousel.js"></script>
+
+    <!-- Formulários -->
+    <script src="assets/js/forms.js"></script>
+
+    <!-- Animações ao Scroll (sem GSAP, 100% offline) -->
+    <script src="assets/js/scroll-animations.js"></script>
+
+    <!-- Matrix Rain (para login) -->
+    <script src="assets/js/matrix-rain.js"></script>
+
+    <!-- Page Transitions -->
+    <script src="assets/js/page-transitions.js"></script>
+
+    <!-- Main (inicializa tudo) -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- glitch-background -->
+    <script src="assets/js/glitch-background.js"></script>
+
+</body>
+
+</html>
