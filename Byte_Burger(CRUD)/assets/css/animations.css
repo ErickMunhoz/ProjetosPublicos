@@ -1,0 +1,177 @@
+/* ==========================================
+   BYTE_BURGER - ANIMATIONS CSS
+   Animações CSS puras (keyframes, transições)
+   ========================================== */
+
+/* ========== FADE IN ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ========== SLIDE UP ========== */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+/* ========== GLOW PULSE ========== */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+    }
+}
+
+.glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ========== FLICKER ========== */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.5;
+    }
+}
+
+.flicker {
+    animation: flicker 0.15s infinite;
+}
+
+/* ========== MATRIX RAIN ========== */
+@keyframes matrixRain {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.matrix-rain {
+    animation: matrixRain 8s linear infinite;
+}
+
+/* ========== SCAN LINE ========== */
+@keyframes scanLine {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.scan-line {
+    animation: scanLine 8s linear infinite;
+}
+
+/* ========== BOUNCE ========== */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* ========== ROTATE ========== */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* ========== TEXT GLOW ========== */
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 255, 0, 0.5);
+    }
+}
+
+.text-glow {
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+/* ========== SCALE PULSE ========== */
+@keyframes scalePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.scale-pulse {
+    animation: scalePulse 1.5s ease-in-out infinite;
+}
+
+/* ========== BORDER GLOW ========== */
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: var(--border-color-light);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    }
+    50% {
+        border-color: var(--primary);
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+    }
+}
+
+.border-glow {
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* ========== DELAY ANIMATIONS ========== */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
