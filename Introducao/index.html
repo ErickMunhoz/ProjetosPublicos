@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erick da Costa Munhoz | Currículo & Portfólio</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Currículo de Erick da Costa Munhoz - Especialista em Atendimento Bancário Multicanal, Suporte N1 e Desenvolvimento de Sistemas. Disponível para Home Office." />
+  <meta name="author" content="Erick da Costa Munhoz" />
+  
+  <!-- Fontes Google (Plus Jakarta Sans + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       RESET & VARIÁVEIS DE DESIGN (TEMA DARK ULTRA-MODERNO)
+       ========================================================================== */
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(18, 22, 34, 0.65);
+      --bg-card-hover: rgba(26, 32, 50, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(0, 242, 254, 0.4);
+      
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --accent-purple: #7928ca;
+      --accent-emerald: #10b981;
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Linha de Progresso no Topo */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* Efeito de Cursor Glow / Spotlight */
+    .spotlight {
+      pointer-events: none;
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.07) 0%, rgba(79, 172, 254, 0.02) 40%, transparent 70%);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Malha de Fundo Sutil */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Container Global */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       NAVBAR (GLASSMORPHISM FLUTUANTE)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 10px 24px;
+      border-radius: 50px;
+      background: rgba(11, 15, 25, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 1100px;
+      transition: var(--transition-smooth);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-emerald);
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* Menu Mobile */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 130px;
+      padding-bottom: 60px;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(0, 242, 254, 0.08);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 80%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 760px;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #07090e;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Key Highlights Bento no Hero */
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+
+    .highlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      transition: var(--transition-smooth);
+    }
+
+    .highlight-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+    }
+
+    .highlight-number {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 4px;
+    }
+
+    .highlight-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       SEÇÕES & TÍTULOS GERAIS
+       ========================================================================== */
+    section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent-cyan);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    /* ==========================================================================
+       BENTO GRID: RESUMO & FORÇAS CENTRAIS
+       ========================================================================== */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(16px);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+    }
+
+    .bento-8 {
+      grid-column: span 8;
+    }
+
+    .bento-4 {
+      grid-column: span 4;
+    }
+
+    .bento-6 {
+      grid-column: span 6;
+    }
+
+    .bento-12 {
+      grid-column: span 12;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 242, 254, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+    }
+
+    .bento-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .bento-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .award-card {
+      background: linear-gradient(135deg, rgba(30, 27, 75, 0.4) 0%, rgba(18, 22, 34, 0.8) 100%);
+      border: 1px solid rgba(121, 40, 202, 0.35);
+    }
+
+    .award-card:hover {
+      border-color: var(--accent-purple);
+      box-shadow: 0 10px 30px rgba(121, 40, 202, 0.15);
+    }
+
+    /* ==========================================================================
+       EXPERIÊNCIA PROFISSIONAL (TIMELINE ELEGANTE)
+       ========================================================================== */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .job-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 32px;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .job-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateX(6px);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .job-role-company h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .job-role-company .company-name {
+      color: var(--accent-cyan);
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .job-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: var(--text-muted);
+    }
+
+    .job-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .job-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .job-details li::before {
+      content: "▹";
+      color: var(--accent-cyan);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--text-muted);
+    }
+
+    /* Linha do tempo colapsável para experiências anteriores */
+    .accordion-toggle {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed var(--border-color);
+      border-radius: 16px;
+      padding: 18px 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .accordion-toggle:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+    }
+
+    .accordion-inner {
+      padding: 20px 8px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .past-exp-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================================================
+       HABILIDADES & COMPETÊNCIAS (COM ABAS DE FILTRO INTERATIVAS)
+       ========================================================================== */
+    .skills-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 9px 20px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: rgba(0, 242, 254, 0.12);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 22px;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .skill-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+    }
+
+    .skill-card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .skill-badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+    }
+
+    .skill-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .skill-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       FORMAÇÃO, CURSOS & CERTIFICAÇÕES
+       ========================================================================== */
+    .edu-cert-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(14px);
+      margin-bottom: 20px;
+      transition: var(--transition-smooth);
+    }
+
+    .item-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .item-card .date-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .item-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .item-card .institution {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .item-card p {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .cert-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(0, 242, 254, 0.3);
+      transform: translateX(4px);
+    }
+
+    .cert-icon {
+      color: var(--accent-cyan);
+      flex-shrink: 0;
+    }
+
+    .cert-text h5 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .cert-text span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       PROJETOS & REPOSITÓRIOS GITHUB
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .project-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-5px);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+    }
+
+    .project-link:hover {
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       SEÇÃO DE CONTATO & CALL TO ACTION
+       ========================================================================== */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(20, 25, 45, 0.9) 0%, rgba(10, 13, 24, 0.9) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 30px;
+      padding: clamp(36px, 6vw, 64px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #07090e;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       RESPONSIVIDADE (MOBILE & TABLETS)
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .bento-8, .bento-4, .bento-6 {
+        grid-column: span 12;
+      }
+      .edu-cert-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .status-badge {
+        display: none;
+      }
+      .hero-section {
+        padding-top: 100px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .job-header {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .spotlight {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Progresso de Scroll no Topo -->
+  <div id="progress-bar"></div>
+
+  <!-- Efeito Spotlight (Segue o mouse em telas de PC) -->
+  <div class="spotlight" id="spotlight"></div>
+
+  <!-- Malha de Linhas de Fundo -->
+  <div class="bg-grid"></div>
+
+  <!-- Alerta Flutuante de Cópia -->
+  <div class="copy-toast" id="copyToast">✓ E-mail copiado para a área de transferência!</div>
+
+  <!-- ========================================================================
+       NAVBAR
+       ======================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-avatar">EM</div>
+        <span>Erick Munhoz</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#sobre">Resumo</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Disponível para Home Office/Presencial
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <main class="container">
+    <section class="hero-section" id="hero">
+      <div class="pill-tag gsap-fade">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+        Suporte Técnico N1 • Atendimento Bancário • Dev
+      </div>
+
+      <h1 class="hero-title gsap-fade">
+        Olá, sou <span class="text-gradient">Erick Munhoz</span>.<br />
+      </h1>
+
+      <p class="hero-subtitle gsap-fade">
+        Profissional com sólida experiência em <strong>atendimento bancário multicanal</strong> (operações Banco Neon e Banco PAN), suporte a chamados, negociação e resolução de incidentes. Formação técnica em <strong>Desenvolvimento de Sistemas</strong> pela Etec e estudante de tecnologia na Unimar.
+      </p>
+
+      <div class="hero-actions gsap-fade">
+        <a href="https://wa.me/5511999255547?text=Olá%20Erick,%20vi%20seu%20currículo%20e%20gostaria%20de%20conversar!" target="_blank" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          Conversar no WhatsApp
+        </a>
+
+        <button class="btn btn-secondary" onclick="copyEmail()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copiar E-mail
+        </button>
+
+        <a href="https://github.com/ErickMunhoz/ProjetosPublicos" target="_blank" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/erick-costa-40280a275" target="_blank" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- Métricas em Grid -->
+      <div class="hero-highlights gsap-fade">
+        <div class="highlight-card">
+          <div class="highlight-number">4 a 7</div>
+          <div class="highlight-label">Atendimentos simultâneos por chat realizados diariamente</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">16+</div>
+          <div class="highlight-label">Sistemas utilizados como NpCob</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">1º Lugar</div>
+          <div class="highlight-label">Bootcamp Jovem Programador (Bolsa Integral Unimar)</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">100%</div>
+          <div class="highlight-label">Disponibilidade e infraestrutura para trabalho Home Office</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BENTO GRID: RESUMO & PERFIL PROFISSIONAL
+         ======================================================================== -->
+    <section id="sobre">
+      <div class="section-header">
+        <div class="section-eyebrow">Visão Geral</div>
+        <h2 class="section-title">Resumo & Diferenciais</h2>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-8 gsap-card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h3>Perfil Profissional Híbrido: Suporte & Tecnologia</h3>
+          <p>
+            Vivência em operações de atendimento bancário multicanal e de alta complexidade. Combino empatia e clareza na comunicação escrita. Abertura/triagem de chamados e conformidade com protocolos de segurança de dados bancários.
+          </p>
+        </div>
+
+        <div class="bento-card bento-4 award-card gsap-card">
+          <div class="card-icon" style="color: #c084fc; background: rgba(192, 132, 252, 0.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <h3>Mérito Acadêmico</h3>
+          <p>
+            Conquista do <strong>1º lugar na competição de programação</strong> do Bootcamp Jovem Programador, garantindo <strong>bolsa integral de estudos</strong> no ensino superior na área de tecnologia (Unimar).
+          </p>
+        </div>
+
+        <div class="bento-card bento-6 gsap-card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3>Objetivo Profissional</h3>
+          <p>
+            Atuar em <strong>regime home office</strong> nas áreas de <strong>atendimento por chat, suporte ao cliente, suporte técnico N1, service desk, suporte de sistemas ou backoffice</strong>, alavancando minha agilidade com ferramentas operacionais e visão técnica de sistemas.
+          </p>
+        </div>
+
+        <div class="bento-card bento-6 gsap-card">
+          <div class="card-icon" style="color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3>Habilidades Comportamentais & Soft Skills</h3>
+          <p>
+            Boa comunicação escrita, Boa aprendizagem para novos softwares internos, Já trabalhei sob pressão com metas e SLAs, resiliência na negociação de conflitos e organização de múltiplos atendimentos simultâneos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         EXPERIÊNCIA PROFISSIONAL
+         ======================================================================== -->
+    <section id="experiencia">
+      <div class="section-header">
+        <div class="section-eyebrow">Trajetória</div>
+        <h2 class="section-title">Experiência Profissional</h2>
+      </div>
+
+      <div class="experience-list">
+        <!-- Paschoalotto - Banco Neon -->
+        <div class="job-card gsap-card">
+          <div class="job-header">
+            <div class="job-role-company">
+              <h3>Atendente Receptivo — Operação Banco Neon</h3>
+              <span class="company-name">Paschoalotto • Marília, SP</span>
+            </div>
+            <span class="job-badge">Atendimento Multicanal / Chat</span>
+          </div>
+
+          <ul class="job-details">
+            <li>Atendimento simultâneo de aproximadamente <strong>4 a 7 clientes por chat</strong> com foco em agilidade, cordialidade e resolução no primeiro contato.</li>
+            <li>Suporte a clientes do Banco Neon em diferentes segmentos da operação bancária (contas digitais, cartões de crédito/débito, faturas, estornos, investimentos e limites).</li>
+            <li>Operação diária com cerca de <strong>16 sistemas internos</strong> para consulta analítica, validação cadastral, registro de ocorrências e solução de demandas.</li>
+            <li>Tratamento de casos de segurança e fraude: validação de selfies/documentos, contestação de compras, cartão não aprovado e resgate de investimentos.</li>
+            <li>Abertura, classificação e acompanhamento de chamados internos para equipes especializadas de N2/Backoffice.</li>
+          </ul>
+
+          <div class="tech-pills">
+            <span class="pill">16 Sistemas Internos</span>
+            <span class="pill">Prevenção a Fraudes</span>
+            <span class="pill">Investimentos</span>
+            <span class="pill">SLA Bancário</span>
+          </div>
+        </div>
+
+        <!-- Paschoalotto - Banco PAN -->
+        <div class="job-card gsap-card">
+          <div class="job-header">
+            <div class="job-role-company">
+              <h3>Atendente Ativo — Operação Banco PAN</h3>
+              <span class="company-name">Paschoalotto • Marília, SP</span>
+            </div>
+            <span class="job-badge">Cobrança & Negociação</span>
+          </div>
+
+          <ul class="job-details">
+            <li>Atendimento ativo a clientes inadimplentes com contratos de <strong>financiamento de veículos</strong>.</li>
+            <li>Contatos e negociações diretas por ligação telefônica e WhatsApp corporativo utilizando as plataformas <strong>NPCob</strong> e <strong>GoSAC</strong>.</li>
+            <li>Negociação de parcelas em atraso, emissão de boletos, esclarecimento de encargos e orientação personalizada para quitação de pendências.</li>
+            <li>Registro de históricos de negociação e atualização de cadastros nos sistemas da operação com foco em políticas internas.</li>
+          </ul>
+
+          <div class="tech-pills">
+            <span class="pill">NPCob</span>
+            <span class="pill">GoSAC</span></span>
+            <span class="pill">Negociação Ativa</span>
+          </div>
+        </div>
+
+        <!-- Farmácia Multidrogas -->
+        <div class="job-card gsap-card">
+          <div class="job-header">
+            <div class="job-role-company">
+              <h3>Entregador de Medicamentos & Apoio Interno</h3>
+              <span class="company-name">Farmácia Multidrogas • Marília, SP</span>
+            </div>
+            <span class="job-badge">2019 – 2025</span>
+          </div>
+
+          <ul class="job-details">
+            <li>(2024 – 2025): Atendimento direto ao cliente, apoio às rotinas internas da farmácia, conferência minuciosa de pedidos de medicamentos e cumprimento de normas operacionais.</li>
+            <li>(2019 – 2024): Entregador de moto responsável pelo roteamento dinâmico de entregas, pontualidade no prazo e conferência de notas fiscais e troco.</li>
+          </ul>
+
+          <div class="tech-pills">
+            <span class="pill">Atendimento ao Cliente</span>
+            <span class="pill">Organização Logística</span>
+            <span class="pill">Pontualidade & Compromisso</span>
+          </div>
+        </div>
+
+        <!-- Histórico Anterior (Accordion) -->
+        <div class="accordion-toggle" onclick="toggleAccordion()">
+          <span>Ver histórico profissional anterior (2012 – 2017)</span>
+          <svg id="accordion-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+
+        <div class="accordion-content" id="accordionContent">
+          <div class="accordion-inner">
+            <div class="past-exp-item">
+              <strong>Ajudante de Marceneiro</strong><br />
+              <span style="color: var(--text-muted); font-size: 0.8rem;">Bauru, SP • 2017</span><br />
+              Apoio operacional, medição e acabamento de projetos em madeira.
+            </div>
+            <div class="past-exp-item">
+              <strong>Atendente de Telemarketing</strong><br />
+              <span style="color: var(--text-muted); font-size: 0.8rem;">São Paulo, SP • 2014</span><br />
+              Atendimento telefônico, prospecção e relacionamento com clientes.
+            </div>
+            <div class="past-exp-item">
+              <strong>Empacotador de Supermercado</strong><br />
+              <span style="color: var(--text-muted); font-size: 0.8rem;">São Paulo, SP • 2012</span><br />
+              Organização, conferência e agilidade no atendimento de frente de caixa.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         COMPETÊNCIAS TÉCNICAS (FILTRO DINÂMICO)
+         ======================================================================== -->
+    <section id="habilidades">
+      <div class="section-header">
+        <div class="section-eyebrow">Skills & Ferramentas</div>
+        <h2 class="section-title">Competências Técnicas</h2>
+      </div>
+
+      <div class="skills-filter">
+        <button class="filter-btn active" onclick="filterSkills('all')">Todas</button>
+        <button class="filter-btn" onclick="filterSkills('suporte')">Atendimento & Suporte</button>
+        <button class="filter-btn" onclick="filterSkills('dev')">Programação & Web</button>
+        <button class="filter-btn" onclick="filterSkills('dados')">Banco de Dados</button>
+        <button class="filter-btn" onclick="filterSkills('sistemas')">Sistemas & IA</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Atendimento & Suporte -->
+        <div class="skill-card gsap-card" data-category="suporte">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h4>Chat & Atendimento Simultâneo</h4>
+          </div>
+          <p>Capacidade comprovada de conduzir de 4 a 7 atendimentos simultâneos sem perder a clareza nem a precisão nas respostas.</p>
+        </div>
+
+        <div class="skill-card gsap-card" data-category="suporte">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <h4>Suporte N1 & Service Desk</h4>
+          </div>
+          <p>Triagem rápida de chamados, troubleshooting de primeiro nível, identificação de bugs e escalonamento documentado.</p>
+        </div>
+
+        <!-- Dev -->
+        <div class="skill-card gsap-card" data-category="dev">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h4>Python</h4>
+          </div>
+          <p>Lógica de programação, automação de tarefas, scripts e fundamentos de ciência de dados (Formação SENAI 60h e Unimar).</p>
+        </div>
+
+        <div class="skill-card gsap-card" data-category="dev">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h4>HTML5 & CSS3</h4>
+          </div>
+          <p>Desenvolvimento web moderno, estilização semântica, responsividade e layout flexível para interfaces intuitivas.</p>
+        </div>
+
+        <div class="skill-card gsap-card" data-category="dev">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4"></path></svg>
+            </div>
+            <h4>Java & PHP</h4>
+          </div>
+          <p>Conceitos de orientação a objetos, back-end para web e manipulação de fluxos de dados aprendidos na Etec.</p>
+        </div>
+
+        <!-- Banco de Dados -->
+        <div class="skill-card gsap-card" data-category="dados">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <h4>MySQL & Modelagem</h4>
+          </div>
+          <p>Criação de tabelas, consultas relacionais SQL, integridade referencial e modelagem conceitual/lógica (BR Modelo).</p>
+        </div>
+
+        <!-- Sistemas & IA -->
+        <div class="skill-card gsap-card" data-category="sistemas">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"></path><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            </div>
+            <h4>Linux (Ubuntu, Fedora, Kali)</h4>
+          </div>
+          <p>Operação por linha de comando (terminal), gerenciamento de permissões, pacotes e segurança computacional.</p>
+        </div>
+
+        <div class="skill-card gsap-card" data-category="sistemas">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path></svg>
+            </div>
+            <h4>Inteligência Artificial & n8n</h4>
+          </div>
+          <p>Fundamentos de IA (Microsoft AI-900), visão computacional, PLN e automação de fluxos com n8n para WhatsApp.</p>
+        </div>
+
+        <div class="skill-card gsap-card" data-category="dev">
+          <div class="skill-card-top">
+            <div class="skill-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
+            </div>
+            <h4>Git, GitHub & VS Code</h4>
+          </div>
+          <p>Versionamento de código, controle de branches, repositórios públicos, Git Bash e ambiente de desenvolvimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FORMAÇÃO ACADÊMICA & CURSOS
+         ======================================================================== -->
+    <section id="formacao">
+      <div class="section-header">
+        <div class="section-eyebrow">Aprendizado Contínuo</div>
+        <h2 class="section-title">Formação & Certificações</h2>
+      </div>
+
+      <div class="edu-cert-container">
+        <!-- Coluna de Formação Acadêmica -->
+        <div>
+          <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #fff;">Educação Formal</h3>
+
+          <div class="item-card gsap-card">
+            <span class="date-tag">Previsto para 2027</span>
+            <h4>Ensino Superior em Tecnologia</h4>
+            <div class="institution">Unimar — Universidade de Marília</div>
+            <p>
+              <strong>Bolsa integral de estudos 100%</strong> conquistada por mérito após atingir o <strong>1º lugar geral</strong> na competição oficial de programação do Bootcamp Jovem Programador.
+            </p>
+          </div>
+
+          <div class="item-card gsap-card">
+            <span class="date-tag">Concluído</span>
+            <h4>Técnico em Desenvolvimento de Sistemas</h4>
+            <div class="institution">Etec — Centro Paula Souza</div>
+            <p>
+              Programação web, algoritmos, banco de dados relacional, fundamentos da informática, design digital, operação de softwares e inglês instrumental.
+            </p>
+          </div>
+
+          <div class="item-card gsap-card">
+            <span class="date-tag">Concluído</span>
+            <h4>Ensino Médio</h4>
+            <div class="institution">Educação Básica Completa</div>
+          </div>
+        </div>
+
+        <!-- Coluna de Certificações & Treinamentos -->
+        <div>
+          <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #fff;">Cursos & Certificados</h3>
+
+          <div class="cert-list">
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="cert-text">
+                <h5>Implantação de Serviços de IA em Nuvem (AI-900)</h5>
+                <span>SENAI • 40 Horas</span>
+              </div>
+            </div>
+
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div class="cert-text">
+                <h5>Programação em Python</h5>
+                <span>SENAI • 60 Horas</span>
+              </div>
+            </div>
+
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <div class="cert-text">
+                <h5>1º Lugar — Bootcamp Jovem Programador</h5>
+                <span>Unimar • Competição de Lógica e Código</span>
+              </div>
+            </div>
+
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="cert-text">
+                <h5>HackSec Unimar</h5>
+                <span>Treinamento Prático em Cibersegurança</span>
+              </div>
+            </div>
+
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div class="cert-text">
+                <h5>Escola de Inovadores</h5>
+                <span>Inova CPS • 40 Horas de Empreendedorismo & Inovação</span>
+              </div>
+            </div>
+
+            <div class="cert-item gsap-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <div class="cert-text">
+                <h5>Agentes de WhatsApp com n8n para E-commerce</h5>
+                <span>Automação de Atendimento & Mensageria</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PROJETOS GITHUB
+         ======================================================================== -->
+    <section id="projetos">
+      <div class="section-header">
+        <div class="section-eyebrow">Prática & Código</div>
+        <h2 class="section-title">Repositórios & Projetos</h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card gsap-card">
+          <div>
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </div>
+            <h3>Projetos Públicos & Estudos</h3>
+            <p>Repositório com protótipos de sites em HTML e CSS, scripts de estudo em Python e projetos desenvolvidos ao longo da formação na Etec e competições da Unimar.</p>
+          </div>
+          <a href="https://github.com/ErickMunhoz/ProjetosPublicos" target="_blank" class="project-link">
+            Acessar no GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CALL TO ACTION / CONTATO
+         ======================================================================== -->
+    <section id="contato">
+      <div class="cta-box gsap-card">
+        <h2>Disponível para início imediato</h2>
+        <p>Em regime <strong>Home Office</strong> ou presencial nas áreas disponíveis.</p>
+
+        <div class="contact-channels">
+          <a href="https://wa.me/5511999255547?text=Olá%20Erick,%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade!" target="_blank" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            (11) 99925-5547
+          </a>
+
+          <button class="btn btn-secondary" onclick="copyEmail()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            erickcostamunhoz@gmail.com
+          </button>
+
+          <a href="https://www.linkedin.com/in/erick-costa-40280a275" target="_blank" class="btn btn-secondary">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>2026 • Marília, SP.</p>
+    </footer>
+  </main>
+
+  <!-- ========================================================================
+       GSAP 3 & SCRIPTS DE ANIMAÇÃO / INTERAÇÃO
+       ======================================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Registro do plugin ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Barra de progresso de scroll suave no topo
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Cursor Spotlight Interativo (PC)
+    const spotlight = document.getElementById('spotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = e.clientX + 'px';
+      spotlight.style.top = e.clientY + 'px';
+    });
+
+    // 3. Animações GSAP de Entrada no Hero
+    gsap.from(".gsap-fade", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out"
+    });
+
+    // 4. Animação ScrollTrigger para Cartões (Stagger suave ao rolar a página)
+    gsap.utils.toArray(".gsap-card").forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+    });
+
+    // 5. Cópia Rápida de E-mail com Toast
+    function copyEmail() {
+      const email = "erickcostamunhoz@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById("copyToast");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      });
+    }
+
+    // 6. Accordion para Histórico Anterior
+    function toggleAccordion() {
+      const content = document.getElementById('accordionContent');
+      const arrow = document.getElementById('accordion-arrow');
+      
+      if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        content.style.maxHeight = '0px';
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 7. Filtro Interativo de Competências Técnicas
+    function filterSkills(category) {
+      // Atualiza botões
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Filtra cartões
+      const cards = document.querySelectorAll('#skillsGrid .skill-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          gsap.to(card, { duration: 0.3, opacity: 1, scale: 1, display: "flex", ease: "power2.out" });
+        } else {
+          gsap.to(card, { duration: 0.2, opacity: 0, scale: 0.9, display: "none", ease: "power2.in" });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
