@@ -6,7 +6,7 @@
   <title>Erick da Costa Munhoz | Currículo & Portfólio</title>
   
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Currículo - Erick Munhoz - Atendimento Multicanal, Suporte e Desenvolvimento de Sistemas. Disponível para Home Office/Presencial." />
+  <meta name="description" content="Currículo de Erick da Costa Munhoz - Especialista em Atendimento Bancário Multicanal, Suporte N1 e Desenvolvimento de Sistemas. Disponível para Home Office." />
   <meta name="author" content="Erick da Costa Munhoz" />
   
   <!-- Fontes Google (Plus Jakarta Sans + JetBrains Mono) -->
@@ -16,7 +16,7 @@
 
   <style>
     /* ==========================================================================
-       RESET & VARIÁVEIS DE DESIGN (TEMA DARK ULTRA-MODERNO)
+       RESET & VARIÁVEIS DE DESIGN (TEMA DARK CYBER-PREMIUM)
        ========================================================================== */
     :root {
       --bg-dark: #07090e;
@@ -213,16 +213,6 @@
       100% { transform: scale(0.95); opacity: 0.8; }
     }
 
-    /* Menu Mobile */
-    .mobile-menu-btn {
-      display: none;
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      cursor: pointer;
-      padding: 4px;
-    }
-
     /* ==========================================================================
        HERO SECTION
        ========================================================================== */
@@ -277,7 +267,7 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
       margin-bottom: 50px;
     }
@@ -318,6 +308,19 @@
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-3px);
+    }
+
+    .btn-download-hero {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(121, 40, 202, 0.15));
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+    }
+
+    .btn-download-hero:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #07090e;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4);
     }
 
     /* Key Highlights Bento no Hero */
@@ -409,21 +412,10 @@
       background: var(--bg-card-hover);
     }
 
-    .bento-8 {
-      grid-column: span 8;
-    }
-
-    .bento-4 {
-      grid-column: span 4;
-    }
-
-    .bento-6 {
-      grid-column: span 6;
-    }
-
-    .bento-12 {
-      grid-column: span 12;
-    }
+    .bento-8 { grid-column: span 8; }
+    .bento-4 { grid-column: span 4; }
+    .bento-6 { grid-column: span 6; }
+    .bento-12 { grid-column: span 12; }
 
     .card-icon {
       width: 44px;
@@ -461,7 +453,7 @@
     }
 
     /* ==========================================================================
-       EXPERIÊNCIA PROFISSIONAL (TIMELINE ELEGANTE)
+       EXPERIÊNCIA PROFISSIONAL
        ========================================================================== */
     .experience-list {
       display: flex;
@@ -558,7 +550,7 @@
       color: var(--text-muted);
     }
 
-    /* Linha do tempo colapsável para experiências anteriores */
+    /* Accordion Histórico Anterior */
     .accordion-toggle {
       width: 100%;
       background: rgba(255, 255, 255, 0.03);
@@ -603,7 +595,7 @@
     }
 
     /* ==========================================================================
-       HABILIDADES & COMPETÊNCIAS (COM ABAS DE FILTRO INTERATIVAS)
+       HABILIDADES & COMPETÊNCIAS
        ========================================================================== */
     .skills-filter {
       display: flex;
@@ -776,7 +768,7 @@
     }
 
     /* ==========================================================================
-       PROJETOS & REPOSITÓRIOS GITHUB
+       PROJETOS GITHUB
        ========================================================================== */
     .projects-grid {
       display: grid;
@@ -818,7 +810,7 @@
     }
 
     /* ==========================================================================
-       SEÇÃO DE CONTATO & CALL TO ACTION
+       CONTATO / CTA
        ========================================================================== */
     .cta-box {
       background: linear-gradient(135deg, rgba(20, 25, 45, 0.9) 0%, rgba(10, 13, 24, 0.9) 100%);
@@ -864,6 +856,70 @@
       gap: 16px;
     }
 
+    /* ==========================================================================
+       RODAPÉ COM BOTÃO DE DOWNLOAD DO CURRÍCULO
+       ========================================================================== */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 70px;
+    }
+
+    .footer-download-box {
+      background: linear-gradient(135deg, rgba(20, 25, 45, 0.85) 0%, rgba(12, 16, 28, 0.9) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.28);
+      border-radius: 24px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .footer-download-text h4 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .footer-download-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    .btn-download-footer {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #07090e;
+      padding: 15px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 40px;
+      box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .btn-download-footer:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(0, 242, 254, 0.55);
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
     .copy-toast {
       position: fixed;
       bottom: 24px;
@@ -887,13 +943,115 @@
       transform: translateY(0);
     }
 
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border-color);
-      margin-top: 60px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-dim);
+    /* ==========================================================================
+       ESTRUTURA DEDICADA EXCLUSIVA PARA IMPRESSÃO / SALVAR COMO PDF (A4)
+       ========================================================================== */
+    #printable-cv {
+      display: none;
+    }
+
+    @media print {
+      /* Oculta layout interativo da web, glow e botões */
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-family: 'Plus Jakarta Sans', Arial, sans-serif !important;
+        font-size: 10.5pt !important;
+        line-height: 1.5 !important;
+      }
+
+      header, #progress-bar, #spotlight, .bg-grid, .hero-section, #sobre, 
+      #experiencia, #habilidades, #formacao, #projetos, #contato, footer, .copy-toast {
+        display: none !important;
+      }
+
+      /* Exibe o currículo com formatação executiva A4 impecável */
+      #printable-cv {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .cv-header {
+        border-bottom: 2px solid #0284c7;
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+      }
+
+      .cv-name {
+        font-size: 21pt;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .cv-contact {
+        font-size: 9.5pt;
+        color: #475569;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .cv-section {
+        margin-bottom: 14px;
+      }
+
+      .cv-section-title {
+        font-size: 11.5pt;
+        font-weight: 800;
+        color: #0369a1;
+        text-transform: uppercase;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+      }
+
+      .cv-block {
+        margin-bottom: 10px;
+      }
+
+      .cv-block-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 10.5pt;
+        color: #0f172a;
+      }
+
+      .cv-company {
+        color: #475569;
+        font-weight: 600;
+        font-size: 9.5pt;
+        margin-bottom: 3px;
+      }
+
+      .cv-list {
+        margin-left: 18px;
+        margin-top: 3px;
+        color: #334155;
+        font-size: 9.5pt;
+      }
+
+      .cv-list li {
+        margin-bottom: 2px;
+      }
+
+      .cv-skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        font-size: 9.5pt;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 14mm 14mm;
+      }
     }
 
     /* ==========================================================================
@@ -906,13 +1064,18 @@
       .edu-cert-container {
         grid-template-columns: 1fr;
       }
+      .footer-download-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-download-footer {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .status-badge {
+      .nav-links, .status-badge {
         display: none;
       }
       .hero-section {
@@ -970,7 +1133,7 @@
 
       <div class="status-badge">
         <span class="status-dot"></span>
-        Disponível para Home Office/Presencial
+        Disponível para Home Office
       </div>
     </div>
   </header>
@@ -990,7 +1153,7 @@
       </h1>
 
       <p class="hero-subtitle gsap-fade">
-        Profissional com sólida experiência em <strong>atendimento bancário multicanal</strong> (operações Banco Neon e Banco PAN), suporte a chamados, negociação e resolução de incidentes. Formação técnica em <strong>Desenvolvimento de Sistemas</strong> pela Etec e estudante de tecnologia na Unimar.
+        Experiência em <strong>atendimento bancário multicanal</strong> (operações Banco Neon e Banco PAN), suporte a chamados, negociação e resolução de incidentes. Formação técnica em <strong>Desenvolvimento de Sistemas</strong> pela Etec e estudante de tecnologia na Unimar.
       </p>
 
       <div class="hero-actions gsap-fade">
@@ -998,6 +1161,11 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           Conversar no WhatsApp
         </a>
+
+        <button class="btn btn-download-hero" onclick="downloadPDF()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Baixar Currículo em PDF
+        </button>
 
         <button class="btn btn-secondary" onclick="copyEmail()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1010,7 +1178,6 @@
         </a>
 
         <a href="https://www.linkedin.com/in/erick-costa-40280a275" target="_blank" class="btn btn-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           LinkedIn
         </a>
       </div>
@@ -1019,11 +1186,11 @@
       <div class="hero-highlights gsap-fade">
         <div class="highlight-card">
           <div class="highlight-number">4 a 7</div>
-          <div class="highlight-label">Atendimentos simultâneos por chat realizados diariamente</div>
+          <div class="highlight-label">Atendimentos simultâneos por chat mantendo nível de serviço</div>
         </div>
         <div class="highlight-card">
           <div class="highlight-number">16+</div>
-          <div class="highlight-label">Sistemas utilizados como NpCob</div>
+          <div class="highlight-label">Sistemas operacionais e bancários utilizados simultaneamente</div>
         </div>
         <div class="highlight-card">
           <div class="highlight-number">1º Lugar</div>
@@ -1052,7 +1219,7 @@
           </div>
           <h3>Perfil Profissional Híbrido: Suporte & Tecnologia</h3>
           <p>
-            Vivência em operações de atendimento bancário multicanal e de alta complexidade. Combino empatia e clareza na comunicação escrita. Abertura/triagem de chamados e conformidade com protocolos de segurança de dados bancários.
+            Vivência em operações de atendimento bancário multicanal e de alta complexidade. Combino empatia e clareza na comunicação escrita com a agilidade do raciocínio lógico desenvolvido na formação técnica de <strong>Desenvolvimento de Sistemas</strong>. Experiente na rápida identificação da causa raiz de problemas, abertura/triagem de chamados e conformidade com rigorosos protocolos de segurança de dados bancários.
           </p>
         </div>
 
@@ -1082,7 +1249,7 @@
           </div>
           <h3>Habilidades Comportamentais & Soft Skills</h3>
           <p>
-            Boa comunicação escrita, Boa aprendizagem para novos softwares internos, Já trabalhei sob pressão com metas e SLAs, resiliência na negociação de conflitos e organização de múltiplos atendimentos simultâneos.
+            Excelente comunicação escrita, rápida curva de aprendizagem para novos softwares internos, facilidade para trabalhar sob pressão com metas e SLAs, resiliência na negociação de conflitos e organização rigorosa de múltiplos atendimentos simultâneos.
           </p>
         </div>
       </div>
@@ -1117,8 +1284,10 @@
           </ul>
 
           <div class="tech-pills">
+            <span class="pill">Atendimento Simultâneo</span>
             <span class="pill">16 Sistemas Internos</span>
             <span class="pill">Prevenção a Fraudes</span>
+            <span class="pill">Cartões & Faturas</span>
             <span class="pill">Investimentos</span>
             <span class="pill">SLA Bancário</span>
           </div>
@@ -1138,13 +1307,15 @@
             <li>Atendimento ativo a clientes inadimplentes com contratos de <strong>financiamento de veículos</strong>.</li>
             <li>Contatos e negociações diretas por ligação telefônica e WhatsApp corporativo utilizando as plataformas <strong>NPCob</strong> e <strong>GoSAC</strong>.</li>
             <li>Negociação de parcelas em atraso, emissão de boletos, esclarecimento de encargos e orientação personalizada para quitação de pendências.</li>
-            <li>Registro de históricos de negociação e atualização de cadastros nos sistemas da operação com foco em políticas internas.</li>
+            <li>Registro minucioso de históricos de negociação e atualização de cadastros nos sistemas da operação com foco em conformidade e políticas bancárias.</li>
           </ul>
 
           <div class="tech-pills">
             <span class="pill">NPCob</span>
-            <span class="pill">GoSAC</span></span>
+            <span class="pill">GoSAC</span>
+            <span class="pill">Financiamento de Veículos</span>
             <span class="pill">Negociação Ativa</span>
+            <span class="pill">Comunicação Persuasiva</span>
           </div>
         </div>
 
@@ -1261,7 +1432,7 @@
         <div class="skill-card gsap-card" data-category="dev">
           <div class="skill-card-top">
             <div class="skill-badge-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1"></path><path d="M18 8h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4"></path></svg>
             </div>
             <h4>Java & PHP</h4>
           </div>
@@ -1451,8 +1622,8 @@
          ======================================================================== -->
     <section id="contato">
       <div class="cta-box gsap-card">
-        <h2>Disponível para início imediato</h2>
-        <p>Em regime <strong>Home Office</strong> ou presencial nas áreas disponíveis.</p>
+        <h2>Pronto para agregar valor à sua equipe</h2>
+        <p>Disponível para início imediato em regime <strong>Home Office</strong> nas áreas de atendimento digital por chat, suporte ao cliente, suporte técnico N1 ou service desk.</p>
 
         <div class="contact-channels">
           <a href="https://wa.me/5511999255547?text=Olá%20Erick,%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade!" target="_blank" class="btn btn-primary">
@@ -1472,11 +1643,159 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ========================================================================
+         RODAPÉ COM BOTÃO DE DOWNLOAD DO CURRÍCULO
+         ======================================================================== -->
     <footer>
-      <p>2026 • Marília, SP.</p>
+      <div class="footer-download-box gsap-card">
+        <div class="footer-download-text">
+          <h4>Deseja baixar ou imprimir o currículo?</h4>
+          <p>Versão executiva completa formatada nas normas ideais para processos seletivos, sistemas de triagem (ATS) e impressão em folha A4.</p>
+        </div>
+
+        <button class="btn-download-footer" onclick="downloadPDF()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Baixar Currículo em PDF
+        </button>
+      </div>
+
+      <p class="copyright">© 2026 Erick da Costa Munhoz • Marília, SP. Desenvolvido com GSAP e Design Moderno.</p>
     </footer>
   </main>
+
+  <!-- ========================================================================
+       DOCUMENTO EXECUTIVO FORMAL PARA IMPRESSÃO EM PDF (FOLHA A4 - ATS READY)
+       ======================================================================== -->
+  <div id="printable-cv">
+    <div class="cv-header">
+      <h1 class="cv-name">Erick da Costa Munhoz</h1>
+      <div class="cv-contact">
+        Marília – SP | (11) 99925-5547 | erickcostamunhoz@gmail.com<br />
+        LinkedIn: linkedin.com/in/erick-costa-40280a275 | GitHub: github.com/ErickMunhoz/ProjetosPublicos
+      </div>
+    </div>
+
+    <!-- Objetivo Profissional -->
+    <div class="cv-section">
+      <div class="cv-section-title">Objetivo Profissional</div>
+      <p style="font-size: 9.5pt; color: #1e293b;">
+        Atuar em regime hibrido/home office nas áreas, de preferencia mas nao limitado a, atendimento por chat, atendimento digital, suporte ao cliente, suporte técnico N1, service desk, suporte de sistemas ou backoffice, utilizando minha experiência em operações bancárias e minha formação em Desenvolvimento de Sistemas.
+      </p>
+    </div>
+
+    <!-- Resumo Profissional -->
+    <div class="cv-section">
+      <div class="cv-section-title">Resumo Profissional</div>
+      <p style="font-size: 9.5pt; color: #1e293b;">
+        Experiência em atendimento bancário multicanal, atendimento simultâneo de clientes por chat (4 a 7 conversas), cobrança ativa por telefone e WhatsApp e resolução de problemas relacionados a contas, cartões, faturas, investimentos e financiamentos. Atualmente atuando na Paschoalotto, tendo trabalhado na operação do Banco Neon como atendente receptivo e, posteriormente, na operação do Banco PAN em atendimento ativo a clientes inadimplentes. Possui formação técnica em Desenvolvimento de Sistemas pela Etec e conhecimentos em Python, HTML, CSS, PHP, MySQL, Git/GitHub, Linux e fundamentos de inteligência artificial, além de contato introdutório com n8n.
+      </p>
+    </div>
+
+    <!-- Experiência Profissional -->
+    <div class="cv-section">
+      <div class="cv-section-title">Experiência Profissional</div>
+      
+      <!-- Paschoalotto - Neon -->
+      <div class="cv-block">
+        <div class="cv-block-header">
+          <span>Atendente Receptivo — Operação Banco Neon</span>
+          <span>Marília, SP</span>
+        </div>
+        <div class="cv-company">Paschoalotto Serviços Financeiros</div>
+        <ul class="cv-list">
+          <li>Atendimento simultâneo de aproximadamente 4 a 7 clientes por chat em múltiplos segmentos bancários.</li>
+          <li>Resolução de solicitações relacionadas a contas, cartões, faturas, limites, investimentos entre outros problemas.</li>
+          <li>Operação diária de cerca de 16 sistemas internos para validação cadastral, consulta analítica e solução de demandas.</li>
+          <li>Tratamento de segurança: contestação de compras, validação de selfies/documentos e prevenção a fraudes.</li>
+          <li>Abertura e acompanhamento de chamados internos cumprindo normas de segurança bancária.</li>
+        </ul>
+      </div>
+
+      <!-- Paschoalotto - PAN -->
+      <div class="cv-block" style="margin-top: 8px;">
+        <div class="cv-block-header">
+          <span>Atendente Ativo — Operação Banco PAN</span>
+          <span>Marília, SP</span>
+        </div>
+        <div class="cv-company">Paschoalotto Serviços Financeiros</div>
+        <ul class="cv-list">
+          <li>Atendimento ativo a clientes inadimplentes com contratos de financiamento de veículos.</li>
+          <li>Contatos telefônicos e por WhatsApp corporativo utilizando as plataformas NPCob e GoSAC.</li>
+          <li>Negociação, cálculo de acordos, esclarecimento de encargos e emissão de boletos para regularização de crédito.</li>
+          <li>Registro de históricos de negociação e atualização de cadastros nos sistemas operacionais.</li>
+        </ul>
+      </div>
+
+      <!-- Farmácia Multidrogas -->
+      <div class="cv-block" style="margin-top: 8px;">
+        <div class="cv-block-header">
+          <span>Entregador de Medicamentos & Operação Interna</span>
+          <span>2019 – 2025</span>
+        </div>
+        <div class="cv-company">Farmácia Multidrogas — Marília, SP</div>
+        <ul class="cv-list">
+          <li>Atendimento direto ao cliente, apoio nas rotinas internas da farmácia e conferência minuciosa de pedidos.</li>
+          <li>Roteamento dinâmico de entregas, pontualidade rigorosa e responsabilidade na conferência de notas e valores.</li>
+        </ul>
+      </div>
+
+      <!-- Experiências Anteriores -->
+      <div class="cv-block" style="margin-top: 6px;">
+        <span style="font-weight: 700; font-size: 9.5pt; color: #334155;">Experiências Anteriores: </span>
+        <span style="font-size: 9pt; color: #475569;">Ajudante de Marceneiro (Bauru, 2017) • Atendente de Telemarketing (São Paulo, 2014) • Empacotador de Supermercado (São Paulo, 2012).</span>
+      </div>
+    </div>
+
+    <!-- Formação Acadêmica -->
+    <div class="cv-section">
+      <div class="cv-section-title">Formação Acadêmica</div>
+      
+      <div class="cv-block">
+        <div class="cv-block-header">
+          <span>Ensino Superior (em andamento) na Área de Tecnologia</span>
+          <span>Previsão de Conclusão: a depender do cronograma acadêmico</span>
+        </div>
+        <div class="cv-company">Universidade de Marília (Unimar) — Bolsa Integral obtida após 1º lugar em competição de programação.</div>
+      </div>
+
+      <div class="cv-block" style="margin-top: 6px;">
+        <div class="cv-block-header">
+          <span>Técnico em Desenvolvimento de Sistemas</span>
+          <span>Concluído</span>
+        </div>
+        <div class="cv-company">Etec (Centro Paula Souza) — Programação web, banco de dados, lógica, redes e design digital.</div>
+      </div>
+    </div>
+
+    <!-- Competências Técnicas & Cursos -->
+    <div class="cv-section">
+      <div class="cv-section-title">Competências Técnicas & Certificações</div>
+      <div class="cv-skills-grid">
+        <div>
+          <strong>Habilidades Técnicas:</strong>
+          <ul class="cv-list" style="margin-top: 2px;">
+            <li>Atendimento por chat simultâneo (4-7 clientes) e telefonia</li>
+            <li>Suporte técnico N1, Service Desk e gestão de chamados</li>
+            <li>Programação: Python, HTML5, CSS3, PHP, Java</li>
+            <li>Banco de Dados: MySQL e modelagem de dados</li>
+            <li>Versionamento e ferramentas: Git, GitHub, VS Code, Git Bash</li>
+            <li>Sistemas Operacionais: Linux (Ubuntu, Fedora, Kali)</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Cursos & Certificações:</strong>
+          <ul class="cv-list" style="margin-top: 2px;">
+            <li>Implantação de Serviços de IA em Nuvem (AI-900) — SENAI (40h)</li>
+            <li>Programação em Python — SENAI (60h)</li>
+            <li>1º Lugar no Bootcamp Jovem Programador — Unimar</li>
+            <li>HackSec Unimar — Treinamento em Cibersegurança</li>
+            <li>Criação de Agentes de WhatsApp com n8n para E-commerce</li>
+            <li>Escola de Inovadores — Inova CPS (40h)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        GSAP 3 & SCRIPTS DE ANIMAÇÃO / INTERAÇÃO
@@ -1485,7 +1804,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
-    // Registro do plugin ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
     // 1. Barra de progresso de scroll suave no topo
@@ -1512,7 +1830,7 @@
       ease: "power3.out"
     });
 
-    // 4. Animação ScrollTrigger para Cartões (Stagger suave ao rolar a página)
+    // 4. Animação ScrollTrigger para Cartões
     gsap.utils.toArray(".gsap-card").forEach((card) => {
       gsap.from(card, {
         scrollTrigger: {
@@ -1527,7 +1845,12 @@
       });
     });
 
-    // 5. Cópia Rápida de E-mail com Toast
+    // 5. Função de Download do PDF (Abre a janela nativa otimizada do navegador)
+    function downloadPDF() {
+      window.print();
+    }
+
+    // 6. Cópia Rápida de E-mail com Toast
     function copyEmail() {
       const email = "erickcostamunhoz@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
@@ -1539,7 +1862,7 @@
       });
     }
 
-    // 6. Accordion para Histórico Anterior
+    // 7. Accordion para Histórico Anterior
     function toggleAccordion() {
       const content = document.getElementById('accordionContent');
       const arrow = document.getElementById('accordion-arrow');
@@ -1553,14 +1876,12 @@
       }
     }
 
-    // 7. Filtro Interativo de Competências Técnicas
+    // 8. Filtro Interativo de Competências Técnicas
     function filterSkills(category) {
-      // Atualiza botões
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
-      // Filtra cartões
       const cards = document.querySelectorAll('#skillsGrid .skill-card');
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
